@@ -118,10 +118,11 @@
             <Button
                 android:id="@+id/register_button"
                 android:onClick="main_register"
-                android:text="@string/register_button"
-                android:layout_width="match_parent"
+                android:text="Register"
+                android:layout_gravity="center"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="20dp"
                 style="?android:textAppearanceSmall"
                 android:textStyle="bold" />
 
@@ -130,13 +131,36 @@
                 android:onClick="main_login"
                 style="?android:textAppearanceSmall"
                 android:textColor="@color/colorRed"
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="15dp"
                 android:text="@string/action_sign_in"
                 android:textStyle="bold" />
 
 
+
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/login_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="15dp" />
+
+
+            <Button
+                android:id="@+id/firebase_login"
+                android:onClick="main_login_firebase"
+                style="?android:textAppearanceSmall"
+                android:textColor="@color/com_facebook_blue"
+                android:layout_gravity="center"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="0dp"
+                android:text="Firebase Login"
+                android:textStyle="bold" />
 
 
 

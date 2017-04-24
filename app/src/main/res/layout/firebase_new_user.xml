@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+
+    <EditText
+        android:id="@+id/firebase_email"
+        android:hint="Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/firebase_password"
+        android:hint="Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+
+
+    <Button
+        android:id="@+id/verify_email_button"
+        android:layout_width="200dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_height="wrap_content"
+        android:text="Verify your email" />
+
+    <Button
+        android:id="@+id/firebase_register_BTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Account" />
+
+    <Button
+        android:id="@+id/firebase_sign_in_BTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign In" />
+
+    <Button
+        android:id="@+id/firebase_sign_out_BTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Out" />
+
+    <TextView
+        android:id="@+id/status"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Status" />
+
+    <TextView
+        android:id="@+id/detail"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Detail" />
+
+
+    <Button
+        android:id="@+id/firebase_signed_in"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="You are signed in" />
+
+
+
+
+
+</LinearLayout>

@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion '25.0.0'
+    compileSdkVersion 25
+    buildToolsVersion '25'
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.example.evan.comp296"
-        minSdkVersion 16
-        targetSdkVersion 23
+        minSdkVersion 18
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -22,11 +22,83 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+         androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+            exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+
+
+    /*
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:23.4.0'
-    compile 'com.android.support:design:23.4.0'
+
+    */
+
+
+    compile 'com.android.support:appcompat-v7:25'
+    compile 'com.android.support:animated-vector-drawable:25'
+    compile 'com.android.support:design:25.0.0'
+    compile 'com.android.support:support-core-ui:25'
+
+
+
+    //compile 'com.google.android.gms:play-services-appindexing:10.2.1'
+
+
+    // Dependencies for Google Sign-in
+    compile 'com.google.android.gms:play-services-base:10.2.1'
+    compile 'com.google.android.gms:play-services-auth:10.2.1'
+
+    // Facebook
+    compile 'com.facebook.android:facebook-android-sdk:[4,5)'
+
+    //Gson
+    compile 'com.google.code.gson:gson:2.3.1'
+
+    //Firebase
+    compile 'com.google.firebase:firebase-core:10.2.1'
+    compile 'com.google.firebase:firebase-auth:10.2.1'
+    compile 'com.google.firebase:firebase-database:10.2.1'
+    compile 'com.google.firebase:firebase-storage:10.2.1'
+    compile 'com.google.firebase:firebase-messaging:10.2.1'
+    compile 'com.google.firebase:firebase-appindexing:10.2.1'
+
+    compile 'com.firebase:firebase-jobdispatcher:0.6.0'
+
+    //new google
+    compile 'com.google.android.gms:play-services-ads:10.2.1'
+    compile 'com.google.firebase:firebase-appindexing:10.2.1'
+    compile 'com.google.firebase:firebase-crash:10.2.1'
+    compile 'com.google.firebase:firebase-analytics:10.2.1'
+    compile 'com.google.firebase:firebase-config:10.2.1'
+    compile 'com.google.android.gms:play-services-appinvite:10.2.1'
+
+
+
+    // Dependencies for the REST API example
+    compile 'com.google.api-client:google-api-client:1.22.0'
+    compile 'com.google.api-client:google-api-client-android:1.22.0'
+    compile 'com.google.apis:google-api-services-people:v1-rev4-1.22.0'
+    compile 'com.google.android.gms:play-services-plus:10.2.1'
+
+
+    /*
+
+    // UiAutomatorTesting
+    androidTestCompile 'com.android.support.test:runner:0.5'
+    androidTestCompile 'com.android.support.test:rules:0.5'
+    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
+    androidTestCompile 'com.android.support:support-annotations:25.0.0'
+
+      */
+
+    compile'com.google.code.findbugs:jsr305:2.0.1'
+
+
     testCompile 'junit:junit:4.12'
-    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
+
 }
+
+
+apply plugin: 'com.google.gms.google-services'

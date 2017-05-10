@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginRight="3dp"
+    android:layout_weight=".28"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:orientation="horizontal">
+
+    <Spinner
+        android:id="@+id/spinner_java"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/spinner_border1"
+        android:layout_marginLeft="5dp"
+        android:spinnerMode="dropdown"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="55dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@mipmap/wwpzt"
+        android:layout_alignTop="@+id/spinner_java"
+        android:layout_alignEnd="@+id/spinner_java"
+        android:layout_above="@+id/java_recycler"
+        android:id="@+id/imageView4" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/java_recycler"
+        android:layout_width="match_parent"
+        android:scrollbars="vertical"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.05"
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/spinner_java"
+        android:layout_alignParentEnd="true" />
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+
+        android:elevation="50dp"
+        android:layout_marginTop="570dp"
+        android:layout_marginBottom="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="15dp" />
+
+
+
+
+</RelativeLayout>

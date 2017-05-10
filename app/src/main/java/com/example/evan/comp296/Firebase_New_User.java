@@ -4,6 +4,10 @@ package com.example.evan.comp296;
  * Created by Evan on 4/24/17.
  */
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
@@ -13,12 +17,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
-
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class Firebase_New_User extends BaseActivity implements View.OnClickListener{
@@ -29,10 +41,25 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
     private TextView mDetailTextView;
     private EditText mEmailField;
     private EditText mPasswordField;
+    private EditText mNameField;
+
+    boolean signed_in = true;
 
     // [START declare_auth]
     private FirebaseAuth mAuth;
     // [END declare_auth]
+
+    Context ctx=this;
+
+    private AdView mAdView;
+
+    private DatabaseReference mDatabase;
+    String display_name;
+    String full_name;
+
+
+    //SharedPreferences sharedPref;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,17 +71,37 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
     mDetailTextView = (TextView) findViewById(R.id.detail);
     mEmailField = (EditText) findViewById(R.id.firebase_email);
     mPasswordField = (EditText) findViewById(R.id.firebase_password);
+        mNameField = (EditText) findViewById(R.id.firebase_name);
+
 
     // Buttons
-    findViewById(R.id.firebase_sign_in_BTN).setOnClickListener(this);
+    findViewById(R.id.firebase_back_BTN).setOnClickListener(this);
     findViewById(R.id.firebase_register_BTN).setOnClickListener(this);
     findViewById(R.id.firebase_sign_out_BTN).setOnClickListener(this);
     findViewById(R.id.verify_email_button).setOnClickListener(this);
 
-    // [START initialize_auth]
-    mAuth = FirebaseAuth.getInstance();
-    // [END initialize_auth]
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544~3347511713");
+
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        // [START initialize_auth]
+        mAuth = FirebaseAuth.getInstance();
+        // [END initialize_auth]
+
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
+
+        //sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+
 }
+
+    //END ON CREATE
+
+
+
 
     // [START on_start_check_user]
     @Override
@@ -63,6 +110,15 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
+        findViewById(R.id.firebase_register_BTN).setVisibility(View.VISIBLE);
+
+        if (signed_in) {
+            findViewById(R.id.firebase_sign_out_BTN).setVisibility(View.VISIBLE);
+            findViewById(R.id.firebase_register_BTN).setVisibility(View.GONE);
+
+        }
+
+
     }
     // [END on_start_check_user]
 
@@ -83,13 +139,53 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+
+                            ///.. SET DISPLAY NAME AND IF APPLICABLE PROFILE PICTURE ...  //////
+
+                            String user_id = user.getUid();
+                            String full_name = "default";
+                            String fb_email = user.getEmail();
+                            writeNewFireBaseUser(user_id, full_name, fb_email);
+
+                            setDisplayName();
+
+
+                            /*
+
+                            SharedPreferences.Editor editor = sharedPref.edit();
+
+                            editor.putString("email",fb_email);
+
+                            editor.commit();
+
                             updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(Firebase_New_User.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            updateUI(null);
+
+                            */
+
+
+
+                            }else if(!task.isSuccessful()) {
+                            try {
+                                throw task.getException();
+                            } catch(FirebaseAuthWeakPasswordException e) {
+                                // If sign in fails, display a message to the user.
+                                Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                                Toast.makeText(Firebase_New_User.this, "Authentication failed. weak password",
+                                        Toast.LENGTH_SHORT).show();
+                                updateUI(null);
+                            } catch(FirebaseAuthInvalidCredentialsException e) {
+                                Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                                Toast.makeText(Firebase_New_User.this, "Authentication failed. email format invalid",
+                                        Toast.LENGTH_SHORT).show();
+                                updateUI(null);
+                            } catch(FirebaseAuthUserCollisionException e) {
+                                Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                                Toast.makeText(Firebase_New_User.this, "Authentication failed. User already exists",
+                                        Toast.LENGTH_SHORT).show();
+                                updateUI(null);
+                            } catch(Exception e) {
+                                Log.e(TAG, e.getMessage());
+                            }
                         }
 
                         // [START_EXCLUDE]
@@ -100,10 +196,61 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
         // [END create_user_with_email]
     }
 
-    private void signIn(String email, String password) {
+
+    public void setDisplayName () {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                .setDisplayName(full_name)
+                //.setPhotoUri(Uri.parse("https://example.com/jane-q-user/profile.jpg"))
+                .build();
+
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference mDatabase = database.getReference().child("Firebase Users");
+        try
+        {
+
+            mDatabase.child(user.getUid()).child("username").setValue(full_name);
+
+
+            Log.d(TAG, " ----- UPDATED DATABASE  --------");
+
+        }
+        catch (Exception e)
+        {
+            Toast.makeText(getBaseContext(), "Unable to Transfer to Firebase", Toast.LENGTH_LONG).show();
+        }
+
+        user.updateProfile(profileUpdates)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "User profile display name updated to- " + full_name);
+                        }
+                    }
+                });
+    }
+
+    private void writeNewFireBaseUser(String userId, String name, String email) {
+
+        Log.d(TAG, "------WRITE TO DATABSE FUNCTION CALLED---------");
+
+        User user = new User(name, email);
+
+        Log.d(TAG, "****************display name is " + name + " ********************");
+
+        mDatabase.child("Firebase Users").child(userId).setValue(user);
+    }
+
+
+
+    protected void signIn(String email, String password) {
         Log.d(TAG, "signIn:" + email);
         if (!validateForm()) {
             return;
+
         }
 
         showProgressDialog();
@@ -140,6 +287,16 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
     private void signOut() {
         mAuth.signOut();
         updateUI(null);
+
+        findViewById(R.id.firebase_name).setVisibility(View.VISIBLE);
+        findViewById(R.id.firebase_email).setVisibility(View.VISIBLE);
+        findViewById(R.id.firebase_password).setVisibility(View.VISIBLE);
+        findViewById(R.id.verify_email_button).setVisibility(View.GONE);
+        findViewById(R.id.firebase_sign_out_BTN).setVisibility(View.GONE);
+        findViewById(R.id.firebase_signed_in).setVisibility(View.GONE);
+        findViewById(R.id.firebase_back_BTN).setVisibility(View.VISIBLE);
+        findViewById(R.id.firebase_register_BTN).setVisibility(View.VISIBLE);
+
     }
 
     private void sendEmailVerification() {
@@ -161,6 +318,8 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
                             Toast.makeText(Firebase_New_User.this,
                                     "Verification email sent to " + user.getEmail(),
                                     Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(Firebase_New_User.this, MainActivity.class));
+                            setContentView(R.layout.main_activity);
                         } else {
                             Log.e(TAG, "sendEmailVerification", task.getException());
                             Toast.makeText(Firebase_New_User.this,
@@ -180,7 +339,11 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
         if (TextUtils.isEmpty(email)) {
             mEmailField.setError("Required.");
             valid = false;
-        } else {
+        } else if (!email.contains(".")) {
+            mEmailField.setError("invalid email");
+        } else if(!email.contains("@")) {
+            mEmailField.setError("invalid email");
+        } else{
             mEmailField.setError(null);
         }
 
@@ -188,9 +351,23 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
         if (TextUtils.isEmpty(password)) {
             mPasswordField.setError("Required.");
             valid = false;
+        } else if (password.length()<=5){
+            mPasswordField.setError("Password not strong enough");
         } else {
             mPasswordField.setError(null);
         }
+
+        display_name = mNameField.getText().toString();
+        if (TextUtils.isEmpty(display_name)) {
+            mNameField.setError("Required.");
+            valid = false;
+        } else if (password.length()<=4){
+            mPasswordField.setError("Enter full name");
+        } else {
+            full_name = display_name;
+            mPasswordField.setError(null);
+        }
+
 
         return valid;
     }
@@ -204,13 +381,23 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
 
             findViewById(R.id.firebase_email).setVisibility(View.GONE);
             findViewById(R.id.firebase_password).setVisibility(View.GONE);
-            findViewById(R.id.firebase_sign_out_BTN).setVisibility(View.GONE);
+            findViewById(R.id.firebase_name).setVisibility(View.GONE);
+            findViewById(R.id.verify_email_button).setVisibility(View.VISIBLE);
+            findViewById(R.id.firebase_sign_out_BTN).setVisibility(View.VISIBLE);
             findViewById(R.id.firebase_signed_in).setVisibility(View.VISIBLE);
+            findViewById(R.id.firebase_back_BTN).setVisibility(View.VISIBLE);
+            findViewById(R.id.firebase_register_BTN).setVisibility(View.GONE);
+
+
 
             findViewById(R.id.verify_email_button).setEnabled(!user.isEmailVerified());
+
+
         } else {
-            mStatusTextView.setText("Signed out");
+            mStatusTextView.setText("Not Signed in");
             mDetailTextView.setText(null);
+
+            signed_in = false;
 
             findViewById(R.id.firebase_email).setVisibility(View.VISIBLE);
             findViewById(R.id.firebase_password).setVisibility(View.VISIBLE);
@@ -218,6 +405,8 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
         }
 
     }
+
+
 
         @Override
         public void onClick (View v){
@@ -230,6 +419,17 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
                 signOut();
             } else if (i == R.id.verify_email_button) {
                 sendEmailVerification();
+                CharSequence email_sent = "Check your email for verification, then sign in";
+
+
+                Toast.makeText(ctx, email_sent, Toast.LENGTH_LONG).show();
+                startActivity(new Intent(this,MainActivity.class));
+
+            }
+            else if (i==R.id.firebase_back_BTN) {
+                startActivity(new Intent(Firebase_New_User.this, MainActivity.class));
+                setContentView(R.layout.main_activity);
+
             }
         }
     }

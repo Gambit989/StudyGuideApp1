@@ -18,7 +18,8 @@
         android:layout_height="150dp"
         android:layout_gravity="center_horizontal"
         android:paddingTop="16dp"
-        app:srcCompat="@mipmap/brookdale" />
+        app:srcCompat="@drawable/profile_icon" />
+
 
     <TextView
         android:layout_width="match_parent"

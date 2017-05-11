@@ -47,6 +47,8 @@ import android.content.Context;
 import org.json.JSONObject;
 import org.json.JSONException;
 
+import com.example.evan.comp296.Notes.Note_database;
+import com.example.evan.comp296.Notes.User_SQLite;
 import com.example.evan.comp296.facebook.fbLogin;
 import com.example.evan.comp296.google.ChooserActivity;
 import com.example.evan.comp296.google.SignInActivity;
@@ -160,6 +162,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     AccessTokenTracker accessTokenTracker;
 
+    Note_database note_db;
+
 
 
     @Override
@@ -195,7 +199,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         debug.setOnClickListener(this);
 
 
-        //sharedPref = MainActivity.this.getSharedPreferences("prefs", MODE_PRIVATE);
+        note_db = new Note_database(MainActivity.this);
+
+
+        //sharedPref = MainActivity_Profile.this.getSharedPreferences("prefs", MODE_PRIVATE);
 
         //final FirebaseUser user = firebaseAuth.getCurrentUser();
 
@@ -261,6 +268,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                                     writeNewFBUser(FB_id,Name,FEmail,Fbirthday,Gender);
 
+                                    User_SQLite sql = new User_SQLite("1", FEmail, Name, "Brookdale Community College");
+
+                                    note_db.add_row_info(sql);
+
                                     Toast.makeText(getApplicationContext(), "Welcome " + Name, Toast.LENGTH_LONG).show();
 
 
@@ -305,7 +316,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Log.d(TAG, "********** FACEBOOK SUCCEEDED*******" + /*loginResult.getAccessToken().getToken().toString()*/ loginResult.getAccessToken().getPermissions().toString());
 
-                //startActivity(new Intent(MainActivity.this, MainHomeScreen.class));
+                //startActivity(new Intent(MainActivity_Profile.this, MainHomeScreen.class));
                 //setContentView(R.layout.activity_main_home_screen);
 
 
@@ -360,8 +371,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
 
-/*
 
+/*
 
         accessTokenTracker = new AccessTokenTracker() {
             @Override
@@ -374,8 +385,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         updateWithToken(AccessToken.getCurrentAccessToken());
 
-*/
 
+*/
         //END FACEBOOK CODE
 
 
@@ -552,6 +563,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             b.putString("google_family", personFamilyName);
             b.putString("google_email", personEmail);
             b.putString("google_id", personId);
+
+
+            User_SQLite sql2 = new User_SQLite("1", personEmail, personName, "Brookdale Community College");
+
+            note_db.add_row_info(sql2);
+
+
 
             startActivity(new Intent(this,MainHomeScreen.class));
 
@@ -769,7 +787,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 /*
-        AndroidDatabaseHelper login = new AndroidDatabaseHelper(MainActivity.this);
+        AndroidDatabaseHelper login = new AndroidDatabaseHelper(MainActivity_Profile.this);
 
 
         if(login.check_Login_Credentials(user_id,password))
@@ -941,7 +959,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (i == R.id.sign_out_button) {
             signOut();
         } else if (i == R.id.disconnect_button) {
-            revokeAccess();
+            //revokeAccess();
         } else if (i == R.id.debug_button) {
             startActivity(new Intent(MainActivity.this, MainHomeScreen.class));
         }

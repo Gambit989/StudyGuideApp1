@@ -17,6 +17,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.evan.comp296.Notes.Note_database;
+import com.example.evan.comp296.Notes.User_SQLite;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -60,6 +62,8 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
 
     //SharedPreferences sharedPref;
 
+    Note_database db;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -95,6 +99,8 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
 
 
         //sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+
+        db = new Note_database(Firebase_New_User.this);
 
 }
 
@@ -142,12 +148,23 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
 
                             ///.. SET DISPLAY NAME AND IF APPLICABLE PROFILE PICTURE ...  //////
 
+                            String FullName = mNameField.getText().toString();
                             String user_id = user.getUid();
-                            String full_name = "default";
+                            String full_name = user.getDisplayName();
                             String fb_email = user.getEmail();
                             writeNewFireBaseUser(user_id, full_name, fb_email);
 
-                            setDisplayName();
+
+                            User_SQLite sql3 = new User_SQLite("1", fb_email, FullName, "Brookdale Community College");
+
+                            db.add_row_info(sql3);
+
+
+
+                            Toast.makeText(Firebase_New_User.this, "email is "+fb_email + " user name is "+FullName,
+                                    Toast.LENGTH_SHORT).show();
+
+                            //setDisplayName();
 
 
                             /*
@@ -158,9 +175,11 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
 
                             editor.commit();
 
+                            */
+
                             updateUI(user);
 
-                            */
+
 
 
 
@@ -293,7 +312,7 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
         findViewById(R.id.firebase_password).setVisibility(View.VISIBLE);
         findViewById(R.id.verify_email_button).setVisibility(View.GONE);
         findViewById(R.id.firebase_sign_out_BTN).setVisibility(View.GONE);
-        findViewById(R.id.firebase_signed_in).setVisibility(View.GONE);
+        //findViewById(R.id.firebase_signed_in).setVisibility(View.GONE);
         findViewById(R.id.firebase_back_BTN).setVisibility(View.VISIBLE);
         findViewById(R.id.firebase_register_BTN).setVisibility(View.VISIBLE);
 
@@ -318,8 +337,11 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
                             Toast.makeText(Firebase_New_User.this,
                                     "Verification email sent to " + user.getEmail(),
                                     Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(Firebase_New_User.this, MainActivity.class));
-                            setContentView(R.layout.main_activity);
+
+                            findViewById(R.id.firebase_sign_out_BTN).setVisibility(View.VISIBLE);
+
+                            //startActivity(new Intent(Firebase_New_User.this, MainActivity.class));
+                            //setContentView(R.layout.main_activity);
                         } else {
                             Log.e(TAG, "sendEmailVerification", task.getException());
                             Toast.makeText(Firebase_New_User.this,
@@ -383,8 +405,7 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
             findViewById(R.id.firebase_password).setVisibility(View.GONE);
             findViewById(R.id.firebase_name).setVisibility(View.GONE);
             findViewById(R.id.verify_email_button).setVisibility(View.VISIBLE);
-            findViewById(R.id.firebase_sign_out_BTN).setVisibility(View.VISIBLE);
-            findViewById(R.id.firebase_signed_in).setVisibility(View.VISIBLE);
+            //findViewById(R.id.firebase_signed_in).setVisibility(View.VISIBLE);
             findViewById(R.id.firebase_back_BTN).setVisibility(View.VISIBLE);
             findViewById(R.id.firebase_register_BTN).setVisibility(View.GONE);
 
@@ -401,7 +422,7 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
 
             findViewById(R.id.firebase_email).setVisibility(View.VISIBLE);
             findViewById(R.id.firebase_password).setVisibility(View.VISIBLE);
-            findViewById(R.id.firebase_signed_in).setVisibility(View.GONE);
+            //findViewById(R.id.firebase_signed_in).setVisibility(View.GONE);
         }
 
     }

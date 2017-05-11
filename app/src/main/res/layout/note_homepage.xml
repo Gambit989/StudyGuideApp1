@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView_note_homepage"
+        android:layout_width="match_parent"
+        android:textSize="25dp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:paddingBottom="10dp"
+        android:background="@drawable/textview_border"
+        android:text="My Notes" />
+
+    <Button
+        android:id="@+id/refresh"
+        android:layout_width="85dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="62dp"
+        android:backgroundTint="@color/blue_grey_100"
+        android:text="Refresh List"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="120dp"
+        android:id="@+id/notes_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+
+        android:elevation="50dp"
+        android:layout_marginBottom="7dp"
+        android:layout_marginEnd="15dp" />
+
+
+
+
+</FrameLayout>

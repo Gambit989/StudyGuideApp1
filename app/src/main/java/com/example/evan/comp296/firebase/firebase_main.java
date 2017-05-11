@@ -21,7 +21,7 @@ public class firebase_main extends AppCompatActivity {
 
 
 
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "MainActivity_Profile";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

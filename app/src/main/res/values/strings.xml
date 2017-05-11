@@ -142,5 +142,34 @@
     </string-array>
 
 
+    <string name="camera_button_text">Upload</string>
+    <string name="sign_in_prompt">Sign In to begin</string>
+    <string name="take_photo_prompt">Upload a Photo</string>
+    <string name="download">Download</string>
+    <string name="sign_in_anonymously">Sign In</string>
+    <string name="rationale_storage">This sample reads images from your camera to demonstrate uploading.</string>
+    <string name="label_link">Link to Uploaded File</string>
+    <string name="label_download">Download File</string>
+    <string name="log_out">Log out</string>
+    <string name="success">Success</string>
+
+    <string name="progress_downloading">Downloading…</string>
+    <string name="progress_uploading">Uploading…</string>
+    <string name="progress_auth">Signing In…</string>
+
+    <string name="upload_success">Upload finished</string>
+    <string name="upload_failure">Upload failed</string>\
+
+    <string name="download_success">Download finished</string>
+    <string name="download_failure">Download failure</string>
+
+
+    <string name="about_us">This app was created by Evan and his company \n\n <h2>ECMEDIAGROUP</h2>\n\nIt originally started out as a project for class when he was attending
+    Brookdale Community College and then continually progressed over the course of a year and a half.<p> \n\nThe goal of this app is to have a centralized hub of information
+    to help you study quickly for a test or if you need information right ta your fingertips. </p>This is only the first version of the app, the next version
+    we intended on implementing many more features such as real time messaging where you can have a group chat with other users who might be in your class
+    or whatever the case may be. This will be introduced in the next update.<p> \n\nMore information about Evan can be found in the link below.</p></string>
+
+
 
 </resources>

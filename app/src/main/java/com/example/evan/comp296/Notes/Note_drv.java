@@ -47,6 +47,8 @@ public class Note_drv extends AppCompatActivity implements View.OnClickListener{
 
     private FirebaseUser user;
 
+    Note_database db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,6 +130,12 @@ public class Note_drv extends AppCompatActivity implements View.OnClickListener{
 
             note_title1 = title.getText().toString();
             note_text1 = note_text.getText().toString();
+
+            db = new Note_database(Note_drv.this);
+
+            Note_data data= new Note_data(note_title1,note_text1);
+
+            db.add_row_notes(data);
 
             mDatabase.child("Notes").child(email1).child("note_title").setValue(note_title1);
             mDatabase.child("Notes").child(email1).child("note_text").setValue(note_text1);

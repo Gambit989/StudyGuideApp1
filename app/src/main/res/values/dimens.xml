@@ -28,4 +28,12 @@
     <dimen name="g_top_margin">100dp</dimen>
 
 
+
+
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="margin_1">8dp</dimen>
+    <dimen name="margin_2">16dp</dimen>
+
+
 </resources>

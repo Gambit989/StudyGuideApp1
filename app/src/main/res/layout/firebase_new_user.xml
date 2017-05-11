@@ -39,10 +39,10 @@
         android:background="@color/blue_grey_600"
         android:layout_width="200dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
         android:layout_height="wrap_content"
-        android:text="Verify your email" />
+        android:text="Click to verify your email" />
 
     <Button
         android:id="@+id/firebase_register_BTN"
@@ -73,21 +73,12 @@
 
 
     <Button
-        android:id="@+id/firebase_signed_in"
-        android:visibility="visible"
-        android:clickable="false"
-        android:backgroundTintMode="screen"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="You are signed in" />
-
-    <Button
         android:id="@+id/firebase_back_BTN"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:backgroundTint="@color/grey_300"
-        android:text="Back"
+        android:text="HOME"
         android:visibility="visible" />
 
     <com.google.android.gms.ads.AdView
@@ -97,7 +88,7 @@
         android:layout_gravity="center"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
-        ads:adSize="LARGE_BANNER"
+        ads:adSize="BANNER"
         ads:adUnitId="@string/banner_ad_unit_id">
     </com.google.android.gms.ads.AdView>
 

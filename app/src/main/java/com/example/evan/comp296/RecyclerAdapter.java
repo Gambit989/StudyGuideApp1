@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.List;
 
 import com.example.evan.comp296.tutorials.java.java_main;
+import com.example.evan.comp296.tutorials.mysql.SQL_main;
 
 /**
  * Created by Evan on 5/6/17.
@@ -151,8 +152,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.PhotoH
 
                     //a.startActivity();
                 } else if (getLayoutPosition() == 1) {
-                    Snackbar.make(v, "Layout position 2", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
+
+                    v.getContext().startActivity(new Intent(v.getContext(),SQL_main.class));
+                    //Snackbar.make(v, "Layout position 2", Snackbar.LENGTH_LONG)
+                            //.setAction("Action", null).show();
 
                 } else if (getLayoutPosition() == 2) {
                     Snackbar.make(v, "Layout position 3", Snackbar.LENGTH_LONG)

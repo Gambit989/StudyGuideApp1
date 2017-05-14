@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textview_about_section"
-        android:layout_width="match_parent"
-        android:layout_marginTop="15dp"
-        android:layout_height="450dp"
-        android:textAlignment="center"
         style="@style/Base.TextAppearance.AppCompat.Body1"
-        android:text="@string/about_us"/>
+        android:layout_width="match_parent"
+        android:layout_height="355dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/about_us"
+        android:textAlignment="center" />
 
-   <TextView
+    <TextView
        android:id="@+id/text_about_us_link"
-       android:layout_marginTop="15dp"
+       android:layout_marginTop="5dp"
        android:layout_gravity="center_horizontal"
        android:clickable="true"
        android:background="@color/blue_grey_300"
@@ -23,4 +24,16 @@
        android:paddingTop="15dp"
        android:textAlignment="center"
        android:text="More Info"/>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView4"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        ads:adSize="LARGE_BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id">
+    </com.google.android.gms.ads.AdView>
 </LinearLayout>

@@ -270,9 +270,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                                     User_SQLite sql = new User_SQLite("1", FEmail, Name, "Brookdale Community College");
 
-                                    note_db.add_row_info(sql);
-
                                     Toast.makeText(getApplicationContext(), "Welcome " + Name, Toast.LENGTH_LONG).show();
+
+
+                                    if (note_db.ID_Exists(1)) {
+                                        note_db.update_row_info(sql);
+
+                                    } else {
+
+                                        note_db.add_row_info(sql); }
+
+
 
 
                                 } catch (JSONException e) {
@@ -285,6 +293,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         parameters.putString("fields", "id, first_name, last_name, name, email, birthday, gender");
                         request.setParameters(parameters);
                         request.executeAsync();
+
+
+
+
+
 
 
                         //SharedPreferences.Editor editor = sharedPref.edit();
@@ -567,7 +580,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             User_SQLite sql2 = new User_SQLite("1", personEmail, personName, "Brookdale Community College");
 
-            note_db.add_row_info(sql2);
+            //note_db.add_row_info(sql2);
+
+
+            if (note_db.ID_Exists(1)) {
+
+                note_db.update_row_info(sql2);
+            } else {
+
+                note_db.add_row_info(sql2); }
 
 
 

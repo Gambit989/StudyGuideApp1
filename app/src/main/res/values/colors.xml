@@ -35,4 +35,11 @@
 
 
 
+
+    <color name="black_overlay">#66000000</color>
+    <color name="user_detail_separator">#3a3a3a</color>
+
+
+
+
 </resources>

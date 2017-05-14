@@ -131,23 +131,36 @@ public class Note_drv extends AppCompatActivity implements View.OnClickListener{
             note_title1 = title.getText().toString();
             note_text1 = note_text.getText().toString();
 
-            db = new Note_database(Note_drv.this);
 
-            Note_data data= new Note_data(note_title1,note_text1);
+            if (note_title1.length() > 30){
 
-            db.add_row_notes(data);
+                Toast.makeText(Note_drv.this, "Note Title too long please shorten it",
+                        Toast.LENGTH_SHORT).show();
+            }
 
-            mDatabase.child("Notes").child(email1).child("note_title").setValue(note_title1);
-            mDatabase.child("Notes").child(email1).child("note_text").setValue(note_text1);
+            else if (note_text1.length() > 450 ) {
+
+                Toast.makeText(Note_drv.this, "Note is too long please shorten it",
+                        Toast.LENGTH_SHORT).show();
+
+            }else {
+
+                db = new Note_database(Note_drv.this);
+
+                Note_data data = new Note_data(note_title1, note_text1);
+
+                db.add_row_notes(data);
+
+                mDatabase.child("Notes").child(email1).child("note_title").setValue(note_title1);
+                mDatabase.child("Notes").child(email1).child("note_text").setValue(note_text1);
 
 
+                Toast.makeText(Note_drv.this, "Note Created",
+                        Toast.LENGTH_SHORT).show();
 
-            Toast.makeText(Note_drv.this, "Note Created",
-                    Toast.LENGTH_SHORT).show();
+                finish();
 
-            finish();
-
-
+            }
             //startActivity(new Intent(Note_drv.this, java_main.class));
 
 

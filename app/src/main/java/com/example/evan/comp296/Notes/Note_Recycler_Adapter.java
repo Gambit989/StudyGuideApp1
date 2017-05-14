@@ -1,7 +1,9 @@
 package com.example.evan.comp296.Notes;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,7 +32,7 @@ public class Note_Recycler_Adapter extends RecyclerView.Adapter<Note_Recycler_Ad
     Context ctx;
 
 
-    List<Data> list = Collections.emptyList();
+    List<String> list = Collections.emptyList();
 
     HashMap<Integer,Class> hash = new HashMap<>();
 
@@ -59,7 +61,7 @@ public class Note_Recycler_Adapter extends RecyclerView.Adapter<Note_Recycler_Ad
 
 
 
-        holder.category.setText(list.get(position).java);
+        holder.category.setText(list.get(position));
 
     }
 
@@ -75,9 +77,12 @@ public class Note_Recycler_Adapter extends RecyclerView.Adapter<Note_Recycler_Ad
 
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener , View.OnLongClickListener{
 
         private TextView category;
+
+
+
 
 
 
@@ -90,6 +95,8 @@ public class Note_Recycler_Adapter extends RecyclerView.Adapter<Note_Recycler_Ad
 
 
             category.setOnClickListener(this);
+
+            category.setOnLongClickListener(this);
 
 
         }
@@ -123,11 +130,21 @@ public class Note_Recycler_Adapter extends RecyclerView.Adapter<Note_Recycler_Ad
             //ActivityStarter a = new ActivityStarter();
 
             int i = v.getId();
-            if (i == R.id.java_topics_list) {
+            if (i == R.id.notes_title_list) {
+
+                Note_database db = new Note_database(v.getContext());
+
+                //String note_text = db.getNote_Text(getAdapterPosition());
+
+                String title = list.get(getLayoutPosition());
+
+                String note = db.getNote_Text(title);
 
 
+                Intent mIntent = new Intent(v.getContext(), Note_viewer.class);
+                mIntent.putExtra("note", note);
 
-                v.getContext().startActivity(new Intent(v.getContext(),hash.get(getLayoutPosition())));
+                v.getContext().startActivity(mIntent);
 
 
 
@@ -138,6 +155,50 @@ public class Note_Recycler_Adapter extends RecyclerView.Adapter<Note_Recycler_Ad
 
             }
 
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+
+
+            int i = v.getId();
+            if (i == R.id.notes_title_list) {
+
+
+                String title = list.get(getLayoutPosition());
+
+
+                //Intent mIntent2 = new Intent(v.getContext(), Note_viewer.class);
+                //mIntent2.putExtra("position", getAdapterPosition());
+
+                int x=getAdapterPosition();
+
+                Intent mIntent = new Intent(v.getContext(), Note_delete_view.class);
+                mIntent.putExtra("title", title);
+
+                v.getContext().startActivity(mIntent);
+
+                Log.d("TAG","**********" + x + "*****");
+
+
+
+
+
+
+
+
+            }
+
+
+
+
+
+
+
+
+
+
+            return false;
         }
     }
 }

@@ -13,7 +13,7 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView_nav_profile"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center_horizontal"
@@ -29,7 +29,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView_nav"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="email me at ecucolo1@my.brookdalecc.edu" />

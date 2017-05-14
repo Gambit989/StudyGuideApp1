@@ -18,10 +18,25 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    packagingOptions {
+
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+         compile fileTree(dir: 'libs', include: ['*.jar'])
          androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
             exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -60,6 +75,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.3.1'
 
     //Firebase
+    compile 'com.firebaseui:firebase-ui-database:0.4.0'
     compile 'com.google.firebase:firebase-core:10.2.1'
     compile 'com.google.firebase:firebase-auth:10.2.1'
     compile 'com.google.firebase:firebase-database:10.2.1'
@@ -86,6 +102,20 @@ dependencies {
     compile 'com.google.android.gms:play-services-plus:10.2.1'
 
 
+    // messaging dependencies
+    compile 'pub.devrel:easypermissions:0.1.5'
+    compile 'com.github.bumptech.glide:glide:3.6.0'
+    compile 'de.hdodenhof:circleimageview:2.0.0'
+    compile 'org.apache.httpcomponents:httpcore:4.3.1'
+    compile 'org.apache.httpcomponents:httpmime:4.3.1'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.7.0'
+
+    compile 'com.android.support:cardview-v7:25'
+    compile 'com.android.support:recyclerview-v7:25'
+    compile 'com.android.support:support-v4:25'
+    compile 'com.android.support:design:25'
+
+
     /*
 
     // UiAutomatorTesting
@@ -101,7 +131,9 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
 
+
 }
+
 
 
 apply plugin: 'com.google.gms.google-services'

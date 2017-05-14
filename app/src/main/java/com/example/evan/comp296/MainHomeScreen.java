@@ -29,12 +29,16 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.evan.comp296.Notes.Note_Homepage;
+import com.example.evan.comp296.Notes.Note_database;
 import com.example.evan.comp296.about_and_contact.about_us;
+import com.example.evan.comp296.messaging.WelcomeActivity;
 import com.example.evan.comp296.profile.MainActivity_Profile;
+import com.example.evan.comp296.profile.Profile_main;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.FacebookCallback;
@@ -115,6 +119,11 @@ public class MainHomeScreen extends AppCompatActivity
 
     ProfilePictureView profilePictureView;
 
+    TextView nav_text;
+    ImageView nav_pic;
+
+    Note_database nd;
+
 
     //SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
     String restoredText ;
@@ -149,6 +158,26 @@ public class MainHomeScreen extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        //navigationView.findViewById(R.id.textView_nav)
+
+        Note_database nd = new Note_database(MainHomeScreen.this);
+
+        View headerView = navigationView.inflateHeaderView(R.layout.nav_header_main_home_screen);
+        nav_text = (TextView) headerView.findViewById(R.id.textView_nav);
+        nav_text.setText(nd.getEmail());
+
+        nav_pic = (ImageView) headerView.findViewById(R.id.imageView_nav_profile);
+        nav_pic.setImageResource(R.drawable.circle);
+
+
+
+        Log.d(TAG, "*********** email is "+ nd.getEmail() + "**********");
+
+        //nav_text = (TextView) findViewById(R.id.textView_nav);
+
+
 
 
         mAuth = FirebaseAuth.getInstance();
@@ -276,12 +305,17 @@ public class MainHomeScreen extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+
+
+
+
         if (id == R.id.menu_profile) {
-            startActivity(new Intent(this,MainActivity_Profile.class));
+            startActivity(new Intent(this,Profile_main.class));
         } else if (id == R.id.menu_notes) {
             startActivity(new Intent(this,Note_Homepage.class));
 
         } else if(id == R.id.menu_messaging) {
+            startActivity(new Intent(this,WelcomeActivity.class));
 
         } else if (id == R.id.menu_about_us) {
             startActivity(new Intent(this,about_us.class));

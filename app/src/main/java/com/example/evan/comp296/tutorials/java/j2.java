@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 
@@ -26,21 +29,13 @@ public class j2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_webview);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab5);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                startActivity(new Intent(j2.this, Note_drv.class));
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar1);
 
-                /*
 
-                Snackbar.make(view, "Email app to a friend", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+        setSupportActionBar(myToolbar);
 
-                 */
-            }
-        });
+        getSupportActionBar().setTitle("Java");
 
 
         wv = (WebView) findViewById(R.id.webview1);
@@ -49,6 +44,44 @@ public class j2 extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.webview_menu, menu);
+        return true;
+    }
+
+
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                // User chose the "Settings" item, show the app settings UI...
+                return true;
+
+            case R.id.action_favorite:
+
+                startActivity(new Intent(j2.this, Note_drv.class));
+
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+
+
+
+
+
+
 }
 
 

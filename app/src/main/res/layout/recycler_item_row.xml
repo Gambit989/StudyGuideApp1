@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:weightSum="1">
+    android:weightSum=".5">
 
 
     <ImageView
@@ -15,7 +15,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
-        android:background="@drawable/border_top"/>
+        android:background="@drawable/border_top1"/>
 
 
 </LinearLayout>

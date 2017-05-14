@@ -40,23 +40,6 @@ public class j0 extends AppCompatActivity {
         getSupportActionBar().setTitle("Java");
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab5);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                startActivity(new Intent(j0.this, Note_drv.class));
-
-                /*
-
-                Snackbar.make(view, "Email app to a friend", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-
-                 */
-            }
-        });
-
-
         wv = (WebView) findViewById(R.id.webview1);
 
         WebSettings webSettings = wv.getSettings();

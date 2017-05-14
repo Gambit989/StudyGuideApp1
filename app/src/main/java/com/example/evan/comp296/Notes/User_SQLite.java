@@ -17,6 +17,7 @@ public class User_SQLite {
     public String email;
     public String name;
     public String school;
+    public String major;
 
 
 
@@ -44,5 +45,9 @@ public class User_SQLite {
 
     public String getUser_id() {
         return user_id;
+    }
+
+    public String getMajor() {
+        return major;
     }
 }

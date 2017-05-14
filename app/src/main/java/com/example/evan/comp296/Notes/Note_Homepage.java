@@ -1,5 +1,6 @@
 package com.example.evan.comp296.Notes;
 
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,6 +8,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -81,9 +83,11 @@ public class Note_Homepage extends AppCompatActivity {
         Toast.makeText(this, nd.getTitles().toString(),Toast.LENGTH_LONG);
 
 
-        data = nd.getText_data();
+        //data = nd.getText_data();
 
-        data2=fill_with_data2();
+        data = nd.getTitles();
+
+        //data2=fill_with_data2();
 
         Note_RecyclerView1 = (RecyclerView) findViewById(R.id.notes_recycler);
         mLinearLayoutManager = new LinearLayoutManager(this);
@@ -105,47 +109,6 @@ public class Note_Homepage extends AppCompatActivity {
 
 
 
-    public List fill_with_data() {
-
-        List<Data> data = new ArrayList();
-
-
-
-        data.add(new Data("Intro"));
-        data.add(new Data("Basic Syntax"));
-        data.add(new Data("Objects and Classes"));
-        data.add(new Data("Basic Datatypes"));
-        data.add(new Data("Variables"));
-        data.add(new Data("Modifier Types"));
-        data.add(new Data("Operators"));
-        data.add(new Data("Loops"));
-        data.add(new Data("Decision Making"));
-        data.add(new Data("Chars"));
-        data.add(new Data("Strings"));
-        data.add(new Data("Arrays"));
-        data.add(new Data("RegEx"));
-        data.add(new Data("Methods"));
-        data.add(new Data("File I/O"));
-
-
-        return data;
-    }
-
-
-    public List fill_with_data1() {
-
-        List<Data> data = new ArrayList();
-
-
-
-        data.add(new Data("ggggg"));
-        data.add(new Data("ggsgggn"));
-        data.add(new Data("ogtuff"));
-        data.add(new Data("tffffff"));
-        data.add(new Data("hello"));
-
-        return data;
-    }
 
 
     public List fill_with_data2() {

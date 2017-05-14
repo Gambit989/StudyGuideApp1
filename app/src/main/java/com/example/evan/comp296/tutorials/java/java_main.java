@@ -31,9 +31,14 @@ public class java_main extends AppCompatActivity implements AdapterView.OnItemSe
 
     LinearLayoutManager mLinearLayoutManager;
     LinearLayoutManager mLinearLayoutManager2;
+    LinearLayoutManager mLinearLayoutManager3;
+    LinearLayoutManager mLinearLayoutManager4;
 
     Java_Recycler_Adapter mAdapter;
     Java_Recycler_Adapter mAdapter1;
+    Java_Recycler_Adapter2 mAdapter2;
+    Java_Recycler_Adapter3 mAdapter3;
+
 
     List data;
     List data2;
@@ -77,7 +82,7 @@ public class java_main extends AppCompatActivity implements AdapterView.OnItemSe
 
         data = fill_with_data();
 
-        data2=fill_with_data2();
+        data2=fill_with_data3();
 
         java_RecyclerView1 = (RecyclerView) findViewById(R.id.java_recycler);
         mLinearLayoutManager = new LinearLayoutManager(this);
@@ -95,7 +100,7 @@ public class java_main extends AppCompatActivity implements AdapterView.OnItemSe
 
 
 
-        if (selected.equals("COMP-171: Programming I")) {
+        if (position==1) {
 
 
 
@@ -107,7 +112,25 @@ public class java_main extends AppCompatActivity implements AdapterView.OnItemSe
 
             java_RecyclerView1.setAdapter(mAdapter1);
 
+        } else if (position==2) {
 
+            mAdapter2 = new Java_Recycler_Adapter2(fill_with_data2(), getApplicationContext());
+
+
+            mLinearLayoutManager3 = new LinearLayoutManager(this);
+            java_RecyclerView1.setLayoutManager(mLinearLayoutManager3);
+
+            java_RecyclerView1.setAdapter(mAdapter2);
+
+        } else if (position==3) {
+
+            mAdapter3 = new Java_Recycler_Adapter3(fill_with_data4(), getApplicationContext());
+
+
+            mLinearLayoutManager4 = new LinearLayoutManager(this);
+            java_RecyclerView1.setLayoutManager(mLinearLayoutManager4);
+
+            java_RecyclerView1.setAdapter(mAdapter3);
 
         }
 
@@ -135,6 +158,7 @@ public class java_main extends AppCompatActivity implements AdapterView.OnItemSe
         data.add(new Data("Operators"));
         data.add(new Data("Loops"));
         data.add(new Data("Decision Making"));
+        data.add(new Data("Numbers"));
         data.add(new Data("Chars"));
         data.add(new Data("Strings"));
         data.add(new Data("Arrays"));
@@ -147,30 +171,47 @@ public class java_main extends AppCompatActivity implements AdapterView.OnItemSe
     }
 
 
-    public List fill_with_data1() {
-
-        List<Data> data = new ArrayList();
-
-
-
-        data.add(new Data("ggggg"));
-        data.add(new Data("ggsgggn"));
-        data.add(new Data("ogtuff"));
-        data.add(new Data("tffffff"));
-        data.add(new Data("hello"));
-
-        return data;
-    }
-
-
     public List fill_with_data2() {
 
         List<Data> data = new ArrayList();
 
 
+        data.add(new Data("Intro to Data Structures"));
+        data.add(new Data("Stacks"));
+        data.add(new Data("Queue"));
+        data.add(new Data("Linked List"));
 
         return data;
     }
+
+
+    public List fill_with_data3() {
+
+        List<Data> data = new ArrayList();
+
+
+        return data;
+    }
+
+
+    public List fill_with_data4() {
+
+        List<Data> data = new ArrayList();
+
+
+        data.add(new Data("Inheritence"));
+        data.add(new Data("Polymorphism"));
+        data.add(new Data("Abstraction"));
+        data.add(new Data("Enapsulation"));
+        data.add(new Data("Overriding"));
+        data.add(new Data("Interfaces"));
+        data.add(new Data("Packages"));
+
+
+        return data;
+    }
+
+
 
 
 

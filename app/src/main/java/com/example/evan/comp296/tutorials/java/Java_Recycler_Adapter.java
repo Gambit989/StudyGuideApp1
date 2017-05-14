@@ -94,7 +94,19 @@ public class Java_Recycler_Adapter extends RecyclerView.Adapter<Java_Recycler_Ad
             hash.put(0,j0.class);
             hash.put(1,j1.class);
             hash.put(2,j2.class);
-
+            hash.put(3,j3.class);
+            hash.put(4,j4.class);
+            hash.put(5,j5.class);
+            hash.put(6,j6.class);
+            hash.put(7,j7.class);
+            hash.put(8,j8.class);
+            hash.put(9,j9.class);
+            hash.put(10,j10.class);
+            hash.put(11,j11.class);
+            hash.put(12,j12.class);
+            hash.put(13,j13.class);
+            hash.put(14,j14.class);
+            hash.put(15,j15.class);
 
 
 
@@ -121,10 +133,6 @@ public class Java_Recycler_Adapter extends RecyclerView.Adapter<Java_Recycler_Ad
 
 
                 v.getContext().startActivity(new Intent(v.getContext(),hash.get(getLayoutPosition())));
-
-
-
-
 
 
 

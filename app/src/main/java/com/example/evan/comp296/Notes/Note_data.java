@@ -16,11 +16,20 @@ public class Note_data {
 
 
 
-        public Note_data(String text, String title) {
+        public Note_data(String title, String text) {
 
-            this.note_text=text;
             this.note_title=title;
+            this.note_text=text;
+
         }
 
+
+    public String getNote_title() {
+        return note_title;
     }
+
+    public String getNote_text() {
+        return note_text;
+    }
+}
 

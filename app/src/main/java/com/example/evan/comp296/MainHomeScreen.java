@@ -29,17 +29,28 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.evan.comp296.Notes.Note_Homepage;
+import com.example.evan.comp296.Notes.Note_database;
+import com.example.evan.comp296.about_and_contact.about_us;
+import com.example.evan.comp296.messaging.WelcomeActivity;
+import com.example.evan.comp296.profile.MainActivity_Profile;
+import com.example.evan.comp296.profile.Profile_main;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
+import com.facebook.FacebookCallback;
 import com.facebook.FacebookRequestError;
 import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.HttpMethod;
+import com.facebook.Profile;
 import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.ProfilePictureView;
 import com.google.android.gms.auth.api.Auth;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -83,7 +94,7 @@ public class MainHomeScreen extends AppCompatActivity
 
     private LoginManager loginManager;
 
-    AccessToken accessToken;
+    //AccessToken accessToken;
 
 
     String str;
@@ -100,10 +111,18 @@ public class MainHomeScreen extends AppCompatActivity
 
     List<Data> data;
 
-    AccessTokenTracker accessTokenTracker;
+    //AccessTokenTracker accessTokenTracker;
 
 
     Boolean facebook_loggedin;
+
+
+    ProfilePictureView profilePictureView;
+
+    TextView nav_text;
+    ImageView nav_pic;
+
+    Note_database nd;
 
 
     //SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
@@ -141,6 +160,26 @@ public class MainHomeScreen extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
+        //navigationView.findViewById(R.id.textView_nav)
+
+        Note_database nd = new Note_database(MainHomeScreen.this);
+
+        View headerView = navigationView.inflateHeaderView(R.layout.nav_header_main_home_screen);
+        nav_text = (TextView) headerView.findViewById(R.id.textView_nav);
+        nav_text.setText(nd.getEmail());
+
+        nav_pic = (ImageView) headerView.findViewById(R.id.imageView_nav_profile);
+        nav_pic.setImageResource(R.drawable.circle);
+
+
+
+        Log.d(TAG, "*********** email is "+ nd.getEmail() + "**********");
+
+        //nav_text = (TextView) findViewById(R.id.textView_nav);
+
+
+
+
         mAuth = FirebaseAuth.getInstance();
 
         mFirebaseUser = mAuth.getCurrentUser();
@@ -175,17 +214,17 @@ public class MainHomeScreen extends AppCompatActivity
         Log.d(TAG,loginManager.getInstance().toString());
 
 
-        accessToken = AccessToken.getCurrentAccessToken();
+        //accessToken = AccessToken.getCurrentAccessToken();
 
-        accessTokenTracker = new AccessTokenTracker() {
+        /*accessTokenTracker = new AccessTokenTracker() {
             @Override
             protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken newAccessToken) {
                 updateWithToken(newAccessToken);
             }
         };
 
-
-        updateWithToken(accessToken);
+        */
+        //updateWithToken(accessToken);
 
 
         //Log.d(TAG,accessToken.toString());
@@ -203,6 +242,18 @@ public class MainHomeScreen extends AppCompatActivity
         mAdapter = new RecyclerAdapter(data, getApplicationContext());
 
         mRecyclerView.setAdapter(mAdapter);
+
+
+        //Profile profile;
+        //profile = Profile.getCurrentProfile();
+
+        //profile.getId();
+
+
+
+        //profilePictureView = (ProfilePictureView) findViewById(R.id.friendProfilePicture);
+
+        //profilePictureView.setProfileId(profile.getId());
 
 
 
@@ -254,13 +305,20 @@ public class MainHomeScreen extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+
+
+
+
         if (id == R.id.menu_profile) {
-            startActivity(new Intent(this,onehundred_level.class));
+            startActivity(new Intent(this,Profile_main.class));
         } else if (id == R.id.menu_notes) {
+            startActivity(new Intent(this,Note_Homepage.class));
 
         } else if(id == R.id.menu_messaging) {
+            startActivity(new Intent(this,WelcomeActivity.class));
 
         } else if (id == R.id.menu_about_us) {
+            startActivity(new Intent(this,about_us.class));
 
         } else if (id == R.id.menu_contact_us) {
 
@@ -319,11 +377,12 @@ public class MainHomeScreen extends AppCompatActivity
                         }
                     });
         }
-        else if (accessToken != null) {
+        //else if (accessToken != null) {
 
-                loginManager.logOut();
-                startActivity(new Intent(MainHomeScreen.this,MainActivity.class));
+               // loginManager.logOut();
+               // startActivity(new Intent(MainHomeScreen.this,MainActivity.class));
 
+            /*
 
             GraphRequest delPermRequest = new GraphRequest(AccessToken.getCurrentAccessToken(), "/{user-id}/permissions/", null, HttpMethod.DELETE, new GraphRequest.Callback() {
                 @Override
@@ -335,17 +394,21 @@ public class MainHomeScreen extends AppCompatActivity
                         }else {
                             finish();
                             loginManager.logOut();
-                            startActivity(new Intent(MainHomeScreen.this,MainActivity.class));
+                            startActivity(new Intent(MainHomeScreen.this,MainActivity_Profile.class));
                         }
                     }
                 }
             });
-            Log.d(TAG,"Executing revoke permissions with graph path" + delPermRequest.getGraphPath());
-            delPermRequest.executeAsync();
 
 
-                loginManager.getInstance().logOut();
-        }
+            */
+
+            //Log.d(TAG,"Executing revoke permissions with graph path" + delPermRequest.getGraphPath());
+            //delPermRequest.executeAsync();
+
+
+               // loginManager.getInstance().logOut();
+        //}
 
         updateUI(null);
         //mGoogleApiClient.disconnect();

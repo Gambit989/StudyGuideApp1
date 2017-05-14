@@ -142,5 +142,76 @@
     </string-array>
 
 
+    <string name="camera_button_text">Upload</string>
+    <string name="sign_in_prompt">Sign In to begin</string>
+    <string name="take_photo_prompt">Upload a Photo</string>
+    <string name="download">Download</string>
+    <string name="sign_in_anonymously">Sign In</string>
+    <string name="rationale_storage">This sample reads images from your camera to demonstrate uploading.</string>
+    <string name="label_link">Link to Uploaded File</string>
+    <string name="label_download">Download File</string>
+    <string name="log_out">Log out</string>
+    <string name="success">Success</string>
+
+    <string name="progress_downloading">Downloading…</string>
+    <string name="progress_uploading">Uploading…</string>
+    <string name="progress_auth">Signing In…</string>
+
+    <string name="upload_success">Upload finished</string>
+    <string name="upload_failure">Upload failed</string>\
+
+    <string name="download_success">Download finished</string>
+    <string name="download_failure">Download failure</string>
+
+
+    <string name="about_us">This app was created by Evan and his company \n\n <h2>ECMEDIAGROUP</h2>\n\nIt originally started out as a project for class when he was attending
+    Brookdale Community College and then continually progressed over the course of a year and a half.<p> \n\nThe goal of this app is to have a centralized hub of information
+    to help you study quickly for a test or if you need information right ta your fingertips. </p>This is only the first version of the app, the next version
+    we intended on implementing many more features such as real time messaging where you can have a group chat with other users who might be in your class
+    or whatever the case may be. This will be introduced in the next update.<p> \n\nMore information about Evan can be found in the link below.</p></string>
+
+
+
+
+
+    <!-- FriendlyPix Strings -->
+    <string name="title_activity_welcome">FriendlyPix</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="welcome_screen_text">Welcome to FriendlyPix</string>
+    <string name="explore_button_text">explore</string>
+    <string name="sign_in_button_text">sign in</string>
+    <string name="sign_out_button_text">sign out</string>
+    <string name="show_feed_button_text">show feed</string>
+    <string name="drawer_profile_title">Profile</string>
+    <string name="drawer_settings_title">Settings</string>
+    <string name="drawer_your_feed_title">Your Feed</string>
+    <string name="title_activity_comments">CommentsActivity</string>
+    <string name="title_activity_new_post">New Post</string>
+    <string name="invite_friends_button_text">Invite your friends</string>
+    <string name="my_posts_button_text">My posts</string>
+    <string name="title_activity_user_detail">UserDetailActivity</string>
+    <string name="follow_user_error">Unable to follow user.</string>
+    <string name="picture_chooser_title">Select or take picture to post</string>
+    <string name="new_comment_hint">Enter new comment</string>
+    <string name="new_post_location_placeholder">Getting location...</string>
+    <string name="user_info_no_name">Unknown user</string>
+    <string name="error_required_field">Required</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="error_upload_task_create">Couldn\'t create upload task.</string>
+    <string name="default_progress_message">Please wait...</string>
+    <string name="profile_progress_message">Signing in...</string>
+    <string name="post_upload_progress_message">Uploading...</string>
+    <string name="user_logged_out_error">You must be logged in to do that.</string>
+    <string name="error_user_not_signed_in">Error user not signed in.</string>
+
+
+    <string name="alert_dialog_two_buttons_title">Do you really want to delete this note?</string>
+    <string name="alert_dialog_ok">YES</string>
+    <string name="alert_dialog_cancel">NO</string>
+
+
 
 </resources>

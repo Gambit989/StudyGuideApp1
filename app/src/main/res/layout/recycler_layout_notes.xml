@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_gravity="center_horizontal"
+    android:orientation="horizontal"
+    android:weightSum="1">
+
+
+    <TextView
+        android:id="@+id/notes_title_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="22dp"
+        android:paddingTop="9dp"
+        android:textAlignment="center"
+        android:textColor="@color/cardview_dark_background"
+        android:elevation="7dp"
+
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/spinner_border6"/>
+
+
+</LinearLayout>

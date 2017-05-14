@@ -7,7 +7,11 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -153,6 +157,7 @@
                 android:value="com.example.evan.comp296.MainHomeScreen" />
         </activity>
 
+
         <activity
             android:name="com.example.evan.comp296.tutorials.java.j0"
             android:label="@string/app_name2"
@@ -180,6 +185,153 @@
                 android:value="com.example.evan.comp296.tutorials.java.java_main" />
         </activity>
 
+        <activity
+            android:name="com.example.evan.comp296.tutorials.java.j3"
+            android:label="@string/app_name2"
+            android:theme="@style/ThemeOverlay.MyNoTitleActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+        </activity>
+
+        <activity
+            android:name="com.example.evan.comp296.tutorials.java.j4"
+            android:label="@string/app_name2"
+            android:theme="@style/ThemeOverlay.MyNoTitleActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+        </activity>
+
+        <activity
+            android:name="com.example.evan.comp296.tutorials.java.j5"
+            android:label="@string/app_name2"
+            android:theme="@style/ThemeOverlay.MyNoTitleActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+        </activity>
+
+        <activity
+            android:name="com.example.evan.comp296.tutorials.java.j6"
+            android:label="@string/app_name2"
+            android:theme="@style/ThemeOverlay.MyNoTitleActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+        </activity>
+
+        <activity
+            android:name="com.example.evan.comp296.tutorials.java.j7"
+            android:label="@string/app_name2"
+            android:theme="@style/ThemeOverlay.MyNoTitleActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+        </activity>
+
+        <activity
+            android:name="com.example.evan.comp296.tutorials.java.j8"
+            android:label="@string/app_name2"
+            android:theme="@style/ThemeOverlay.MyNoTitleActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+        </activity>
+
+        <activity
+            android:name="com.example.evan.comp296.tutorials.java.j9"
+            android:label="@string/app_name2"
+            android:theme="@style/ThemeOverlay.MyNoTitleActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+        </activity>
+
+        <activity
+            android:name="com.example.evan.comp296.tutorials.java.j10"
+            android:label="@string/app_name2"
+            android:theme="@style/ThemeOverlay.MyNoTitleActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+        </activity>
+
+
+        <activity
+            android:name="com.example.evan.comp296.tutorials.java.j11"
+            android:label="@string/app_name2"
+            android:theme="@style/ThemeOverlay.MyNoTitleActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+        </activity>
+
+        <activity
+            android:name="com.example.evan.comp296.tutorials.java.j12"
+            android:label="@string/app_name2"
+            android:theme="@style/ThemeOverlay.MyNoTitleActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+        </activity>
+
+        <activity
+            android:name="com.example.evan.comp296.tutorials.java.j13"
+            android:label="@string/app_name2"
+            android:theme="@style/ThemeOverlay.MyNoTitleActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+        </activity>
+
+        <activity
+            android:name="com.example.evan.comp296.tutorials.java.j14"
+            android:label="@string/app_name2"
+            android:theme="@style/ThemeOverlay.MyNoTitleActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+        </activity>
+
+        <activity
+        android:name="com.example.evan.comp296.tutorials.java.j15"
+        android:label="@string/app_name2"
+        android:theme="@style/ThemeOverlay.MyNoTitleActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.evan.comp296.tutorials.java.java_main" />
+        </activity>
+
+        <activity
+            android:name="com.example.evan.comp296.tutorials.java.comp228"
+            android:label="@string/app_name2"
+            android:theme="@style/ThemeOverlay.MyNoTitleActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+        </activity>
+
+        <activity
+            android:name="com.example.evan.comp296.tutorials.java.comp271"
+            android:label="@string/app_name2"
+            android:theme="@style/ThemeOverlay.MyNoTitleActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+        </activity>
+
+        <activity
+            android:name="com.example.evan.comp296.tutorials.mysql.SQL_main"
+            android:label="SQL"
+            android:theme="@style/Theme.Design.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.MainHomeScreen" />
+        </activity>
+
+
+
 
         <activity
             android:name="com.example.evan.comp296.Notes.Note_drv"
@@ -190,6 +342,108 @@
 
         </activity>
 
+
+        <activity
+            android:name="com.example.evan.comp296.Notes.Note_Homepage"
+            android:label="@string/app_name2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.MainHomeScreen" />
+
+        </activity>
+
+
+
+        <activity
+        android:name="com.example.evan.comp296.Notes.Note_viewer"
+        android:label="@string/app_name2">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.evan.comp296.Notes.Note_Homepage" />
+
+    </activity>
+
+        <activity
+            android:name="com.example.evan.comp296.Notes.Note_delete_view"
+            android:label="@string/app_name2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.Notes.Note_Homepage" />
+
+        </activity>
+
+
+        <activity
+            android:name="com.example.evan.comp296.about_and_contact.about_us"
+            android:label="@string/app_name2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.MainHomeScreen" />
+
+        </activity>
+
+
+        <activity
+            android:name="com.example.evan.comp296.profile.MainActivity_Profile"
+            android:label="@string/app_name2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.MainHomeScreen" />
+
+        </activity>
+
+        <activity
+            android:name="com.example.evan.comp296.profile.Profile_main"
+            android:label="@string/app_name2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.MainHomeScreen" />
+
+        </activity>
+
+        <activity
+            android:name="com.example.evan.comp296.profile.Profile_edit"
+            android:label="@string/app_name2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.MainHomeScreen" />
+
+        </activity>
+
+
+
+        <activity
+            android:name="com.example.evan.comp296.messaging.ProfileActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.evan.comp296.messaging.FeedsActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.example.evan.comp296.messaging.db_tester"
+            android:label="@string/title_activity_user_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.example.evan.comp296.messaging.WelcomeActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar.Fullscreen">
+        </activity>
+        <activity
+            android:name="com.example.evan.comp296.messaging.CommentsActivity"
+            android:label="@string/title_activity_comments"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.evan.comp296.messaging.NewPostActivity"
+            android:label="@string/title_activity_new_post"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.evan.comp296.messaging.UserDetailActivity"
+            android:label="@string/title_activity_user_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".BaseActivity"></activity>
 
 
 
@@ -242,6 +496,15 @@
         </service>
 
 
+        <service
+            android:name=".profile.MyDownloadService"
+            android:exported="false"/>
+
+        <service
+            android:name=".profile.MyUploadService"
+            android:exported="false" />
+
+
 
     <application android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
@@ -251,6 +514,9 @@
 
 
     </application>
+
+
+
 
 
 

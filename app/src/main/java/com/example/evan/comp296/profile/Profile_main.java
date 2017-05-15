@@ -1,14 +1,25 @@
 package com.example.evan.comp296.profile;
 
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.evan.comp296.Notes.Note_database;
 import com.example.evan.comp296.R;
+import com.example.evan.comp296.Task2;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by Evan on 5/10/17.
@@ -23,6 +34,9 @@ public class Profile_main extends AppCompatActivity {
     TextView email;
     TextView school;
     TextView major;
+
+    ImageView profile_pic;
+    ImageView profile_pic_edit;
 
     ArrayList<String> info = new ArrayList<>();
 
@@ -39,6 +53,9 @@ public class Profile_main extends AppCompatActivity {
         school = (TextView) findViewById(R.id.profile_school);
         major = (TextView) findViewById(R.id.profile_major);
 
+        profile_pic_edit=(ImageView) findViewById(R.id.imageButton_edit_profile_pic);
+        profile_pic= (ImageView) findViewById(R.id.imageView_profile);
+
 
         nd = new Note_database(Profile_main.this);
 
@@ -47,6 +64,32 @@ public class Profile_main extends AppCompatActivity {
         name.setText(info.get(0));
         email.setText(info.get(1));
         school.setText(info.get(2));
+
+
+        if (nd.Picture_Exists(1) && nd.get_Picture_URL(1) !=null) {
+
+                String url2= nd.get_Picture_URL(1);
+
+                //new Task2().execute(url2);
+
+                try {
+                    profile_pic.setImageBitmap(new Task2().execute(url2).get());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
+        }
+
+
+
+        profile_pic_edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(Profile_main.this,MainActivity_Profile.class));
+            }
+        });
 
 
 

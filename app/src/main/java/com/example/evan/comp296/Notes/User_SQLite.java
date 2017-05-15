@@ -17,7 +17,11 @@ public class User_SQLite {
     public String email;
     public String name;
     public String school;
+
+
+    public String user_id_2;
     public String major;
+    public String picture_url;
 
 
 
@@ -29,6 +33,17 @@ public class User_SQLite {
         this.school=school;
 
     }
+
+
+    public User_SQLite(String user_id_2, String picture_url) {
+
+        this.user_id_2=user_id_2;
+        this.picture_url=picture_url;
+
+    }
+
+
+
 
 
     public String getEmail() {
@@ -49,5 +64,13 @@ public class User_SQLite {
 
     public String getMajor() {
         return major;
+    }
+
+    public String getUser_id_2() {
+        return user_id_2;
+    }
+
+    public String getPicture_url() {
+        return picture_url;
     }
 }

@@ -24,21 +24,24 @@ public class Note_database extends SQLiteOpenHelper {
 
     // Database Info
     private static final String DATABASE_NAME = "comp296";
-    private static final int DATABASE_VERSION = 9;
+    private static final int DATABASE_VERSION = 11;
 
     // Table Names
     private static final String TABLE_INFORMATION = "user_info";
     private static final String TABLE_NOTES = "notes";
     private static final String TABLE_COUNTER = "counter";
+    private static final String TABLE_INFORMATION_OTHER = "user_info_other";
 
 
     // Android Table Columns
     private static final String USERID1 = "id";
     private static final String USERID2 = "id";
+    private static final String USERID3 = "id";
     private static final String EMAIL = "email";
     private static final String NAME = "name";
     private static final String SCHOOL = "school";
-    //private static final String MAJOR = "major";
+    private static final String PICTURE = "picture_url";
+    private static final String MAJOR = "major";
     private static final String COUNTER = "counter";
 
 
@@ -80,8 +83,17 @@ public class Note_database extends SQLiteOpenHelper {
 
         */
 
+        String CREATE_OTHER_INFO_TABLE = "CREATE TABLE " + TABLE_INFORMATION_OTHER +
+                "(" + USERID3 + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                     PICTURE + " TEXT " +
+                ")";
+
+
+
+
         db.execSQL(CREATE_INFORMATION_TABLE);
         db.execSQL(CREATE_NOTE_TABLE);
+        db.execSQL(CREATE_OTHER_INFO_TABLE);
         //db.execSQL(CREATE_COUNTER_TABLE);
 
     }
@@ -94,6 +106,7 @@ public class Note_database extends SQLiteOpenHelper {
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_INFORMATION);
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NOTES);
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_COUNTER);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_INFORMATION_OTHER);
             onCreate(db);
         }
 
@@ -181,6 +194,108 @@ public class Note_database extends SQLiteOpenHelper {
 
         Log.d("TAG", "**** UPDATE ROW CALLED **** userid "+ user.getUser_id()+ " email "+ user.getEmail() + " name " +
                 user.getName()+ "********");
+
+    }
+
+
+
+
+
+    public void add_row_picture(User_SQLite user) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        //taskCount++;
+
+
+        //add values
+        values.put(USERID2, user.getUser_id_2());
+        values.put(PICTURE, user.getPicture_url());
+
+        //insert row into table
+
+        db.insert(TABLE_INFORMATION_OTHER, null, values);
+
+
+        //CharSequence hello = user.getName();
+
+
+        Log.d("TAG", "ADD ROW OTHER CALLED id " +user.getUser_id_2()+ " picture URL "+user.getPicture_url());
+
+        //Toast.makeText(c, "Hello " +user.getName(), Toast.LENGTH_LONG).show();
+
+    }
+
+
+    public void update_row_picture(User_SQLite user) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        //taskCount++;
+
+
+        //add values
+        values.put(USERID3, user.getUser_id_2());
+        values.put(PICTURE, user.getPicture_url());
+
+        //insert row into table
+
+        db.update(TABLE_INFORMATION_OTHER, values, "id=1",null);
+
+
+        CharSequence hello = user.getName();
+
+
+        //Toast.makeText(c, hello, Toast.LENGTH_LONG).show();
+
+        Log.d("TAG", "**** UPDATE ROW OTHER CALLED **** userid "+ user.getUser_id_2()+ "picture URL"+
+                user.getPicture_url()+ "********");
+
+    }
+
+
+
+    public boolean Picture_Exists(int searchItem) {
+
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] columns = { "id" };
+        String selection = "id" + " =?";
+        String[] selectionArgs = { searchItem+"" };
+        String limit = "1";
+
+        Cursor cursor = db.query(TABLE_INFORMATION_OTHER, columns, selection, selectionArgs, null, null, null, limit);
+        boolean exists = (cursor.getCount() > 0);
+        cursor.close();
+        return exists;
+    }
+
+
+
+
+
+    public String get_Picture_URL(int id) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+
+
+        Cursor cursor = null;
+        String url = "";
+        try {
+            cursor = db.rawQuery("SELECT picture_url FROM user_info_other WHERE id=?", new String[]{id+""});
+            if (cursor.getCount() > 0) {
+                cursor.moveToFirst();
+                url = cursor.getString(cursor.getColumnIndex(PICTURE));
+            }
+            return url;
+        } finally {
+            cursor.close();
+        }
+
 
     }
 
@@ -387,10 +502,13 @@ public class Note_database extends SQLiteOpenHelper {
                  cursor.moveToFirst();
                 //email = cursor.getString(0);
                 email= cursor.getString(cursor.getColumnIndex(EMAIL));
+                cursor.close();
             }
             return email;
         } finally {
-            cursor.close();
+
+            Log.d("TAG", "******placeholder**********");
+
         }
     }
 

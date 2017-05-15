@@ -1,9 +1,12 @@
 package com.example.evan.comp296;
 
+import android.app.DownloadManager;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -21,14 +24,9 @@ import android.view.MenuItem;
 
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,19 +35,9 @@ import com.example.evan.comp296.Notes.Note_Homepage;
 import com.example.evan.comp296.Notes.Note_database;
 import com.example.evan.comp296.about_and_contact.about_us;
 import com.example.evan.comp296.messaging.WelcomeActivity;
-import com.example.evan.comp296.profile.MainActivity_Profile;
 import com.example.evan.comp296.profile.Profile_main;
 import com.facebook.AccessToken;
-import com.facebook.AccessTokenTracker;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookRequestError;
-import com.facebook.FacebookSdk;
-import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
-import com.facebook.HttpMethod;
-import com.facebook.Profile;
 import com.facebook.login.LoginManager;
-import com.facebook.login.LoginResult;
 import com.facebook.login.widget.ProfilePictureView;
 import com.google.android.gms.auth.api.Auth;
 
@@ -71,11 +59,17 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 
-import com.example.evan.comp296.MainActivity;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 
 public class MainHomeScreen extends AppCompatActivity
@@ -166,14 +160,98 @@ public class MainHomeScreen extends AppCompatActivity
 
         View headerView = navigationView.inflateHeaderView(R.layout.nav_header_main_home_screen);
         nav_text = (TextView) headerView.findViewById(R.id.textView_nav);
-        nav_text.setText(nd.getEmail());
-
-        nav_pic = (ImageView) headerView.findViewById(R.id.imageView_nav_profile);
-        nav_pic.setImageResource(R.drawable.circle);
 
 
 
-        Log.d(TAG, "*********** email is "+ nd.getEmail() + "**********");
+        if(nd.ID_Exists(1)) {
+            nav_text.setText(nd.getEmail());
+        }else {
+
+        }
+
+
+        if (nd.Picture_Exists(1) && nd.get_Picture_URL(1) !=null) {
+
+            nav_pic = (ImageView) headerView.findViewById(R.id.imageView_nav_profile);
+
+            //Uri uri=Uri.parse(nd.get_Picture_URL(1));
+
+
+            //Bitmap b = getImageBitmap(nd.get_Picture_URL(1));
+
+            //nav_pic.setImageURI(uri);
+
+
+            String url2= nd.get_Picture_URL(1);
+
+            new Task2().execute(url2);
+
+            try {
+                nav_pic.setImageBitmap(new Task2().execute(url2).get());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+
+            /*
+
+            InputStream result=null;
+            try {
+                result = new Task2().execute(url2).get();
+            } catch (InterruptedException e) {
+                e.printStackTrace(); //handle it the way you like
+            } catch (ExecutionException e) {
+                e.printStackTrace();//handle it the way you like
+            }
+
+
+            if(result != null) {
+
+                Drawable drawable = Drawable.createFromStream(result, null);
+                nav_pic.setImageDrawable(drawable);
+
+            }
+
+            */
+
+
+            /*
+            URL myUrl = null;
+            try {
+                myUrl = new URL(url2);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+            InputStream inputStream = null;
+            try {
+                inputStream = (InputStream)myUrl.getContent();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            Drawable drawable = Drawable.createFromStream(inputStream, null);
+            nav_pic.setImageDrawable(drawable);
+
+            */
+
+
+
+        } else {
+            nav_pic = (ImageView) headerView.findViewById(R.id.imageView_nav_profile);
+            nav_pic.setImageResource(R.drawable.circle);
+        }
+
+
+
+
+
+
+        if (nd.ID_Exists(1)) {
+            Log.d(TAG, "*********** email is " + nd.getEmail() + "**********");
+        }else {
+
+        }
 
         //nav_text = (TextView) findViewById(R.id.textView_nav);
 
@@ -573,6 +651,56 @@ public class MainHomeScreen extends AppCompatActivity
     }
 
 
+    private Bitmap getImageBitmap(String url) {
+        Bitmap bm = null;
+        try {
+            URL aURL = new URL(url);
+            URLConnection conn = aURL.openConnection();
+            conn.connect();
+            InputStream is = conn.getInputStream();
+            BufferedInputStream bis = new BufferedInputStream(is);
+            bm = BitmapFactory.decodeStream(bis);
+            bis.close();
+            is.close();
+        } catch (IOException e) {
+            Log.e(TAG, "Error getting bitmap", e);
+        }
+        return bm;
+    }
+
+
+    public void downloadFile(String uRl) {
+        File direct = new File(Environment.getExternalStorageDirectory()
+                + "/study_guide");
+
+        if (!direct.exists()) {
+            direct.mkdirs();
+        }
+
+        DownloadManager mgr = (DownloadManager) this.getSystemService(Context.DOWNLOAD_SERVICE);
+
+        Uri downloadUri = Uri.parse(uRl);
+        DownloadManager.Request request = new DownloadManager.Request(
+                downloadUri);
+
+        request.setAllowedNetworkTypes(
+                DownloadManager.Request.NETWORK_WIFI
+                        | DownloadManager.Request.NETWORK_MOBILE)
+                .setAllowedOverRoaming(false).setTitle("Demo")
+                .setDescription("Profile Picture.")
+                .setDestinationInExternalPublicDir("/study_guide", "profile_pic.jpg");
+
+        mgr.enqueue(request);
+
+    }
+
+
+
+
+
+
+
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -598,4 +726,6 @@ public class MainHomeScreen extends AppCompatActivity
         FirebaseUserActions.getInstance().end(getIndexApiAction());
         super.onStop();
     }
+
+
 }

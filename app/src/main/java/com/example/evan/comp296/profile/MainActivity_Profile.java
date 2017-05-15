@@ -33,6 +33,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.evan.comp296.MainHomeScreen;
+import com.example.evan.comp296.Notes.Note_database;
+import com.example.evan.comp296.Notes.User_SQLite;
 import com.example.evan.comp296.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -63,6 +66,8 @@ public class MainActivity_Profile extends AppCompatActivity implements View.OnCl
 
     private Uri mDownloadUrl = null;
     private Uri mFileUri = null;
+
+    private Note_database note_db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -256,9 +261,24 @@ public class MainActivity_Profile extends AppCompatActivity implements View.OnCl
 
         // Download URL and Download button
         if (mDownloadUrl != null) {
+
+            note_db= new Note_database(MainActivity_Profile.this);
+            User_SQLite sql = new User_SQLite("1", mDownloadUrl.toString());
+
+
+            if (note_db.Picture_Exists(1)) {
+                note_db.update_row_picture(sql);
+
+            } else {
+
+                note_db.add_row_picture(sql); }
+
+
             ((TextView) findViewById(R.id.picture_download_uri))
                     .setText(mDownloadUrl.toString());
             findViewById(R.id.layout_download).setVisibility(View.VISIBLE);
+            Toast.makeText(MainActivity_Profile.this, "Picture URL "+mDownloadUrl, Toast.LENGTH_LONG).show();
+            startActivity(new Intent(this, MainHomeScreen.class));
         } else {
             ((TextView) findViewById(R.id.picture_download_uri))
                     .setText(null);

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:wheel="http://schemas.android.com/apk/lib/com.pnikosis.materialishprogress.ProgressWheel"
     android:orientation="vertical" android:layout_width="match_parent"
     android:background="@mipmap/mobile_portrait_2"
     android:layout_height="match_parent">
@@ -20,6 +22,18 @@
         android:elevation="15dp"
         android:textColor="@color/Black"
         android:background="@mipmap/button"/>
+
+
+
+    <com.pnikosis.materialishprogress.ProgressWheel
+        android:id="@+id/progress_wheel"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="185dp"
+        android:layout_below="@id/splash_text"
+        android:layout_centerHorizontal="true"
+        wheel:matProg_barColor="@color/royal_blue"
+        wheel:matProg_progressIndeterminate="true" />
 
 
 

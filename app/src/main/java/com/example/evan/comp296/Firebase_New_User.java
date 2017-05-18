@@ -57,7 +57,7 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
     private AdView mAdView;
 
     private DatabaseReference mDatabase;
-    String display_name;
+    //String display_name;
     String full_name;
 
 
@@ -350,7 +350,7 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
 
                             findViewById(R.id.firebase_sign_out_BTN).setVisibility(View.VISIBLE);
 
-                            //startActivity(new Intent(Firebase_New_User.this, MainActivity.class));
+                            //startActivity(new Intent(Firebase_New_User.this, MainActivity_invites.class));
                             //setContentView(R.layout.main_activity);
                         } else {
                             Log.e(TAG, "sendEmailVerification", task.getException());
@@ -366,6 +366,18 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
 
     private boolean validateForm() {
         boolean valid = true;
+
+
+        String display_name = mNameField.getText().toString();
+        if (TextUtils.isEmpty(display_name)) {
+            mNameField.setError("Required.");
+            valid = false;
+        } else if (display_name.length()<=4){
+            mNameField.setError("Enter full name");
+        } else {
+            full_name = display_name;
+            mPasswordField.setError(null);
+        }
 
         String email = mEmailField.getText().toString();
         if (TextUtils.isEmpty(email)) {
@@ -389,16 +401,7 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
             mPasswordField.setError(null);
         }
 
-        display_name = mNameField.getText().toString();
-        if (TextUtils.isEmpty(display_name)) {
-            mNameField.setError("Required.");
-            valid = false;
-        } else if (password.length()<=4){
-            mPasswordField.setError("Enter full name");
-        } else {
-            full_name = display_name;
-            mPasswordField.setError(null);
-        }
+
 
 
         return valid;

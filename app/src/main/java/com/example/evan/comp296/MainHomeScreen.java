@@ -1,31 +1,31 @@
 package com.example.evan.comp296;
 
 import android.app.DownloadManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-
-
-import android.content.Context;
-import android.support.annotation.NonNull;
-import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -33,14 +33,15 @@ import android.widget.Toast;
 
 import com.example.evan.comp296.Notes.Note_Homepage;
 import com.example.evan.comp296.Notes.Note_database;
-import com.example.evan.comp296.about_and_contact.about_us;
-import com.example.evan.comp296.messaging.WelcomeActivity;
+import com.example.evan.comp296.about_and_contact.Contact_us;
+import com.example.evan.comp296.about_and_contact.about_us_2;
+import com.example.evan.comp296.group_chat.LoginActivity_for_chat;
+import com.example.evan.comp296.invites.MainActivity_invites;
 import com.example.evan.comp296.profile.Profile_main;
 import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
 import com.facebook.login.widget.ProfilePictureView;
 import com.google.android.gms.auth.api.Auth;
-
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
@@ -57,8 +58,6 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import java.io.BufferedInputStream;
@@ -170,6 +169,8 @@ public class MainHomeScreen extends AppCompatActivity
         }
 
 
+
+
         if (nd.Picture_Exists(1) && nd.get_Picture_URL(1) !=null) {
 
             nav_pic = (ImageView) headerView.findViewById(R.id.imageView_nav_profile);
@@ -184,15 +185,25 @@ public class MainHomeScreen extends AppCompatActivity
 
             String url2= nd.get_Picture_URL(1);
 
-            new Task2().execute(url2);
+            //new Task2().execute(url2);
 
-            try {
-                nav_pic.setImageBitmap(new Task2().execute(url2).get());
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
+
+            if (isConnectedToInternet()) {
+
+                try {
+                    nav_pic.setImageBitmap(new Task2().execute(url2).get());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
+
+            } else {
+                finish();
             }
+
+
+
 
             /*
 
@@ -213,10 +224,7 @@ public class MainHomeScreen extends AppCompatActivity
 
             }
 
-            */
 
-
-            /*
             URL myUrl = null;
             try {
                 myUrl = new URL(url2);
@@ -234,6 +242,7 @@ public class MainHomeScreen extends AppCompatActivity
             nav_pic.setImageDrawable(drawable);
 
             */
+
 
 
 
@@ -366,13 +375,20 @@ public class MainHomeScreen extends AppCompatActivity
 
             signOut();
             //revokeAccess();
-            if (mGoogleApiClient.isConnected()==false){
-            startActivity(new Intent(this,MainActivity.class));}
+            if (mGoogleApiClient.isConnected() == false) {
+                startActivity(new Intent(this, MainActivity.class));
+            }
 
             loginManager.logOut();
-            startActivity(new Intent(this,MainActivity.class));
+            startActivity(new Intent(this, MainActivity.class));
             return true;
-        }
+
+        }else if(id ==R.id.settings) {
+            startActivity(new Intent(this, Settings_screen.class));
+            return true;
+
+            }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -393,14 +409,18 @@ public class MainHomeScreen extends AppCompatActivity
             startActivity(new Intent(this,Note_Homepage.class));
 
         } else if(id == R.id.menu_messaging) {
-            startActivity(new Intent(this,WelcomeActivity.class));
+            startActivity(new Intent(this,LoginActivity_for_chat.class));
 
         } else if (id == R.id.menu_about_us) {
-            startActivity(new Intent(this,about_us.class));
+            startActivity(new Intent(this,about_us_2.class));
 
         } else if (id == R.id.menu_contact_us) {
 
+            startActivity(new Intent(this, Contact_us.class));
+
         } else if (id == R.id.nav_share) {
+
+            startActivity(new Intent(this,MainActivity_invites.class));
 
         } else if (id == R.id.nav_send) {
 
@@ -458,7 +478,7 @@ public class MainHomeScreen extends AppCompatActivity
         //else if (accessToken != null) {
 
                // loginManager.logOut();
-               // startActivity(new Intent(MainHomeScreen.this,MainActivity.class));
+               // startActivity(new Intent(MainHomeScreen.this,MainActivity_invites.class));
 
             /*
 
@@ -621,9 +641,9 @@ public class MainHomeScreen extends AppCompatActivity
 
         */
 
-        data.add(new Data(R.mipmap.java_logo));
+        data.add(new Data(R.mipmap.java_logo_icon_23));
         data.add(new Data(R.mipmap.mysql));
-        data.add(new Data(R.mipmap.c_logo_icon_6));
+        data.add(new Data(R.mipmap.c_logo_icon_67));
         data.add(new Data(R.mipmap.assembly));
         data.add(new Data(R.mipmap.html_css1));
 
@@ -696,6 +716,22 @@ public class MainHomeScreen extends AppCompatActivity
 
 
 
+    public boolean isConnectedToInternet(){
+        ConnectivityManager connectivity = (ConnectivityManager)getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivity != null)
+        {
+            NetworkInfo[] info = connectivity.getAllNetworkInfo();
+            if (info != null)
+                for (int i = 0; i < info.length; i++)
+                    if (info[i].getState() == NetworkInfo.State.CONNECTED)
+                    {
+                        return true;
+                    }
+
+        }
+        return false;
+    }
+
 
 
 
@@ -726,6 +762,12 @@ public class MainHomeScreen extends AppCompatActivity
         FirebaseUserActions.getInstance().end(getIndexApiAction());
         super.onStop();
     }
+
+
+
+
+
+
 
 
 }

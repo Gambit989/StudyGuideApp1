@@ -38,8 +38,9 @@ public class comp271 extends AppCompatActivity{
 
 
         setSupportActionBar(myToolbar);
-
         getSupportActionBar().setTitle("Comp-271");
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         wv = (WebView) findViewById(R.id.webview1);

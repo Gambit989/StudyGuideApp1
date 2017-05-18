@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -39,6 +40,8 @@ public class java_main extends AppCompatActivity implements AdapterView.OnItemSe
     Java_Recycler_Adapter2 mAdapter2;
     Java_Recycler_Adapter3 mAdapter3;
 
+    Toolbar toolbar;
+
 
     List data;
     List data2;
@@ -47,6 +50,13 @@ public class java_main extends AppCompatActivity implements AdapterView.OnItemSe
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.java_main);
+
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar_java);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         java_spinner = (Spinner) findViewById(R.id.spinner_java);

@@ -1,18 +1,25 @@
 package com.example.evan.comp296;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.pnikosis.materialishprogress.ProgressWheel;
+
 /**
  * Created by Evan on 5/14/17.
+ *
  */
+
+
 
 public class splash_screen extends AppCompatActivity {
 
@@ -26,6 +33,11 @@ public class splash_screen extends AppCompatActivity {
     public Animation fadeIn;
     public Animation fadeIn2;
 
+    private ProgressWheel progressWheel;
+    private ProgressWheel progressWheelInterpolated;
+    private ProgressWheel progressWheelLinear;
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,6 +48,8 @@ public class splash_screen extends AppCompatActivity {
         //image_load_icon_2= (ImageView) findViewById(R.id.splash_image_load_icon_2);
         //image_load_icon_3= (ImageView) findViewById(R.id.splash_image_load_icon_3);
         image_load_icon_4= (ImageView) findViewById(R.id.splash_image_load_icon_4);
+
+        progressWheel = (ProgressWheel) findViewById(R.id.progress_wheel);
 
         splash_text= (Button) findViewById(R.id.splash_text);
 
@@ -58,13 +72,17 @@ public class splash_screen extends AppCompatActivity {
 
         image_load_icon_4.setAnimation(bottom_up);
 
+        progressWheel.setBarColor(Color.BLUE);
+        //progressWheel.setBarColor(R.color.royal_blue);
+        progressWheel.setRimColor(Color.GRAY);
+        progressWheel.spin();
 
+
+
+        //ProgressWheel a = new ProgressWheel(splash_screen.this,R.styleable.ProgressWheel);
 
         splash_text.startAnimation(fadeIn2);
         splash_text.setVisibility(View.VISIBLE);
-
-
-
 
 
 

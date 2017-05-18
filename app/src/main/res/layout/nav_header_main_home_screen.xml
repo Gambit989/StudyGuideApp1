@@ -14,17 +14,18 @@
 
     <ImageView
         android:id="@+id/imageView_nav_profile"
-        android:layout_width="150dp"
+        android:layout_width="220dp"
         android:layout_height="150dp"
         android:layout_gravity="center_horizontal"
-        android:paddingTop="16dp"
+
+        android:layout_marginBottom="4dp"
         app:srcCompat="@drawable/profile_icon" />
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:paddingTop="15dp"
         android:text="Welcome"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 

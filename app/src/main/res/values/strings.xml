@@ -164,9 +164,9 @@
     <string name="download_failure">Download failure</string>
 
 
-    <string name="about_us">This app was created by Evan and his company \n\n <h2>ECMEDIAGROUP</h2>\n\nIt originally started out as a project for class when he was attending
+    <string name="about_us">This app was created by Evan and his company\n\n<h2>ECMEDIAGROUP</h2>\n\nIt originally started out as a project for class when he was attending
     Brookdale Community College and then continually progressed over the course of a year and a half.<p> \n\nThe goal of this app is to have a centralized hub of information
-    to help you study quickly for a test or if you need information right ta your fingertips. </p>This is only the first version of the app, the next version
+    to help you study quickly for a test or if you need information right at your fingertips. </p>This is only the first version of the app, the next version
     we intended on implementing many more features such as real time messaging where you can have a group chat with other users who might be in your class
     or whatever the case may be. This will be introduced in the next update.<p> \n\nMore information about Evan can be found in the link below.</p></string>
 
@@ -212,6 +212,62 @@
     <string name="alert_dialog_ok">YES</string>
     <string name="alert_dialog_cancel">NO</string>
 
+
+
+
+
+
+    <string name="action_deep_link">
+        com.google.android.gms.samples.appinvite.DEEP_LINK_ACTION
+    </string>
+
+    <string name="invite">Send invitations!</string>
+    <string name="welcome">Invites</string>
+    <string name="referrer_hint">Deep link not provided</string>
+    <string name="deep_link_default">Deep link not set</string>
+    <string name="invitation_id_default">Invitation ID not set</string>
+    <string name="invite_friends">Invite Friends</string>
+
+    <string name="invitation_title">Send App Invite Quickstart Invitation</string>
+    <string name="invitation_message">This app is terrific for studying, give it a try!</string>
+    <string name="invitation_deep_link">https://eubk9.app.goo.gl/eNh4</string>
+    <string name="invitation_custom_image">https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png</string>
+    <string name="invitation_cta">Install!</string>
+
+    <string name="deep_link_fmt" formatted="false">Deep Link: %s</string>
+    <string name="invitation_id_fmt" formatted="false">Invitation ID: %s</string>
+
+    <string name="sent_invitations_fmt" formatted="false">Sent %d invitations</string>
+    <string name="send_failed">Sending invitations failed</string>
+    <string name="invite_dialog_title">You got an invitation!</string>
+
+    <string name="google_play_services_error">Google Play Services Error</string>
+
+
+
+
+    <string name="contact_us">Please report all bugs/crashes and any suggestions for future versions of the app.</string>
+
+
+    <string name="x86">Computer Architecture and Assembly Language for x86 processors</string>
+
+
+    <string name="ad_policy">We have made this app trying to keep ads to the absolute minimium and to try not to disrupt the User Experience with any disruptive ads
+        when you are trying to study. We tried to only put them into the app where we have extra space.\n\nThank you for your support.</string>
+
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_gcm_register">GCM Register</string>
+    <string name="action_gcm_unregister">GCM Unregister</string>
+    <string name="title_activity_login">Login</string>
+    <string name="login">Choose a username:</string>
+    <string name="username">Username</string>
+    <string name="login_submit">Join the Chat!</string>
+
+    <string name="enter_new_channel">Enter new channel:</string>
+    <string name="send_message">Send a message...</string>
+    <string name="action_sign_out">Sign Out</string>
+    <string name="here_now">Here Now:</string>
 
 
 </resources>

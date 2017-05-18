@@ -385,7 +385,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-/*
+
 
         accessTokenTracker = new AccessTokenTracker() {
             @Override
@@ -396,10 +396,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-        updateWithToken(AccessToken.getCurrentAccessToken());
+        //updateWithToken(AccessToken.getCurrentAccessToken());
 
 
-*/
+
         //END FACEBOOK CODE
 
 

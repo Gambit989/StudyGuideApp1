@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/settings_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/amber_900"
+        card_view:titleTextColor="@color/blue_grey_700">
+
+    </android.support.v7.widget.Toolbar>
+
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="@dimen/card_margin"
+        android:layout_marginLeft="@dimen/card_margin"
+        android:layout_marginRight="@dimen/card_margin"
+        card_view:cardElevation="5dp">
+
+        <LinearLayout
+            style="@style/Widget.CardContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Ad Policy"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:autoLink="web"
+                android:lineSpacingMultiplier="1.3"
+                android:text="@string/ad_policy"
+                android:textColor="@color/black_text_secondary"
+                android:textSize="@dimen/text_action" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/card_margin"
+        android:layout_marginLeft="@dimen/card_margin"
+        android:layout_marginRight="@dimen/card_margin"
+        card_view:cardElevation="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/view_easter_egg"
+                style="@style/Widget.CardContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="243dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:text="Brookdale Computer Science Study Guide"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:lineSpacingMultiplier="1.3"
+                    android:text="Version 1.0"
+                    android:textColor="@color/black_text_secondary"
+                    android:textSize="@dimen/text_action"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/view_itc_2"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:adjustViewBounds="true"
+                android:clickable="true"
+                android:contentDescription="@null"
+                android:paddingRight="@dimen/margin_small"
+                android:paddingTop="23dp"
+                android:src="@mipmap/ecmedia"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+
+    <com.google.android.gms.ads.NativeExpressAdView
+        android:id="@+id/native_express_adview_1"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        ads:adSize="350x105"
+        ads:adUnitId="@string/banner_ad_unit_id">
+    </com.google.android.gms.ads.NativeExpressAdView>
+
+
+
+
+</LinearLayout>

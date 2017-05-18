@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <TextView
-        android:text="TextView"
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/mysql_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="10dp"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        android:layout_marginEnd="25dp"
+
+        android:elevation="40dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="149dp"
-        android:layout_marginBottom="250dp"
-        android:id="@+id/textView" />
+        android:layout_alignParentRight="true"/>
+
+
+
+
 </RelativeLayout>

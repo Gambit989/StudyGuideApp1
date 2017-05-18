@@ -24,12 +24,12 @@
             android:title="Contact" />
     </group>
 
-    <item android:title="Invite your friends">
+    <item android:title="Share the app with others">
         <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="Invite Your Friends" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"

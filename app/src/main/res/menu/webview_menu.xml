@@ -4,16 +4,16 @@
 
 
 
-    <!-- "Mark Favorite", should appear as action button if possible -->
-    <item
-        android:id="@+id/action_favorite"
-        android:icon="@drawable/ic_note_add_black_24dp"
-        android:title="Create Note"
-        app:showAsAction="ifRoom"/>
+        <!-- "Mark Favorite", should appear as action button if possible -->
+        <item
+    android:id="@+id/action_favorite"
+    android:icon="@drawable/ic_note_add_black_24dp"
+    android:title="Create Note"
+    app:showAsAction="ifRoom"/>
 
-    <!-- Settings, should always be in the overflow -->
+        <!-- Settings, should always be in the overflow -->
     <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        app:showAsAction="never"/>
+    android:title="@string/action_settings"
+    app:showAsAction="never"/>
 
-</menu>
+    </menu>

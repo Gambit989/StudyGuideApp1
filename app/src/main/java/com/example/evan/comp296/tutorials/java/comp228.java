@@ -32,10 +32,10 @@ public class comp228 extends AppCompatActivity {
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar1);
 
-
         setSupportActionBar(myToolbar);
-
         getSupportActionBar().setTitle("Comp-228");
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Bundle bundle = getIntent().getExtras();
 

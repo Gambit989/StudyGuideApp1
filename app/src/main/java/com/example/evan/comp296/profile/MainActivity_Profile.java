@@ -33,6 +33,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.evan.comp296.MainHomeScreen;
+import com.example.evan.comp296.Notes.Note_database;
+import com.example.evan.comp296.Notes.User_SQLite;
 import com.example.evan.comp296.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -40,6 +43,13 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.Locale;
 
 /**
@@ -63,6 +73,8 @@ public class MainActivity_Profile extends AppCompatActivity implements View.OnCl
 
     private Uri mDownloadUrl = null;
     private Uri mFileUri = null;
+
+    private Note_database note_db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +122,11 @@ public class MainActivity_Profile extends AppCompatActivity implements View.OnCl
                         break;
                     case MyUploadService.UPLOAD_COMPLETED:
                     case MyUploadService.UPLOAD_ERROR:
-                        onUploadResultIntent(intent);
+                        try {
+                            onUploadResultIntent(intent);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                         break;
                 }
             }
@@ -123,7 +139,11 @@ public class MainActivity_Profile extends AppCompatActivity implements View.OnCl
 
         // Check if this Activity was launched by clicking on an upload notification
         if (intent.hasExtra(MyUploadService.EXTRA_DOWNLOAD_URL)) {
-            onUploadResultIntent(intent);
+            try {
+                onUploadResultIntent(intent);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
     }
@@ -131,7 +151,11 @@ public class MainActivity_Profile extends AppCompatActivity implements View.OnCl
     @Override
     public void onStart() {
         super.onStart();
-        updateUI(mAuth.getCurrentUser());
+        try {
+            updateUI(mAuth.getCurrentUser());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         // Register receiver for uploads and downloads
         LocalBroadcastManager manager = LocalBroadcastManager.getInstance(this);
@@ -161,7 +185,11 @@ public class MainActivity_Profile extends AppCompatActivity implements View.OnCl
                 mFileUri = data.getData();
 
                 if (mFileUri != null) {
-                    uploadFromUri(mFileUri);
+                    try {
+                        uploadFromUri(mFileUri);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 } else {
                     Log.w(TAG, "File URI is null");
                 }
@@ -171,7 +199,7 @@ public class MainActivity_Profile extends AppCompatActivity implements View.OnCl
         }
     }
 
-    private void uploadFromUri(Uri fileUri) {
+    private void uploadFromUri(Uri fileUri) throws IOException {
         Log.d(TAG, "uploadFromUri:src:" + fileUri.toString());
 
         // Save the File URI
@@ -223,7 +251,11 @@ public class MainActivity_Profile extends AppCompatActivity implements View.OnCl
                     public void onSuccess(AuthResult authResult) {
                         Log.d(TAG, "signInAnonymously:SUCCESS");
                         hideProgressDialog();
-                        updateUI(authResult.getUser());
+                        try {
+                            updateUI(authResult.getUser());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 })
                 .addOnFailureListener(this, new OnFailureListener() {
@@ -231,12 +263,16 @@ public class MainActivity_Profile extends AppCompatActivity implements View.OnCl
                     public void onFailure(@NonNull Exception exception) {
                         Log.e(TAG, "signInAnonymously:FAILURE", exception);
                         hideProgressDialog();
-                        updateUI(null);
+                        try {
+                            updateUI(null);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
     }
 
-    private void onUploadResultIntent(Intent intent) {
+    private void onUploadResultIntent(Intent intent) throws IOException {
         // Got a new intent from MyUploadService with a success or failure
         mDownloadUrl = intent.getParcelableExtra(MyUploadService.EXTRA_DOWNLOAD_URL);
         mFileUri = intent.getParcelableExtra(MyUploadService.EXTRA_FILE_URI);
@@ -244,7 +280,7 @@ public class MainActivity_Profile extends AppCompatActivity implements View.OnCl
         updateUI(mAuth.getCurrentUser());
     }
 
-    private void updateUI(FirebaseUser user) {
+    private void updateUI(FirebaseUser user) throws IOException {
         // Signed in or Signed out
         if (user != null) {
             findViewById(R.id.layout_signin).setVisibility(View.GONE);
@@ -256,9 +292,56 @@ public class MainActivity_Profile extends AppCompatActivity implements View.OnCl
 
         // Download URL and Download button
         if (mDownloadUrl != null) {
+
+            note_db= new Note_database(MainActivity_Profile.this);
+            User_SQLite sql = new User_SQLite("1", mDownloadUrl.toString());
+
+
+            if (note_db.Picture_Exists(1)) {
+                note_db.update_row_picture(sql);
+
+            } else {
+
+                note_db.add_row_picture(sql); }
+
+
+            /*
+            //WRITE FILE TO INTERNAL STORAGE
+            URL url = new URL(mDownloadUrl.toString());
+            InputStream in = new BufferedInputStream(url.openStream());
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            byte[] buf = new byte[1024];
+            int n = 0;
+            while (-1!=(n=in.read(buf)))
+            {
+                out.write(buf, 0, n);
+            }
+            out.close();
+            in.close();
+            byte[] response = out.toByteArray();
+
+            String filename = "profilepic";
+
+            File yourFile = new File(this.getFilesDir() +filename);
+            yourFile.createNewFile(); // if file already exists will do nothing
+
+            FileOutputStream fos = new FileOutputStream(this.getFilesDir() +filename);
+            fos.write(response);
+            fos.close();
+
+            Log.d("FILE PATH", "FILE PATH  " +this.getFilesDir() +filename);
+
+
+            */
+
             ((TextView) findViewById(R.id.picture_download_uri))
                     .setText(mDownloadUrl.toString());
             findViewById(R.id.layout_download).setVisibility(View.VISIBLE);
+            Toast.makeText(MainActivity_Profile.this, "Picture URL "+mDownloadUrl, Toast.LENGTH_LONG).show();
+
+            //beginDownload();
+
+            startActivity(new Intent(this, MainHomeScreen.class));
         } else {
             ((TextView) findViewById(R.id.picture_download_uri))
                     .setText(null);
@@ -301,7 +384,11 @@ public class MainActivity_Profile extends AppCompatActivity implements View.OnCl
         int i = item.getItemId();
         if (i == R.id.action_logout) {
             FirebaseAuth.getInstance().signOut();
-            updateUI(null);
+            try {
+                updateUI(null);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             return true;
         } else {
             return super.onOptionsItemSelected(item);

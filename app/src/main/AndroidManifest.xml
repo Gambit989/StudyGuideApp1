@@ -22,16 +22,22 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>
+
+        <activity android:name=".splash_screen"
+            android:theme="@style/Theme.Design.NoActionBar">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
         <activity
             android:name=".MainActivity"
             android:icon="@mipmap/brookdale"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <!-- A child of the main activity -->
         <activity
@@ -150,7 +156,7 @@
 
         <activity
             android:name="com.example.evan.comp296.tutorials.java.java_main"
-            android:label="@string/app_name2"
+            android:label="Java Courses"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -330,6 +336,34 @@
                 android:value="com.example.evan.comp296.MainHomeScreen" />
         </activity>
 
+        <activity
+        android:name="com.example.evan.comp296.tutorials.mysql.SQL_linked_to_web"
+        android:label="SQL"
+        android:theme="@style/Theme.Design.NoActionBar">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.evan.comp296.tutorials.mysql.SQL_main" />
+        </activity>
+
+        <activity
+            android:name="com.example.evan.comp296.tutorials.assembly.MainActivity_pixel"
+            android:label="Comp-135"
+            android:supportsRtl="true"
+            android:theme="@style/AppThemePixel">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.MainHomeScreen" />
+        </activity>
+
+        <activity
+            android:name="com.example.evan.comp296.tutorials.assembly.Comp135"
+            android:label="Comp-135: Computer Architecture"
+            android:theme="@style/Theme.Design.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.tutorials.assembly.MainActivity_pixel" />
+        </activity>
+
 
 
 
@@ -345,7 +379,7 @@
 
         <activity
             android:name="com.example.evan.comp296.Notes.Note_Homepage"
-            android:label="@string/app_name2">
+            android:label="Notes Homepage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.evan.comp296.MainHomeScreen" />
@@ -375,7 +409,25 @@
 
         <activity
             android:name="com.example.evan.comp296.about_and_contact.about_us"
-            android:label="@string/app_name2">
+            android:label="About Us">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.MainHomeScreen" />
+
+        </activity>
+
+        <activity
+            android:name="com.example.evan.comp296.about_and_contact.about_us_2"
+            android:label="Our Story">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.MainHomeScreen" />
+
+        </activity>
+
+        <activity
+            android:name="com.example.evan.comp296.about_and_contact.Contact_us"
+            android:label="Contact">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.evan.comp296.MainHomeScreen" />
@@ -384,8 +436,20 @@
 
 
         <activity
+            android:name="com.example.evan.comp296.Settings_screen"
+            android:label="Settings">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.MainHomeScreen" />
+
+        </activity>
+
+
+
+
+        <activity
             android:name="com.example.evan.comp296.profile.MainActivity_Profile"
-            android:label="@string/app_name2">
+            android:label="My Profile">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.evan.comp296.MainHomeScreen" />
@@ -394,7 +458,7 @@
 
         <activity
             android:name="com.example.evan.comp296.profile.Profile_main"
-            android:label="@string/app_name2">
+            android:label="My Profile">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.evan.comp296.MainHomeScreen" />
@@ -449,6 +513,79 @@
 
 
 
+        <activity
+            android:name="com.example.evan.comp296.invites.MainActivity_invites"
+            android:label="Invite">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.MainHomeScreen" />
+        </activity>
+
+
+        <activity
+            android:name="com.example.evan.comp296.invites.DeepLinkActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+
+            <!-- [START deep_link_filter] -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:host="example.com"/>
+                <data android:scheme="http"/>
+                <data  android:scheme="https"/>
+            </intent-filter>
+            <!-- [END deep_link_filter] -->
+        </activity>
+
+
+        <activity
+            android:name="com.example.evan.comp296.group_chat.MainActivity_for_chat"
+            android:label="Group Chat"
+            android:theme="@android:style/Theme.Holo.Light">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.group_chat.LoginActivity_for_chat" />
+        </activity>
+
+
+        <activity
+            android:name="com.example.evan.comp296.group_chat.LoginActivity_for_chat"
+            android:label="@string/title_activity_login"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.MainHomeScreen" />
+        </activity>
+
+        <receiver
+            android:name="com.example.evan.comp296.group_chat.gcm.GcmBroadcastReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.example.gcm" />
+            </intent-filter>
+        </receiver>
+
+
+        <service
+            android:name="com.example.evan.comp296.group_chat.gcm.GcmIntentService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+
+
+
+
+
+
 
         <activity android:name="com.facebook.FacebookActivity"
             android:configChanges=
@@ -465,6 +602,11 @@
             <data android:scheme="@string/fb_login_protocol_scheme" />
         </intent-filter>
     </activity>
+
+
+
+
+
 
 
 

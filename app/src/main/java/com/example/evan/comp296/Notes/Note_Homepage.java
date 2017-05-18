@@ -8,6 +8,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -49,10 +50,21 @@ public class Note_Homepage extends AppCompatActivity {
     Button refresh_button;
     String[] test;
 
+    Toolbar toolbar;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.note_homepage);
+
+
+
+        toolbar= (Toolbar) findViewById(R.id.toolbar_notes);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setLogo(R.drawable.ic_note_2);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
 

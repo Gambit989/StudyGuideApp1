@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import java.util.Collections;
 import java.util.List;
 
+import com.example.evan.comp296.tutorials.assembly.MainActivity_pixel;
 import com.example.evan.comp296.tutorials.java.java_main;
 import com.example.evan.comp296.tutorials.mysql.SQL_main;
 
@@ -162,8 +163,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.PhotoH
                             .setAction("Action", null).show();
 
                 } else if (getLayoutPosition() == 3) {
-                    Snackbar.make(v, "Layout position 4", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
+
+
+                    v.getContext().startActivity(new Intent(v.getContext(),MainActivity_pixel.class));
+                    //Snackbar.make(v, "Layout position 4", Snackbar.LENGTH_LONG)
+                            //.setAction("Action", null).show();
 
                 }
 

@@ -24,8 +24,8 @@ public class CustomFragmentPagerAdaptor extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position)
     {
-        FragmentTest fragmentTest = new FragmentTest();
-        return fragmentTest;
+        SQL_fragment SQLfragment = new SQL_fragment();
+        return SQLfragment;
     }
 
     @Override

@@ -2,6 +2,7 @@
 <android.support.design.widget.CoordinatorLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
+	android:background="@color/activity_background"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	tools:context="com.example.evan.comp296.tutorials.assembly.MainActivity_pixel">
@@ -12,6 +13,7 @@
 		android:layout_gravity="top|center_horizontal"
 		android:layout_marginTop="16dp"
 		android:textSize="18dp"
+		android:textColor="@color/blue_grey_800"
 		android:textStyle="bold"
 		android:textAlignment="center"
 		android:text="@string/x86">

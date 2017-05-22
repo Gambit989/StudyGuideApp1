@@ -3,8 +3,10 @@ package com.example.evan.comp296.Notes;
 import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -47,10 +49,11 @@ public class Note_Homepage extends AppCompatActivity {
     List data;
     List data2;
 
-    Button refresh_button;
+    //Button refresh_button;
     String[] test;
 
     Toolbar toolbar;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -88,7 +91,7 @@ public class Note_Homepage extends AppCompatActivity {
 
 
 
-        refresh_button = (Button) findViewById(R.id.refresh);
+        //refresh_button = (Button) findViewById(R.id.refresh);
         nd = new Note_database(Note_Homepage.this);
 
 
@@ -108,11 +111,26 @@ public class Note_Homepage extends AppCompatActivity {
         Note_RecyclerView1.setAdapter(mAdapter);
 
 
+        /*
         refresh_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
                 startActivity(getIntent());
+            }
+        });
+
+        */
+
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout_recycler_view);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                finish();
+                startActivity(getIntent());
+
+
             }
         });
 

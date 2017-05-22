@@ -129,7 +129,15 @@
 
     <string name="server_client_id">616707699367-soapc1oeelufi1e9tuultnu5at9k0q6j.apps.googleusercontent.com</string>
 
-    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="adMob_App_ID">ca-app-pub-2106373836011104~1696193472</string>
+
+
+    <string name="banner_ad_unit_id">ca-app-pub-2106373836011104/4649659872</string>
+
+    <string name="settings_native_ad">ca-app-pub-2106373836011104/9079859474</string>
+
+    <string name= "contact_us_ad">ca-app-pub-2106373836011104/4510059074</string>
+
 
 
 
@@ -211,6 +219,11 @@
     <string name="alert_dialog_two_buttons_title">Do you really want to delete this note?</string>
     <string name="alert_dialog_ok">YES</string>
     <string name="alert_dialog_cancel">NO</string>
+
+    <string name="alert_dialog_two_buttons_event_title">Do you really want to delete this event?</string>
+
+    <string name="alert_dialog_two_buttons_event">Do you really want to add this event?</string>
+    <string name="alert_dialog_edit">Edit event</string>
 
 
 

@@ -7,6 +7,8 @@
     android:scrollbars="vertical"
     tools:context="com.example.evan.comp296.profile.MainActivity_Profile">
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,6 +17,8 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         android:orientation="vertical">
+
+
 
         <ImageView
             android:id="@+id/firebase_logo"
@@ -66,7 +70,14 @@
                 android:id="@+id/button_camera"
                 android:layout_width="@dimen/standard_field_width"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
                 android:text="@string/camera_button_text" />
+            <Button
+                android:id="@+id/button_cancel"
+                android:layout_width="@dimen/standard_field_width"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                android:textColor="@color/orange_700"/>
 
         </LinearLayout>
 

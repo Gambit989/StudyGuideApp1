@@ -35,6 +35,8 @@ import com.example.evan.comp296.Notes.Note_Homepage;
 import com.example.evan.comp296.Notes.Note_database;
 import com.example.evan.comp296.about_and_contact.Contact_us;
 import com.example.evan.comp296.about_and_contact.about_us_2;
+import com.example.evan.comp296.calendar_events.calendar_main;
+import com.example.evan.comp296.calendar_events.calendar_viewer;
 import com.example.evan.comp296.group_chat.LoginActivity_for_chat;
 import com.example.evan.comp296.invites.MainActivity_invites;
 import com.example.evan.comp296.profile.Profile_main;
@@ -117,6 +119,8 @@ public class MainHomeScreen extends AppCompatActivity
 
     Note_database nd;
 
+    FloatingActionButton fab;
+
 
     //SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
     String restoredText ;
@@ -132,7 +136,7 @@ public class MainHomeScreen extends AppCompatActivity
 
         //restoredText = prefs.getString("email", null);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -248,7 +252,7 @@ public class MainHomeScreen extends AppCompatActivity
 
         } else {
             nav_pic = (ImageView) headerView.findViewById(R.id.imageView_nav_profile);
-            nav_pic.setImageResource(R.drawable.circle);
+            nav_pic.setImageResource(R.drawable.profile_icon);
         }
 
 
@@ -329,6 +333,24 @@ public class MainHomeScreen extends AppCompatActivity
         mAdapter = new RecyclerAdapter(data, getApplicationContext());
 
         mRecyclerView.setAdapter(mAdapter);
+
+
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener(){
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy){
+                if (dy > 0 ||dy<0 && fab.isShown())
+                    fab.hide();
+            }
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+
+                if (newState == RecyclerView.SCROLL_STATE_IDLE){
+                    fab.show();
+                }
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+        });
 
 
         //Profile profile;
@@ -417,6 +439,10 @@ public class MainHomeScreen extends AppCompatActivity
         } else if (id == R.id.menu_contact_us) {
 
             startActivity(new Intent(this, Contact_us.class));
+
+        } else if (id == R.id.menu_calendar) {
+
+            startActivity(new Intent(this, calendar_viewer.class));
 
         } else if (id == R.id.nav_share) {
 

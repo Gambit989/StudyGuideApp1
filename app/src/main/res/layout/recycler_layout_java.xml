@@ -13,6 +13,7 @@
         android:layout_height="match_parent"
         android:textSize="30dp"
         android:textAlignment="center"
+        android:paddingTop="3dp"
         android:textColor="@color/colorPrimaryDark"
         android:elevation="7dp"
 

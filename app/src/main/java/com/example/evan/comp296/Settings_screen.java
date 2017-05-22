@@ -38,7 +38,7 @@ public class Settings_screen extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        MobileAds.initialize(getApplicationContext(), getResources().getString(R.string.banner_ad_unit_id) );
+        MobileAds.initialize(getApplicationContext(), getString(R.string.adMob_App_ID) );
 
 
 

@@ -87,7 +87,7 @@ public class SQL_fragment extends android.support.v4.app.Fragment {
         data.add("Databases");
         data.add("Create Database");
         data.add("Drop Database");
-        data.add("Select Databsse");
+        data.add("Select Database");
         data.add("Create Table");
         data.add("Drop Table");
         data.add("Insert Query");

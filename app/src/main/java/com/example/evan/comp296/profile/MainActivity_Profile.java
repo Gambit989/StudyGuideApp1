@@ -88,6 +88,7 @@ public class MainActivity_Profile extends AppCompatActivity implements View.OnCl
         findViewById(R.id.button_camera).setOnClickListener(this);
         findViewById(R.id.button_sign_in).setOnClickListener(this);
         findViewById(R.id.button_download).setOnClickListener(this);
+        findViewById(R.id.button_cancel).setOnClickListener(this);
 
         // Restore instance state
         if (savedInstanceState != null) {
@@ -404,6 +405,8 @@ public class MainActivity_Profile extends AppCompatActivity implements View.OnCl
             signInAnonymously();
         } else if (i == R.id.button_download) {
             beginDownload();
+        } else if (i == R.id.button_cancel) {
+            startActivity(new Intent(this, Profile_main.class));
         }
     }
 }

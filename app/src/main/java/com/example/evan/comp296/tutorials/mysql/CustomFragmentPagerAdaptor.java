@@ -12,7 +12,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 public class CustomFragmentPagerAdaptor extends FragmentPagerAdapter {
 
 
-    private String[] tabTitle = new String[]{"SQL", "MYSQL", "SQLite", "Oracle", "JAVASCRIPT", "PYTHON", "RUBY", "C"};
+    private String[] tabTitle = new String[]{"SQL", "MYSQL", "SQLite", "MySQLi", "Oracle", "Memchached", "MongoDB"};
     Context context;
     private int pageCount = 7;
 
@@ -24,8 +24,14 @@ public class CustomFragmentPagerAdaptor extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position)
     {
-        SQL_fragment SQLfragment = new SQL_fragment();
-        return SQLfragment;
+        if(position==0) {
+            SQL_fragment SQLfragment1 = new SQL_fragment();
+            return SQLfragment1;
+        }else if(position==1){
+            SQL_fragment_2 SQLfragment2 = new SQL_fragment_2();
+            return SQLfragment2;
+        }
+        return new SQL_fragment();
     }
 
     @Override

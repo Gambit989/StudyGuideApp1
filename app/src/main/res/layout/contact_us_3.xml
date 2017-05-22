@@ -174,7 +174,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"
         ads:adSize="320x150"
-        ads:adUnitId="@string/banner_ad_unit_id">
+        ads:adUnitId="@string/contact_us_ad">
     </com.google.android.gms.ads.NativeExpressAdView>
 
 

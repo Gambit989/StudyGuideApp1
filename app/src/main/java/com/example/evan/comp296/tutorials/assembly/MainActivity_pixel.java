@@ -129,7 +129,7 @@ public class MainActivity_pixel extends AppCompatActivity {
         data.add("Chapter 2");
         data.add("Chapter 3");
         data.add("Chapter 4");
-        data.add("x86 Instruction Set Reference");
+        data.add("x86 Instruction Set");
         data.add("x86 Overview (1)");
         data.add("x86 Overview (2)");
 

@@ -1,33 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/activity_background"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_note_viewer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark">
+
+    </android.support.v7.widget.Toolbar>
 
 
     <LinearLayout
         android:id="@+id/linear_layout_firebase"
         android:orientation="vertical"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="11dp"
         android:paddingTop="5dp"
         android:layout_marginLeft="7dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="9dp"
         android:layout_marginRight="7dp"
         android:layout_width="match_parent"
-        android:background="@drawable/spinner_border5"
+        android:background="@drawable/spinner_border_11"
         android:elevation="15dp"
-        android:layout_height="480dp">
+        android:layout_height="432dp">
 
     <TextView
         android:id="@+id/note_text"
-        android:paddingStart="22dp"
-        android:paddingEnd="18dp"
-        android:layout_marginTop="20dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginEnd="7dp"
         android:layout_gravity="center_horizontal"
-        android:layout_width="370dp"
-        android:layout_height="470dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:textIsSelectable="true"
         android:textSize="18dp"
+        android:textColor="@color/Black"
         android:text="Placeholder" />
 
 

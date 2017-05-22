@@ -33,6 +33,8 @@ public class j3 extends AppCompatActivity {
 
 
         setSupportActionBar(myToolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         getSupportActionBar().setTitle("Java");
 

@@ -81,11 +81,6 @@ public class Note_Recycler_Adapter extends RecyclerView.Adapter<Note_Recycler_Ad
 
         private TextView category;
 
-
-
-
-
-
         //4
         public ViewHolder(View v) {
             super(v);
@@ -117,11 +112,6 @@ public class Note_Recycler_Adapter extends RecyclerView.Adapter<Note_Recycler_Ad
         @Override
         public void onClick(View v) {
 
-
-
-
-
-
             addClasses(hash);
 
             Log.d(" LOG ", hash.get(0).toString());
@@ -145,13 +135,6 @@ public class Note_Recycler_Adapter extends RecyclerView.Adapter<Note_Recycler_Ad
                 mIntent.putExtra("note", note);
 
                 v.getContext().startActivity(mIntent);
-
-
-
-
-
-
-
 
             }
 
@@ -181,20 +164,7 @@ public class Note_Recycler_Adapter extends RecyclerView.Adapter<Note_Recycler_Ad
                 Log.d("TAG","**********" + x + "*****");
 
 
-
-
-
-
-
-
             }
-
-
-
-
-
-
-
 
 
 

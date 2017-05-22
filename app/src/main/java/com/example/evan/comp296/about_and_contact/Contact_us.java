@@ -41,7 +41,7 @@ public class Contact_us extends AppCompatActivity {
 
         findViews();
 
-        MobileAds.initialize(getApplicationContext(), getResources().getString(R.string.banner_ad_unit_id) );
+        MobileAds.initialize(getApplicationContext(), getString(R.string.adMob_App_ID) );
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
 

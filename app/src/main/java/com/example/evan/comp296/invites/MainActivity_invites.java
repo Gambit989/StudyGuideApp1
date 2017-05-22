@@ -24,6 +24,8 @@ package com.example.evan.comp296.invites;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -51,6 +53,9 @@ public class MainActivity_invites extends AppCompatActivity implements
     private static final String TAG = MainActivity_invites.class.getSimpleName();
     private static final int REQUEST_INVITE = 0;
     Toolbar toolbar;
+
+    private static final String DEEP_LINK_URL ="https://comp296-84489.firebaseapp.com/app.html";
+    final Uri deepLink = buildDeepLink(Uri.parse(DEEP_LINK_URL));
 
     // [START define_variables]
     private GoogleApiClient mGoogleApiClient;
@@ -112,20 +117,59 @@ public class MainActivity_invites extends AppCompatActivity implements
         showMessage(getString(R.string.google_play_services_error));
     }
 
+
+
+    @VisibleForTesting
+    public Uri buildDeepLink(@NonNull Uri deepLink) {
+
+        String appCode = "eubk9";
+
+        // Get this app's package name.
+        String packageName = "com.example.evan.comp296";
+
+        // Build the link with all required parameters
+        Uri.Builder builder = new Uri.Builder()
+                .scheme("http")
+                .authority(appCode + ".app.goo.gl")
+                .path("/")
+                .appendQueryParameter("link", deepLink.toString())
+                .appendQueryParameter("apn", packageName);
+
+        return builder.build();
+    }
+
     /**
      * User has clicked the 'Invite' button, launch the invitation UI with the proper
      * title, message, and deep link
      */
     // [START on_invite_clicked]
+
+
     private void onInviteClicked() {
         Intent intent = new AppInviteInvitation.IntentBuilder(getString(R.string.invitation_title))
                 .setMessage(getString(R.string.invitation_message))
-                .setDeepLink(Uri.parse(getString(R.string.invitation_deep_link)))
+                //.setDeepLink(Uri.parse(getString(R.string.invitation_deep_link)))
+                //.setDeepLink(deepLink)
+                .setDeepLink(Uri.parse("https://eubk9.app.goo.gl/jpL9"))
                 .setCustomImage(Uri.parse(getString(R.string.invitation_custom_image)))
                 .setCallToActionText(getString(R.string.invitation_cta))
                 .build();
         startActivityForResult(intent, REQUEST_INVITE);
     }
+
+    private void onInviteClicked2() {
+    Intent intent = new AppInviteInvitation.IntentBuilder(getString(R.string.invitation_title))
+            .setMessage(getString(R.string.invitation_message))
+            .setDeepLink(Uri.parse(getString(R.string.invitation_deep_link)))
+            .setEmailHtmlContent("<html><body>" +
+                    "<h1>App Invites</h1>" +
+                    "<a href=\"https://eubk9.app.goo.gl/jpL9\">Install Now!</a>" +
+                    "<body></html>")
+            .setEmailSubject("read this")
+            .build();
+    startActivityForResult(intent, REQUEST_INVITE);
+}
+
     // [END on_invite_clicked]
 
     // [START on_activity_result]
@@ -160,7 +204,7 @@ public class MainActivity_invites extends AppCompatActivity implements
     public void onClick(View view) {
         int i = view.getId();
         if (i == R.id.invite_button) {
-            onInviteClicked();
+            onInviteClicked2();
         }
     }
 }

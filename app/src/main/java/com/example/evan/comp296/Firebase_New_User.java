@@ -89,7 +89,7 @@ public class Firebase_New_User extends BaseActivity implements View.OnClickListe
         //layout
         l = (LinearLayout) findViewById(R.id.linear_layout_firebase);
 
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544~3347511713");
+        MobileAds.initialize(getApplicationContext(), getString(R.string.adMob_App_ID));
 
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();

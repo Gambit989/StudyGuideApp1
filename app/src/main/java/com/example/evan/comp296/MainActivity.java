@@ -386,6 +386,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
+        /*
 
         accessTokenTracker = new AccessTokenTracker() {
             @Override
@@ -394,9 +395,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         };
 
+        */
+
 
 
         //updateWithToken(AccessToken.getCurrentAccessToken());
+
+        AccessToken token;
+        token = AccessToken.getCurrentAccessToken();
+
+        if (token != null) {
+            startActivity(new Intent(this,MainHomeScreen.class));
+        }
 
 
 

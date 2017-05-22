@@ -347,4 +347,23 @@
     <color name="pn_blue">#ff19a2c6</color>
 
 
+
+
+
+    <color name="gray">#999999</color>
+    <color name="gray_light">#CCCCCC</color>
+    <color name="gray_very_light">#e0e0e0</color>
+    <color name="gray_deep">#666666</color>
+    <color name="activity_background">#EEEEEE</color>
+    <color name="main_background">#eeeeee</color>
+    <color name="google_assistant_background">#F5F5F5</color>
+
+
+    <!-- Google Logo Color -->
+    <color name="google_blue">#4285F4</color>
+    <color name="google_green">#34A853</color>
+    <color name="google_yellow">#FBBC05</color>
+    <color name="google_red">#EA4335</color>
+
+
 </resources>

@@ -41,7 +41,7 @@ public class Assembly_recycler_adapter extends RecyclerView.Adapter<Assembly_rec
     @Override
     public Assembly_recycler_adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View inflatedView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.recycler_layout_java, parent, false);
+                .inflate(R.layout.recycler_layout_assembly, parent, false);
         return new Assembly_recycler_adapter.ViewHolder(inflatedView);
     }
 
@@ -66,7 +66,7 @@ public class Assembly_recycler_adapter extends RecyclerView.Adapter<Assembly_rec
             super(v);
 
 
-            category = (TextView) v.findViewById(R.id.java_topics_list);
+            category = (TextView) v.findViewById(R.id.assembly_topics_list);
 
 
             category.setOnClickListener(this);
@@ -82,7 +82,7 @@ public class Assembly_recycler_adapter extends RecyclerView.Adapter<Assembly_rec
             //ActivityStarter a = new ActivityStarter();
 
             int i = v.getId();
-            if (i == R.id.java_topics_list) {
+            if (i == R.id.assembly_topics_list) {
 
 
                 Intent intent = new Intent(v.getContext(), Comp135.class);

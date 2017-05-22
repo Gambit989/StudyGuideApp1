@@ -9,6 +9,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.evan.comp296.Data;
+import com.example.evan.comp296.calendar_events.Event_SQLite;
 import com.example.evan.comp296.user_info;
 
 import java.util.ArrayList;
@@ -24,31 +25,51 @@ public class Note_database extends SQLiteOpenHelper {
 
     // Database Info
     private static final String DATABASE_NAME = "comp296";
-    private static final int DATABASE_VERSION = 11;
+    private static final int DATABASE_VERSION = 30;
 
     // Table Names
     private static final String TABLE_INFORMATION = "user_info";
     private static final String TABLE_NOTES = "notes";
     private static final String TABLE_COUNTER = "counter";
     private static final String TABLE_INFORMATION_OTHER = "user_info_other";
+    private static final String TABLE_EVENTS= "events";
 
 
     // Android Table Columns
     private static final String USERID1 = "id";
     private static final String USERID2 = "id";
     private static final String USERID3 = "id";
+    private static final String USERID4 = "id";
     private static final String EMAIL = "email";
     private static final String NAME = "name";
     private static final String SCHOOL = "school";
     private static final String PICTURE = "picture_url";
     private static final String MAJOR = "major";
     private static final String COUNTER = "counter";
+    private static final String EVENT_TITLE = "event_title";
+    private static final String EVENT_DATE = "date";
+    private static final String EVENT_TIME = "time";
+
 
 
     private static final String NOTE_TITLE = "title";
     private static final String NOTE_TEXT = "text";
 
     Context c;
+
+    private static Note_database mInstance = null;
+
+    public static Note_database getInstance(Context ctx) {
+
+        // Use the application context, which will ensure that you
+        // don't accidentally leak an Activity's context.
+        // See this article for more information: http://bit.ly/6LRzfx
+        if (mInstance == null) {
+            mInstance = new Note_database(ctx.getApplicationContext());
+        }
+        return mInstance;
+    }
+
 
 
     public Note_database(Context context) {
@@ -73,6 +94,13 @@ public class Note_database extends SQLiteOpenHelper {
                 NOTE_TEXT + " TEXT" +
                 ")";
 
+        String CREATE_EVENTS_TABLE = "CREATE TABLE " + TABLE_EVENTS +
+                "(" + USERID4 + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                EVENT_TITLE + " TEXT ," +
+                EVENT_DATE + " TEXT ," +
+                EVENT_TIME+ " TEXT" +
+                ")";
+
         /*
 
         String CREATE_COUNTER_TABLE = "CREATE TABLE " + TABLE_COUNTER +
@@ -94,6 +122,7 @@ public class Note_database extends SQLiteOpenHelper {
         db.execSQL(CREATE_INFORMATION_TABLE);
         db.execSQL(CREATE_NOTE_TABLE);
         db.execSQL(CREATE_OTHER_INFO_TABLE);
+        db.execSQL(CREATE_EVENTS_TABLE);
         //db.execSQL(CREATE_COUNTER_TABLE);
 
     }
@@ -107,6 +136,7 @@ public class Note_database extends SQLiteOpenHelper {
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NOTES);
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_COUNTER);
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_INFORMATION_OTHER);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_EVENTS);
             onCreate(db);
         }
 
@@ -456,6 +486,7 @@ public class Note_database extends SQLiteOpenHelper {
 
         } finally {
             cursor.close();
+
         }
 
     }
@@ -621,6 +652,248 @@ public class Note_database extends SQLiteOpenHelper {
 
 
 
+    // EVENTS QUERIES
+
+
+    public void add_row_event(Event_SQLite event) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        //taskCount++;
+
+
+        try {
+        //add values
+        values.put(USERID4, event.getUser_id());
+        values.put(EVENT_TITLE, event.getTitle());
+        values.put(EVENT_DATE, event.getDate());
+        values.put(EVENT_TIME, event.getTime());
+
+        //insert row into table
+
+        db.insert(TABLE_EVENTS, null, values);
+
+
+        //CharSequence hello = user.getName();
+
+
+        Log.d("TAG", "ADD EVENTS ROW CALLED id " +event.user_id+ " title "+event.getTitle() +
+        " date " +event.getDate()+ " time " + event.getTime());
+        } finally {
+            db.close(); }
+        //Toast.makeText(c, "Hello " +user.getName(), Toast.LENGTH_LONG).show();
+
+    }
+
+
+
+
+
+    public void add_row_event_2(Event_SQLite event) {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        //taskCount++;
+
+
+        try {
+            //add values
+            //values.put(USERID4, event.getUser_id());
+            values.put(EVENT_TITLE, event.getTitle());
+            values.put(EVENT_DATE, event.getDate());
+            values.put(EVENT_TIME, event.getTime());
+
+            //insert row into table
+
+            db.insert(TABLE_EVENTS, null, values);
+
+
+            //CharSequence hello = user.getName();
+
+
+            Log.d("TAG", "ADD EVENTS ROW CALLED, title " + event.getTitle() +
+                    " date " + event.getDate() + " time " + event.getTime());
+        } finally {
+            db.close(); }
+        //Toast.makeText(c, "Hello " +user.getName(), Toast.LENGTH_LONG).show();
+
+    }
+
+
+    public ArrayList<String> getEventTitles() {
+        ArrayList<String> array_list = new ArrayList<String>();
+
+        //hp = new HashMap();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor res = null;
+
+        try {
+            res = db.rawQuery("select * from events", null);
+            res.moveToFirst();
+
+            while (res.isAfterLast() == false) {
+                array_list.add(res.getString(res.getColumnIndex(EVENT_TITLE)));
+                res.moveToNext();
+            }
+            return array_list;
+        }finally {
+            res.close();
+            db.close();
+        }
+    }
+
+
+
+    public ArrayList<String> getEventDate() {
+        ArrayList<String> array_list = new ArrayList<String>();
+
+        //hp = new HashMap();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = null;
+        try {
+            res = db.rawQuery("select * from events", null);
+            res.moveToFirst();
+
+            while (res.isAfterLast() == false) {
+                array_list.add(res.getString(res.getColumnIndex(EVENT_DATE)));
+                res.moveToNext();
+            }
+            return array_list;
+        }finally {
+            res.close();
+            db.close();
+        }
+    }
+
+
+    public ArrayList<String> getEventTime() {
+        ArrayList<String> array_list = new ArrayList<String>();
+
+        //hp = new HashMap();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res= null;
+        try {
+            res = db.rawQuery("select * from events", null);
+            res.moveToFirst();
+
+            while (res.isAfterLast() == false) {
+                array_list.add(res.getString(res.getColumnIndex(EVENT_TIME)));
+                res.moveToNext();
+            }
+            return array_list;
+        }finally{
+            res.close();
+            db.close();
+        }
+    }
+
+
+
+    public boolean Event_ID_Exists(int searchItem) {
+
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] columns = { "id" };
+        String selection = "id" + " =?";
+        String[] selectionArgs = { searchItem+"" };
+        String limit = "1";
+
+        Cursor cursor = db.query(TABLE_EVENTS, columns, selection, selectionArgs, null, null, null, limit);
+        boolean exists = (cursor.getCount() > 0);
+        cursor.close();
+        db.close();
+        return exists;
+    }
+
+
+
+    public void delete_row_event(String title) {
+
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+
+        Cursor cursor = null;
+        //String note = "";
+        try {
+            cursor = db.rawQuery("SELECT * FROM events WHERE event_title=?", new String[]{title});
+            if (cursor.getCount() > 0) {
+                cursor.moveToFirst();
+                db.delete("events", "event_title=?", new String[]{title});
+            }
+
+        }finally{
+            cursor.close();
+            db.close();
+        }
+
+    }
+
+
+
+    public void delete_row_event_2(String title) {
+
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        try
+        {
+            db.delete (TABLE_EVENTS, "event_title = ?", new String[] { title });
+
+            Log.d("TAG", "delete row called");
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            db.close();
+        }
+    }
+
+
+
+    public void delete_row_3(String title) {
+
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+
+        Cursor cursor = null;
+        //String note = "";
+        try {
+            cursor = db.rawQuery("SELECT * FROM events WHERE event_title=?", new String[]{title});
+            if (cursor.getCount() > 0) {
+                cursor.moveToFirst();
+                db.delete("events", "event_title=?", new String[]{title});
+
+
+                Log.d("TAG", "*******delete row called *********");
+            }
+
+        }finally{
+            cursor.close();
+            db.close();
+        }
+
+    }
+
+
+
+
+
+
+
+
+    // END EVENT QUERIES
+
+
+
 
 
     public boolean Exists(String searchItem) {
@@ -655,6 +928,9 @@ public class Note_database extends SQLiteOpenHelper {
         cursor.close();
         return exists;
     }
+
+
+
 
 
 

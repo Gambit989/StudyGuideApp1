@@ -31,6 +31,8 @@ public class j6 extends AppCompatActivity {
 
 
         setSupportActionBar(myToolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         getSupportActionBar().setTitle("Java");
 

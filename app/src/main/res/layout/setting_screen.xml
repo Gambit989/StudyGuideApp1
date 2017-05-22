@@ -54,7 +54,7 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/card_margin"
+        android:layout_marginBottom="4dp"
         android:layout_marginLeft="@dimen/card_margin"
         android:layout_marginRight="@dimen/card_margin"
         card_view:cardElevation="5dp">
@@ -107,11 +107,11 @@
     <com.google.android.gms.ads.NativeExpressAdView
         android:id="@+id/native_express_adview_1"
         android:layout_width="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="1dp"
         android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"
-        ads:adSize="350x105"
-        ads:adUnitId="@string/banner_ad_unit_id">
+        ads:adSize="360x135"
+        ads:adUnitId="@string/settings_native_ad">
     </com.google.android.gms.ads.NativeExpressAdView>
 
 

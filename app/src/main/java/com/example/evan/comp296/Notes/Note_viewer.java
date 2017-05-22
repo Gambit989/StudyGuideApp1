@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import com.example.evan.comp296.R;
@@ -21,10 +22,18 @@ public class Note_viewer extends AppCompatActivity {
 
     AdView mAdView;
 
+    Toolbar toolbar;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.note_viewer);
+
+        toolbar= (Toolbar) findViewById(R.id.toolbar_note_viewer);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544~3347511713");

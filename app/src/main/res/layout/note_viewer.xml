@@ -47,16 +47,15 @@
 
         </LinearLayout>
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView2"
+    <com.google.android.gms.ads.NativeExpressAdView
+        android:id="@+id/native_express_adview_note_viewer"
         android:layout_width="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id">
-    </com.google.android.gms.ads.AdView>
+        ads:adSize="360x135"
+        ads:adUnitId="@string/note_viewer_ad">
+    </com.google.android.gms.ads.NativeExpressAdView>
 
 
 

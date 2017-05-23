@@ -374,6 +374,16 @@
         </activity>
 
 
+        <activity
+            android:name="com.example.evan.comp296.tutorials.c_plus.c_plus_plus_main"
+            android:label="SQL"
+            android:theme="@style/Theme.Design.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.MainHomeScreen" />
+        </activity>
+
+
 
 
         <activity

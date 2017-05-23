@@ -159,8 +159,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.PhotoH
                             //.setAction("Action", null).show();
 
                 } else if (getLayoutPosition() == 2) {
-                    Snackbar.make(v, "Layout position 3", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
+                    v.getContext().startActivity(new Intent(v.getContext(),java_main.class));
 
                 } else if (getLayoutPosition() == 3) {
 
@@ -169,10 +168,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.PhotoH
                     //Snackbar.make(v, "Layout position 4", Snackbar.LENGTH_LONG)
                             //.setAction("Action", null).show();
 
+                } else if (getLayoutPosition() == 4) {
+
+
+                    v.getContext().startActivity(new Intent(v.getContext(),MainActivity_pixel.class));
+                    //Snackbar.make(v, "Layout position 4", Snackbar.LENGTH_LONG)
+                    //.setAction("Action", null).show();
+
                 }
 
             }
-            }
+        }
 
 
     }

@@ -1,40 +1,33 @@
-package com.example.evan.comp296.tutorials.mysql;
+package com.example.evan.comp296.tutorials.c_plus;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.evan.comp296.Data;
 import com.example.evan.comp296.Notes.Note_drv;
 import com.example.evan.comp296.R;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.NativeExpressAdView;
+import com.example.evan.comp296.tutorials.mysql.mysql_recycler_adapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Evan on 5/14/17.
+ * Created by Evan on 5/22/17.
  */
 
-public class SQL_fragment extends android.support.v4.app.Fragment {
-
+public class C_fragment extends Fragment {
 
 
     RecyclerView mysql_recycler;
     mysql_recycler_adapter mAdapter1;
     LinearLayoutManager mLinearLayoutManager;
-
-    NativeExpressAdView adView;
 
 
     @Nullable
@@ -46,13 +39,6 @@ public class SQL_fragment extends android.support.v4.app.Fragment {
 
 
         mysql_recycler = (RecyclerView) view.findViewById(R.id.mysql_recycler);
-
-
-
-        MobileAds.initialize(getActivity().getApplicationContext(), getString(R.string.adMob_App_ID) );
-        adView = (NativeExpressAdView) view.findViewById(R.id.native_express_adview_sql);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
 
 
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab10);
@@ -118,3 +104,4 @@ public class SQL_fragment extends android.support.v4.app.Fragment {
         return data;
     }
 }
+

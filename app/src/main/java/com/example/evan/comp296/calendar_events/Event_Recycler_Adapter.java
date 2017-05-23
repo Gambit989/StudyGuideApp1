@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -190,7 +191,6 @@ public class Event_Recycler_Adapter extends RecyclerView.Adapter<Event_Recycler_
                 list3.remove(position);
                 notifyItemRemoved(position);
                 Log.d("TAG","**********" + "list " +position + " removed ***** Title =" +title+ "*****");
-
                 */
 
 

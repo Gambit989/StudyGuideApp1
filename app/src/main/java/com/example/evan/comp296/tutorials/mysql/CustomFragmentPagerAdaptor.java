@@ -31,7 +31,7 @@ public class CustomFragmentPagerAdaptor extends FragmentPagerAdapter {
             SQL_fragment_2 SQLfragment2 = new SQL_fragment_2();
             return SQLfragment2;
         }
-        return new SQL_fragment();
+        return new SQL_fragment_default();
     }
 
     @Override

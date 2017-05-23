@@ -14,6 +14,9 @@ import android.view.ViewGroup;
 
 import com.example.evan.comp296.Notes.Note_drv;
 import com.example.evan.comp296.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.NativeExpressAdView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +31,7 @@ public class SQL_fragment_2 extends android.support.v4.app.Fragment {
     mysql_recycler_adapter_2 mAdapter2;
     LinearLayoutManager mLinearLayoutManager;
 
+    NativeExpressAdView adView;
 
     @Nullable
     @Override
@@ -36,6 +40,10 @@ public class SQL_fragment_2 extends android.support.v4.app.Fragment {
         View view=  inflater.inflate(R.layout.fragment_test, container, false);
 
 
+        MobileAds.initialize(getActivity().getApplicationContext(), getString(R.string.adMob_App_ID) );
+        adView = (NativeExpressAdView) view.findViewById(R.id.native_express_adview_sql);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
 
         mysql_recycler = (RecyclerView) view.findViewById(R.id.mysql_recycler);
 

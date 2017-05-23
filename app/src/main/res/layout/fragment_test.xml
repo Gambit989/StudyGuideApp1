@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
 
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/mysql_recycler"
-        android:paddingTop="98dp"
+        android:paddingTop="105dp"
         android:clipToPadding="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"/>
 
 
     <android.support.design.widget.FloatingActionButton
@@ -26,6 +28,16 @@
         android:elevation="40dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"/>
+
+    <com.google.android.gms.ads.NativeExpressAdView
+        android:id="@+id/native_express_adview_sql"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="360x135"
+        ads:adUnitId="@string/sql_ad_1"
+        android:layout_below="@+id/mysql_recycler">
+
+    </com.google.android.gms.ads.NativeExpressAdView>
 
 
 

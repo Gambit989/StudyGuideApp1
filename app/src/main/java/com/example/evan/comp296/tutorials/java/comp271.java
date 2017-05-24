@@ -5,13 +5,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
-import com.example.evan.comp296.Notes.Note_drv;
+import com.example.evan.comp296.Notes_main.Note_drv;
 import com.example.evan.comp296.R;
 
 /**

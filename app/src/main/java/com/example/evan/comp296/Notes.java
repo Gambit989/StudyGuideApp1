@@ -1,3 +1,5 @@
+package com.example.evan.comp296;
+
 import android.support.v7.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
@@ -39,7 +41,7 @@ public class Notes extends AppCompatActivity {
 
             Notes note1 = new Notes(title,note);
 
-            mDatabase.child("Notes").child(Email).setValue(note1);
+            mDatabase.child("com.example.evan.comp296.Notes").child(Email).setValue(note1);
 
 
 

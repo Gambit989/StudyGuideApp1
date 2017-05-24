@@ -34,8 +34,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.evan.comp296.MainHomeScreen;
-import com.example.evan.comp296.Notes.Note_database;
-import com.example.evan.comp296.Notes.User_SQLite;
+import com.example.evan.comp296.Notes_main.Note_database;
+import com.example.evan.comp296.Notes_main.User_SQLite;
 import com.example.evan.comp296.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -43,13 +43,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 import java.util.Locale;
 
 /**

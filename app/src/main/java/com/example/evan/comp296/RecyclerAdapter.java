@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.List;
 
 import com.example.evan.comp296.tutorials.assembly.MainActivity_pixel;
+import com.example.evan.comp296.tutorials.html_css.MainActivity_html;
 import com.example.evan.comp296.tutorials.java.java_main;
 import com.example.evan.comp296.tutorials.mysql.SQL_main;
 
@@ -171,7 +172,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.PhotoH
                 } else if (getLayoutPosition() == 4) {
 
 
-                    v.getContext().startActivity(new Intent(v.getContext(),MainActivity_pixel.class));
+                    v.getContext().startActivity(new Intent(v.getContext(),MainActivity_html.class));
                     //Snackbar.make(v, "Layout position 4", Snackbar.LENGTH_LONG)
                     //.setAction("Action", null).show();
 

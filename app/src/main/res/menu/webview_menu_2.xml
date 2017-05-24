@@ -7,7 +7,7 @@
     <!-- "Mark Favorite", should appear as action button if possible -->
     <item
         android:id="@+id/action_favorite"
-        android:icon="@drawable/ic_note_white"
+        android:icon="@drawable/ic_note_white_2"
         android:title="Create Note"
         app:showAsAction="ifRoom"/>
 

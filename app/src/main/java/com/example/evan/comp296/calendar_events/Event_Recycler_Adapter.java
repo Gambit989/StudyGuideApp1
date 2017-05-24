@@ -5,24 +5,13 @@ import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.evan.comp296.Notes.Note_Recycler_Adapter;
-import com.example.evan.comp296.Notes.Note_database;
-import com.example.evan.comp296.Notes.Note_delete_view;
-import com.example.evan.comp296.Notes.Note_viewer;
 import com.example.evan.comp296.R;
-import com.example.evan.comp296.tutorials.java.j0;
-import com.example.evan.comp296.tutorials.java.j1;
-import com.example.evan.comp296.tutorials.java.j2;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;

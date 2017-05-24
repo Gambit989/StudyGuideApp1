@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.evan.comp296.Notes.Note_drv;
+import com.example.evan.comp296.Notes_main.Note_drv;
 import com.example.evan.comp296.R;
 import com.example.evan.comp296.tutorials.mysql.mysql_recycler_adapter_2;
 

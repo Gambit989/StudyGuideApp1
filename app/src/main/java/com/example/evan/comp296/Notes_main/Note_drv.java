@@ -1,6 +1,5 @@
-package com.example.evan.comp296.Notes;
+package com.example.evan.comp296.Notes_main;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,7 +8,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.evan.comp296.R;
-import com.example.evan.comp296.tutorials.java.java_main;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -88,7 +86,7 @@ public class Note_drv extends AppCompatActivity implements View.OnClickListener{
 
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase1 = FirebaseDatabase.getInstance().getReference().child("Notes");
+        mDatabase1 = FirebaseDatabase.getInstance().getReference().child("com.example.evan.comp296.Notes");
 
 
 
@@ -151,8 +149,8 @@ public class Note_drv extends AppCompatActivity implements View.OnClickListener{
 
                 db.add_row_notes(data);
 
-                mDatabase.child("Notes").child(email1).child("note_title").setValue(note_title1);
-                mDatabase.child("Notes").child(email1).child("note_text").setValue(note_text1);
+                mDatabase.child("com.example.evan.comp296.Notes").child(email1).child("note_title").setValue(note_title1);
+                mDatabase.child("com.example.evan.comp296.Notes").child(email1).child("note_text").setValue(note_text1);
 
 
                 Toast.makeText(Note_drv.this, "Note Created",
@@ -164,7 +162,7 @@ public class Note_drv extends AppCompatActivity implements View.OnClickListener{
             //startActivity(new Intent(Note_drv.this, java_main.class));
 
 
-            //Notes note_info = new Notes(email1,note_title1,note_text1,mDatabase);
+            //com.example.evan.comp296.Notes note_info = new com.example.evan.comp296.Notes(email1,note_title1,note_text1,mDatabase);
 
 
 

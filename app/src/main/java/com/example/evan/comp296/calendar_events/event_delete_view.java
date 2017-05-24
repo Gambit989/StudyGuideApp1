@@ -6,9 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.example.evan.comp296.Notes.MyAlertDialogFragment;
-import com.example.evan.comp296.Notes.Note_database;
-import com.example.evan.comp296.Notes.Note_delete_view;
+import com.example.evan.comp296.Notes_main.Note_database;
 import com.example.evan.comp296.R;
 
 /**

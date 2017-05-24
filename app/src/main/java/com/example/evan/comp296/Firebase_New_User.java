@@ -6,8 +6,6 @@ package com.example.evan.comp296;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
@@ -18,8 +16,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.evan.comp296.Notes.Note_database;
-import com.example.evan.comp296.Notes.User_SQLite;
+import com.example.evan.comp296.Notes_main.Note_database;
+import com.example.evan.comp296.Notes_main.User_SQLite;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;

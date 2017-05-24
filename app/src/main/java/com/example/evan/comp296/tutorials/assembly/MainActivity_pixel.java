@@ -42,7 +42,7 @@ public class MainActivity_pixel extends AppCompatActivity {
 
 	private float mSlideOffset = 0;
 
-	AdView adView;
+	NativeExpressAdView adView;
 	NativeExpressAdView adView2;
 
 	@Override
@@ -57,7 +57,7 @@ public class MainActivity_pixel extends AppCompatActivity {
 
 
 
-		adView = (AdView) findViewById(R.id.assembly_adview_1);
+		adView = (NativeExpressAdView) findViewById(R.id.assembly_adview_1);
 		adView2 = (NativeExpressAdView) findViewById(R.id.assembly_native_adview_2);
 		AdRequest adRequest = new AdRequest.Builder().build();
 		adView.loadAd(adRequest);

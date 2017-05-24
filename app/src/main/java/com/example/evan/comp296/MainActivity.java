@@ -1,62 +1,42 @@
 package com.example.evan.comp296;
 
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.content.SharedPreferences;
 import android.net.Uri;
-import android.nfc.Tag;
-import android.os.Handler;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.TextViewCompat;
-import android.support.v7.app.ActionBar;
 //import android.support.v7.app.AppCompatActivity;
-import android.support.annotation.NonNull;
 
 
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.content.Intent;
 import android.view.WindowManager;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import java.lang.String;
 import java.util.Arrays;
-import java.util.List;
 
-import android.widget.TextView;
 import android.widget.Toast;
-
-import android.widget.LinearLayout;
 
 import android.content.Context;
 
 import org.json.JSONObject;
 import org.json.JSONException;
 
-import com.example.evan.comp296.Notes.Note_database;
-import com.example.evan.comp296.Notes.User_SQLite;
-import com.example.evan.comp296.facebook.fbLogin;
+import com.example.evan.comp296.Notes_main.Note_database;
+import com.example.evan.comp296.Notes_main.User_SQLite;
 import com.example.evan.comp296.google.ChooserActivity;
 import com.example.evan.comp296.google.SignInActivity;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.Profile;
@@ -73,32 +53,19 @@ import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
-import com.google.android.gms.internal.zzbmn;
-import com.google.android.gms.plus.Plus;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.api.services.people.v1.model.Person;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.*;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 
-
-
-
-import com.example.evan.comp296.firebase.firebase_main;
-
-import com.example.evan.comp296.google.SignInActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Transaction;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,

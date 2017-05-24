@@ -19,7 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.example.evan.comp296.Data;
-import com.example.evan.comp296.Notes.Note_drv;
+import com.example.evan.comp296.Notes_main.Note_drv;
 import com.example.evan.comp296.R;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -30,8 +30,6 @@ import com.google.android.gms.ads.NativeExpressAdView;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.google.common.collect.ComparisonChain.start;
 
 /**
  * Created by Evan on 5/7/17.

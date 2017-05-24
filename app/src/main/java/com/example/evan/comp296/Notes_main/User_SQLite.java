@@ -1,4 +1,4 @@
-package com.example.evan.comp296.Notes;
+package com.example.evan.comp296.Notes_main;
 
 /**
  * Created by Evan on 5/10/17.

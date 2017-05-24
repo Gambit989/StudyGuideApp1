@@ -1,4 +1,4 @@
-package com.example.evan.comp296.Notes;
+package com.example.evan.comp296.Notes_main;
 
 import android.app.DialogFragment;
 import android.os.Bundle;

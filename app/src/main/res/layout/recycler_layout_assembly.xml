@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
     android:orientation="horizontal"
     android:weightSum="1">
@@ -10,18 +10,19 @@
     <TextView
         android:id="@+id/assembly_topics_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="30dp"
+        android:layout_height="wrap_content"
+        android:textSize="27dp"
         android:textAlignment="center"
-        android:paddingTop="3dp"
+        android:paddingTop="1.5dp"
+        android:paddingBottom="1.5dp"
         android:textColor="@color/blue_grey_700"
         android:elevation="7dp"
-
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
+
         android:gravity="center_horizontal"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginTop="2.5dp"
+        android:layout_marginBottom="2.5dp"
         android:background="@drawable/spinner_border_12"/>
 
 

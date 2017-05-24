@@ -2,36 +2,20 @@ package com.example.evan.comp296.profile;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.evan.comp296.Notes.Note_Homepage;
-import com.example.evan.comp296.Notes.Note_database;
+import com.example.evan.comp296.Notes_main.Note_database;
 import com.example.evan.comp296.R;
 import com.example.evan.comp296.Task2;
-import com.example.evan.comp296.about_and_contact.about_us_2;
-import com.example.evan.comp296.invites.MainActivity_invites;
-import com.example.evan.comp296.messaging.WelcomeActivity;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 

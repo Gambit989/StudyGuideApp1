@@ -56,7 +56,7 @@
 			android:id="@+id/assembly_native_adview_2"
 			android:layout_centerHorizontal="true"
 			android:layout_marginTop="1dp"
-			ads:adSize="SMART_BANNER"
+			ads:adSize="355x150"
 			ads:adUnitId="@string/assembly_ad_2">
 
 		</com.google.android.gms.ads.NativeExpressAdView>

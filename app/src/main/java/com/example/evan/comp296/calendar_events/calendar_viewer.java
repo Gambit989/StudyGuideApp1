@@ -1,7 +1,6 @@
 package com.example.evan.comp296.calendar_events;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -14,11 +13,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.evan.comp296.Notes.Note_Recycler_Adapter;
-import com.example.evan.comp296.Notes.Note_database;
+import com.example.evan.comp296.Notes_main.Note_database;
 import com.example.evan.comp296.R;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 

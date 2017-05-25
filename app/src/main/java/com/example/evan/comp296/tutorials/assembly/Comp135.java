@@ -10,9 +10,8 @@ import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
-import com.example.evan.comp296.Notes.Note_drv;
+import com.example.evan.comp296.Notes_main.Note_drv;
 import com.example.evan.comp296.R;
-import com.example.evan.comp296.tutorials.java.comp271;
 
 /**
  * Created by Evan on 5/17/17.

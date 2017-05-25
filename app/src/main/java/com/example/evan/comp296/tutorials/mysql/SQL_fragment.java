@@ -1,20 +1,20 @@
 package com.example.evan.comp296.tutorials.mysql;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.evan.comp296.Data;
-import com.example.evan.comp296.Notes.Note_drv;
+import com.example.evan.comp296.Notes_main.Note_drv;
 import com.example.evan.comp296.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.NativeExpressAdView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +31,8 @@ public class SQL_fragment extends android.support.v4.app.Fragment {
     mysql_recycler_adapter mAdapter1;
     LinearLayoutManager mLinearLayoutManager;
 
+    NativeExpressAdView adView;
+
 
     @Nullable
     @Override
@@ -41,6 +43,13 @@ public class SQL_fragment extends android.support.v4.app.Fragment {
 
 
         mysql_recycler = (RecyclerView) view.findViewById(R.id.mysql_recycler);
+
+
+
+        MobileAds.initialize(getActivity().getApplicationContext(), getString(R.string.adMob_App_ID) );
+        adView = (NativeExpressAdView) view.findViewById(R.id.native_express_adview_sql);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
 
 
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab10);

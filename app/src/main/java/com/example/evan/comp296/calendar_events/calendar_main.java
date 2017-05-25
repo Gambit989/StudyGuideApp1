@@ -4,13 +4,11 @@ package com.example.evan.comp296.calendar_events;
 import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -18,9 +16,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.evan.comp296.MainHomeScreen;
-import com.example.evan.comp296.Notes.MyAlertDialogFragment;
-import com.example.evan.comp296.Notes.Note_database;
-import com.example.evan.comp296.Notes.Note_delete_view;
+import com.example.evan.comp296.Notes_main.Note_database;
 import com.example.evan.comp296.R;
 
 import java.util.Calendar;
@@ -137,7 +133,7 @@ public class calendar_main extends AppCompatActivity implements DatePicker.OnDat
         //Toast.makeText(calendar_main.this, "Fullate date: Year " +dayOfMonth +" "+monthOfYear +" " +year +" ",
                 //Toast.LENGTH_SHORT).show();
 
-            date2 = +monthOfYear + " / "  +dayOfMonth + " / " + year;
+            date2 = (monthOfYear+ 1) + " / "  +dayOfMonth + " / " + year;
 
 
         Log.d("Hello", "time = " + date2);

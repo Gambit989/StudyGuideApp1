@@ -170,10 +170,10 @@
 
     <com.google.android.gms.ads.NativeExpressAdView
         android:id="@+id/native_express_adview_2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"
-        ads:adSize="320x150"
+        ads:adSize="355x150"
         ads:adUnitId="@string/contact_us_ad">
     </com.google.android.gms.ads.NativeExpressAdView>
 

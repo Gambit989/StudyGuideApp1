@@ -41,7 +41,7 @@ public class mysql_recycler_adapter_2 extends RecyclerView.Adapter<mysql_recycle
     @Override
     public mysql_recycler_adapter_2.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View inflatedView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.recycler_item_row_sql, parent, false);
+                .inflate(R.layout.recycler_item_row_sql_2, parent, false);
         return new ViewHolder(inflatedView);
 
     }

@@ -6,8 +6,6 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 
-import com.example.evan.comp296.Notes.MyAlertDialogFragment;
-import com.example.evan.comp296.Notes.Note_delete_view;
 import com.example.evan.comp296.R;
 
 /**

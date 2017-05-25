@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:background="@color/activity_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".tutorials.c_plus.c_plus_plus_main">
+
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <include
+            layout="@layout/custom_toolbar_main"
+            android:id="@+id/custom_toolbar"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            >
+
+        </include>
+
+
+
+        <android.support.design.widget.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tab_layout"
+            android:background="@color/amber_700"
+            app:tabMode="scrollable"
+            app:tabGravity="center"
+            app:tabTextColor="@color/colorPrimaryDark"
+            app:tabIndicatorColor="@color/colorRed"
+            android:layout_below="@+id/custom_toolbar">
+
+        </android.support.design.widget.TabLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tab_layout">
+
+    </android.support.v4.view.ViewPager>
+
+    <!--<SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:id="@+id/seekBar3" />
+
+    <Button
+        android:text="This is a Large Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="128dp"
+        android:id="@+id/button2" />-->
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>

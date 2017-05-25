@@ -17,6 +17,10 @@ import android.widget.TextView;
 import com.example.evan.comp296.Data;
 import com.example.evan.comp296.R;
 import com.github.zagum.expandicon.ExpandIconView;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.NativeExpressAdView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,9 +38,12 @@ public class MainActivity_pixel extends AppCompatActivity {
 
 	private RecyclerView assembly_recycler2;
 	LinearLayoutManager mLinearLayoutManager2;
-	Assembly_recycler_adapter mAdapter2;
+	Assembly_recycler_adapter2 mAdapter2;
 
 	private float mSlideOffset = 0;
+
+	NativeExpressAdView adView;
+	NativeExpressAdView adView2;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +53,18 @@ public class MainActivity_pixel extends AppCompatActivity {
 		findViews();
 		setUpViews();
 
+		MobileAds.initialize(getApplicationContext(), getString(R.string.adMob_App_ID) );
+
+
+
+		adView = (NativeExpressAdView) findViewById(R.id.assembly_adview_1);
+		adView2 = (NativeExpressAdView) findViewById(R.id.assembly_native_adview_2);
+		AdRequest adRequest = new AdRequest.Builder().build();
+		adView.loadAd(adRequest);
+
+		AdRequest adRequest2= new AdRequest.Builder().build();
+		adView2.loadAd(adRequest2);
+
 		mLinearLayoutManager = new LinearLayoutManager(this);
 		assembly_recycler.setLayoutManager(mLinearLayoutManager);
 		mAdapter1 = new Assembly_recycler_adapter(fill_with_data4(), getApplicationContext());
@@ -54,7 +73,7 @@ public class MainActivity_pixel extends AppCompatActivity {
 		mLinearLayoutManager2 = new LinearLayoutManager(this);
 		assembly_recycler2.setLayoutManager(mLinearLayoutManager2);
 		//assembly_recycler2.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-		mAdapter2 = new Assembly_recycler_adapter(fill_with_data4(), getApplicationContext());
+		mAdapter2 = new Assembly_recycler_adapter2(fill_with_data(), getApplicationContext());
 		assembly_recycler2.setAdapter(mAdapter2);
 	}
 
@@ -136,6 +155,21 @@ public class MainActivity_pixel extends AppCompatActivity {
 
         return data;
     }
+
+
+	public List fill_with_data() {
+
+		List<String> data = new ArrayList();
+
+
+		data.add("Overview");
+		data.add("OverView (2)");
+		data.add("Quick Guide");
+		data.add("Types");
+
+
+		return data;
+	}
 
 
 }

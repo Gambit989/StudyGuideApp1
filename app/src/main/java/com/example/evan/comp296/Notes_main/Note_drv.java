@@ -1,0 +1,198 @@
+package com.example.evan.comp296.Notes_main;
+
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.evan.comp296.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+
+/**
+ * Created by Evan on 5/8/17.
+ */
+
+public class Note_drv extends AppCompatActivity implements View.OnClickListener{
+
+
+    DatabaseReference mDatabase;
+
+    DatabaseReference mDatabase1;
+    //SharedPreferences sharedPref;
+
+    String email1;
+
+    String note_title1;
+    String note_text1;
+
+    Button create_note;
+    Button cancel_note;
+
+    EditText title;
+    EditText note_text;
+
+
+    private FirebaseAuth mAuth;
+
+    private FirebaseUser user;
+
+    Note_database db;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.notes_main);
+
+
+        create_note =(Button) findViewById(R.id.button_create_note);
+        cancel_note =(Button) findViewById(R.id.button_cancel_note);
+
+        title = (EditText) findViewById(R.id.editText_notes_title);
+        note_text = (EditText) findViewById(R.id.editText_notes);
+
+
+        create_note.setOnClickListener(this);
+        cancel_note.setOnClickListener(this);
+        title.setOnClickListener(this);
+        note_text.setOnClickListener(this);
+
+
+
+
+        //sharedPref = Note_drv.this.getSharedPreferences("prefs", MODE_PRIVATE);
+
+
+        //email1 = sharedPref.getString("email","default");
+
+
+
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+
+
+        email1= "this is an email";
+
+
+
+
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase1 = FirebaseDatabase.getInstance().getReference().child("com.example.evan.comp296.Notes");
+
+
+
+    }
+
+
+    @Override
+    public void onClick(View v) {
+
+        int i =v.getId();
+
+
+        if (i == R.id.button_create_note) {
+
+
+            mDatabase1.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+
+                    System.out.println("does the child exist? " + dataSnapshot.child(email1).exists());
+
+
+
+
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+
+
+
+            //note_info.CreateNote();
+
+
+            note_title1 = title.getText().toString();
+            note_text1 = note_text.getText().toString();
+
+
+            if (note_title1.length() > 30){
+
+                Toast.makeText(Note_drv.this, "Note Title too long please shorten it",
+                        Toast.LENGTH_SHORT).show();
+            }
+
+            else if (note_text1.length() > 450 ) {
+
+                Toast.makeText(Note_drv.this, "Note is too long please shorten it",
+                        Toast.LENGTH_SHORT).show();
+
+            }else {
+
+                db = new Note_database(Note_drv.this);
+
+                Note_data data = new Note_data(note_title1, note_text1);
+
+                db.add_row_notes(data);
+
+                mDatabase.child("com.example.evan.comp296.Notes").child(email1).child("note_title").setValue(note_title1);
+                mDatabase.child("com.example.evan.comp296.Notes").child(email1).child("note_text").setValue(note_text1);
+
+
+                Toast.makeText(Note_drv.this, "Note Created",
+                        Toast.LENGTH_SHORT).show();
+
+                finish();
+
+            }
+            //startActivity(new Intent(Note_drv.this, java_main.class));
+
+
+            //com.example.evan.comp296.Notes note_info = new com.example.evan.comp296.Notes(email1,note_title1,note_text1,mDatabase);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        } else if (i == R.id.button_cancel_note){
+
+
+            Toast.makeText(Note_drv.this, "Cancelled",
+                    Toast.LENGTH_SHORT).show();
+
+            finish();
+
+            //startActivity(new Intent(Note_drv.this, java_main.class));
+
+
+
+
+        }
+
+    }
+}

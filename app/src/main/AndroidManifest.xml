@@ -15,7 +15,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/brookdale"
+        android:icon="@mipmap/ic_launcher_app"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -34,7 +34,7 @@
 
         <activity
             android:name=".MainActivity"
-            android:icon="@mipmap/brookdale"
+            android:icon="@mipmap/ic_launcher_app"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
@@ -373,11 +373,59 @@
                 android:value="com.example.evan.comp296.tutorials.assembly.MainActivity_pixel" />
         </activity>
 
+        <activity
+            android:name="com.example.evan.comp296.tutorials.assembly.Comp135_operating_systems"
+            android:label="Comp-135: Computer Architecture"
+            android:theme="@style/Theme.Design.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.tutorials.assembly.MainActivity_pixel" />
+        </activity>
+
 
 
 
         <activity
-            android:name="com.example.evan.comp296.Notes.Note_drv"
+            android:name="com.example.evan.comp296.tutorials.c_plus.c_plus_plus_main"
+            android:label="SQL"
+            android:theme="@style/Theme.Design.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.MainHomeScreen" />
+        </activity>
+
+
+        <activity
+            android:name="com.example.evan.comp296.tutorials.c_plus.c_web"
+            android:label="SQL"
+            android:theme="@style/Theme.Design.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.tutorials.c_plus.c_plus_plus_main" />
+        </activity>
+
+        <activity
+            android:name="com.example.evan.comp296.tutorials.html_css.MainActivity_html"
+            android:label="HTML"
+            android:theme="@style/Theme.Design.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.MainHomeScreen" />
+        </activity>
+
+        <activity
+            android:name="com.example.evan.comp296.tutorials.html_css.DrawerActivity"
+            android:label="CSS"
+            android:theme="@style/Theme.Design.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.MainHomeScreen" />
+        </activity>
+
+
+
+        <activity
+            android:name="com.example.evan.comp296.Notes_main.Note_drv"
             android:label="@string/app_name2">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -387,7 +435,7 @@
 
 
         <activity
-            android:name="com.example.evan.comp296.Notes.Note_Homepage"
+            android:name="com.example.evan.comp296.Notes_main.Note_Homepage"
             android:label="Notes Homepage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -398,20 +446,20 @@
 
 
         <activity
-        android:name="com.example.evan.comp296.Notes.Note_viewer"
+        android:name="com.example.evan.comp296.Notes_main.Note_viewer"
         android:label="Note">
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.evan.comp296.Notes.Note_Homepage" />
+            android:value="com.example.evan.comp296.Notes_main.Note_Homepage" />
 
     </activity>
 
         <activity
-            android:name="com.example.evan.comp296.Notes.Note_delete_view"
+            android:name="com.example.evan.comp296.Notes_main.Note_delete_view"
             android:label="@string/app_name2">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.Notes.Note_Homepage" />
+                android:value="com.example.evan.comp296.Notes_main.Note_Homepage" />
 
         </activity>
 
@@ -504,10 +552,10 @@
 
         <activity
             android:name="com.example.evan.comp296.profile.Profile_edit"
-            android:label="@string/app_name2">
+            android:label="Edit Profile">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainHomeScreen" />
+                android:value="com.example.evan.comp296.profile.Profile_main" />
 
         </activity>
 

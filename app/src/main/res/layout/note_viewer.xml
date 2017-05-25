@@ -14,19 +14,15 @@
 
     </android.support.v7.widget.Toolbar>
 
-
-    <LinearLayout
-        android:id="@+id/linear_layout_firebase"
-        android:orientation="vertical"
-        android:layout_marginTop="11dp"
-        android:paddingTop="5dp"
-        android:layout_marginLeft="7dp"
-        android:layout_marginBottom="9dp"
-        android:layout_marginRight="7dp"
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:background="@drawable/spinner_border_11"
-        android:elevation="15dp"
-        android:layout_height="432dp">
+        android:layout_height="380dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:elevation="20dp">
+
 
     <TextView
         android:id="@+id/note_text"
@@ -45,18 +41,25 @@
         android:text="Placeholder" />
 
 
-        </LinearLayout>
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView2"
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal">
+
+    <com.google.android.gms.ads.NativeExpressAdView
+        android:id="@+id/native_express_adview_note_viewer"
         android:layout_width="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_gravity="center_horizontal"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id">
-    </com.google.android.gms.ads.AdView>
+        ads:adSize="360x100"
+        ads:adUnitId="@string/note_viewer_ad_2">
+    </com.google.android.gms.ads.NativeExpressAdView>
+
+    </LinearLayout>
 
 
 

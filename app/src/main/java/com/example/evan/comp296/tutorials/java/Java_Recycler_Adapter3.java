@@ -47,7 +47,7 @@ public class Java_Recycler_Adapter3 extends RecyclerView.Adapter<Java_Recycler_A
     @Override
     public Java_Recycler_Adapter3.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View inflatedView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.recycler_layout_java, parent, false);
+                .inflate(R.layout.recycler_layout_java_2, parent, false);
         return new Java_Recycler_Adapter3.ViewHolder(inflatedView);
     }
 
@@ -74,7 +74,7 @@ public class Java_Recycler_Adapter3 extends RecyclerView.Adapter<Java_Recycler_A
             super(v);
 
 
-            category = (TextView) v.findViewById(R.id.java_topics_list);
+            category = (TextView) v.findViewById(R.id.java_topics_list_2);
 
 
             category.setOnClickListener(this);

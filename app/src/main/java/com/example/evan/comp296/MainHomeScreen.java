@@ -14,7 +14,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -26,16 +25,17 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.evan.comp296.Notes.Note_Homepage;
-import com.example.evan.comp296.Notes.Note_database;
+import com.example.evan.comp296.Notes_main.Note_Homepage;
+import com.example.evan.comp296.Notes_main.Note_database;
 import com.example.evan.comp296.about_and_contact.Contact_us;
 import com.example.evan.comp296.about_and_contact.about_us_2;
-import com.example.evan.comp296.calendar_events.calendar_main;
 import com.example.evan.comp296.calendar_events.calendar_viewer;
 import com.example.evan.comp296.group_chat.LoginActivity_for_chat;
 import com.example.evan.comp296.invites.MainActivity_invites;
@@ -120,6 +120,13 @@ public class MainHomeScreen extends AppCompatActivity
     Note_database nd;
 
     FloatingActionButton fab;
+    FloatingActionButton fab1;
+    FloatingActionButton fab2;
+    FloatingActionButton fab3;
+    FloatingActionButton fab4;
+
+    private Boolean isFabOpen = false;
+    private Animation fab_open,fab_close,rotate_forward,rotate_backward;
 
 
     //SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
@@ -136,14 +143,54 @@ public class MainHomeScreen extends AppCompatActivity
 
         //restoredText = prefs.getString("email", null);
 
+        fab_open = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_open);
+        fab_close = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_close);
+        rotate_forward = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_forward);
+        rotate_backward = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_backward);
+
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "**********hello ***********", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+                animateFAB();
+                //Snackbar.make(view, "**********hello ***********", Snackbar.LENGTH_LONG)
+                        //.setAction("Action", null).show();
             }
         });
+
+        fab1 = (FloatingActionButton) findViewById(R.id.fab1);
+        fab1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainHomeScreen.this, LoginActivity_for_chat.class));
+            }
+        });
+
+        fab2 = (FloatingActionButton) findViewById(R.id.fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainHomeScreen.this, Note_Homepage.class));
+            }
+        });
+
+        fab3 = (FloatingActionButton) findViewById(R.id.fab3);
+        fab3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainHomeScreen.this, calendar_viewer.class));
+            }
+        });
+
+        fab4 = (FloatingActionButton) findViewById(R.id.fab4);
+        fab4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainHomeScreen.this, Profile_main.class));
+            }
+        });
+
 
 
 
@@ -337,9 +384,16 @@ public class MainHomeScreen extends AppCompatActivity
 
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener(){
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy){
-                if (dy > 0 ||dy<0 && fab.isShown())
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                if (dy > 0 || dy < 0 && fab.isShown())
+
+                    if (isFabOpen)
+                        fab.show();
+                    else
                     fab.hide();
+
+
+
             }
 
             @Override
@@ -347,6 +401,9 @@ public class MainHomeScreen extends AppCompatActivity
 
                 if (newState == RecyclerView.SCROLL_STATE_IDLE){
                     fab.show();
+
+
+
                 }
                 super.onScrollStateChanged(recyclerView, newState);
             }
@@ -449,6 +506,17 @@ public class MainHomeScreen extends AppCompatActivity
             startActivity(new Intent(this,MainActivity_invites.class));
 
         } else if (id == R.id.nav_send) {
+
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    Uri data = Uri.parse("mailto:"
+                            + ""
+                            + "?subject=" + "Check out this awesome app for studying!" + "&body=" +
+                            "https://comp296-84489.firebaseapp.com/app.html");
+                    intent.setData(data);
+                    startActivity(intent);
+
+
+
 
         }
 
@@ -759,6 +827,38 @@ public class MainHomeScreen extends AppCompatActivity
     }
 
 
+    public void animateFAB(){
+
+        if(isFabOpen){
+
+            fab.startAnimation(rotate_backward);
+            fab1.startAnimation(fab_close);
+            fab2.startAnimation(fab_close);
+            fab3.startAnimation(fab_close);
+            fab4.startAnimation(fab_close);
+            fab1.setClickable(false);
+            fab2.setClickable(false);
+            fab3.setClickable(false);
+            fab4.setClickable(false);
+            isFabOpen = false;
+            Log.d("mainhomescreen", "close");
+
+        } else {
+
+            fab.startAnimation(rotate_forward);
+            fab1.startAnimation(fab_open);
+            fab2.startAnimation(fab_open);
+            fab3.startAnimation(fab_open);
+            fab4.startAnimation(fab_open);
+            fab1.setClickable(true);
+            fab2.setClickable(true);
+            fab3.setClickable(true);
+            fab4.setClickable(true);
+            isFabOpen = true;
+            Log.d("mainhomescreen","open");
+
+        }
+    }
 
 
 

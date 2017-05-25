@@ -20,9 +20,11 @@
         <TextView
             android:id="@+id/html_textview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="7dp"
-            android:paddingTop="7dp"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:paddingTop="24dp"
+            android:textColor="@color/blue_grey_900"
+            android:textSize="22dp"
             android:text="placeholder"/>
 
 

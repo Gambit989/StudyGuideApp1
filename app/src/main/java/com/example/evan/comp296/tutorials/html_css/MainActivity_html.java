@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.evan.comp296.R;
+import com.example.evan.comp296.tutorials.html_css.fragment.RecyclerViewFragment2;
+import com.example.evan.comp296.tutorials.html_css.fragment.RecyclerViewFragment3;
+import com.example.evan.comp296.tutorials.html_css.fragment.RecyclerViewFragment4;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
 import com.example.evan.comp296.tutorials.html_css.fragment.RecyclerViewFragment;
@@ -37,15 +40,17 @@ public class MainActivity_html extends AppCompatActivity {
 
             @Override
             public Fragment getItem(int position) {
-                switch (position % 4) {
-                    //case 0:
-                    //    return RecyclerViewFragment.newInstance();
-                    //case 1:
-                    //    return RecyclerViewFragment.newInstance();
-                    //case 2:
-                    //    return WebViewFragment.newInstance();
+                switch (position) {
+                     case 0:
+                         return RecyclerViewFragment.newInstance();
+                     case 1:
+                         return RecyclerViewFragment2.newInstance();
+                     case 2:
+                         return RecyclerViewFragment3.newInstance();
+                     case 3:
+                         return RecyclerViewFragment4.newInstance();
                     default:
-                        return RecyclerViewFragment.newInstance();
+                         return RecyclerViewFragment.newInstance();
                 }
             }
 

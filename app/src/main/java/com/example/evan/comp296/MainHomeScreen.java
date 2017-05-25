@@ -507,6 +507,17 @@ public class MainHomeScreen extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    Uri data = Uri.parse("mailto:"
+                            + ""
+                            + "?subject=" + "Check out this awesome app for studying!" + "&body=" +
+                            "https://comp296-84489.firebaseapp.com/app.html");
+                    intent.setData(data);
+                    startActivity(intent);
+
+
+
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

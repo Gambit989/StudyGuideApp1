@@ -38,7 +38,7 @@ public class MainActivity_pixel extends AppCompatActivity {
 
 	private RecyclerView assembly_recycler2;
 	LinearLayoutManager mLinearLayoutManager2;
-	Assembly_recycler_adapter mAdapter2;
+	Assembly_recycler_adapter2 mAdapter2;
 
 	private float mSlideOffset = 0;
 
@@ -73,7 +73,7 @@ public class MainActivity_pixel extends AppCompatActivity {
 		mLinearLayoutManager2 = new LinearLayoutManager(this);
 		assembly_recycler2.setLayoutManager(mLinearLayoutManager2);
 		//assembly_recycler2.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-		mAdapter2 = new Assembly_recycler_adapter(fill_with_data(), getApplicationContext());
+		mAdapter2 = new Assembly_recycler_adapter2(fill_with_data(), getApplicationContext());
 		assembly_recycler2.setAdapter(mAdapter2);
 	}
 
@@ -162,8 +162,10 @@ public class MainActivity_pixel extends AppCompatActivity {
 		List<String> data = new ArrayList();
 
 
-		data.add("Chapter 1");
-		data.add("Chapter 2");
+		data.add("Overview");
+		data.add("OverView (2)");
+		data.add("Quick Guide");
+		data.add("Types");
 
 
 		return data;

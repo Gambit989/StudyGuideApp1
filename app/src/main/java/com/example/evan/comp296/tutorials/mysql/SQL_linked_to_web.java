@@ -70,7 +70,7 @@ public class SQL_linked_to_web extends AppCompatActivity {
         }  else if (page_num==6) {
             wv.loadUrl("https://www.tutorialspoint.com/sql/sql-expressions.htm");
          } else if (page_num==7) {
-            wv.loadUrl("hhttps://www.tutorialspoint.com/sql/sql-create-database.htm");
+            wv.loadUrl("https://www.tutorialspoint.com/sql/sql-create-database.htm");
         } else if (page_num==8) {
             wv.loadUrl("https://www.tutorialspoint.com/sql/sql-drop-database.htm");
         } else if (page_num==9) {

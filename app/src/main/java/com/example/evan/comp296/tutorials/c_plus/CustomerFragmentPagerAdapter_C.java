@@ -11,7 +11,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class CustomerFragmentPagerAdapter_C extends FragmentPagerAdapter  {
 
-        private String[] tabTitle = new String[]{"C++ main concepts", "Other C++ topics"};
+        private String[] tabTitle = new String[]{"C++ main concepts", "C#"};
         Context context;
         private int pageCount = 2;
 

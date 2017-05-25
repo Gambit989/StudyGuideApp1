@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.List;
 
 import com.example.evan.comp296.tutorials.assembly.MainActivity_pixel;
+import com.example.evan.comp296.tutorials.c_plus.c_plus_plus_main;
 import com.example.evan.comp296.tutorials.html_css.MainActivity_html;
 import com.example.evan.comp296.tutorials.java.java_main;
 import com.example.evan.comp296.tutorials.mysql.SQL_main;
@@ -160,7 +161,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.PhotoH
                             //.setAction("Action", null).show();
 
                 } else if (getLayoutPosition() == 2) {
-                    v.getContext().startActivity(new Intent(v.getContext(),java_main.class));
+                    v.getContext().startActivity(new Intent(v.getContext(),c_plus_plus_main.class));
 
                 } else if (getLayoutPosition() == 3) {
 

@@ -73,6 +73,8 @@ public class java_main extends AppCompatActivity implements AdapterView.OnItemSe
     // The Native Express ad height.
     private static final int NATIVE_EXPRESS_AD_HEIGHT = 150;
 
+    boolean ads_loaded;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -168,14 +170,10 @@ public class java_main extends AppCompatActivity implements AdapterView.OnItemSe
         java_RecyclerView1.setAdapter(mAdapter);
 
 
+        ads_loaded=false;
+
+
     }
-
-
-
-
-
-
-
 
 
 
@@ -229,7 +227,8 @@ public class java_main extends AppCompatActivity implements AdapterView.OnItemSe
 
             java_RecyclerView1.setAdapter(mAdapter1);
 
-            setUpAndLoadNativeExpressAds();
+            if (!ads_loaded) {
+            setUpAndLoadNativeExpressAds();}
 
         } else if (position==2) {
 
@@ -318,6 +317,7 @@ public class java_main extends AppCompatActivity implements AdapterView.OnItemSe
                                     - cardView.getPaddingRight();
                             AdSize adSize = new AdSize((int) (adWidth / scale), NATIVE_EXPRESS_AD_HEIGHT);
                             adView.setAdSize(adSize);
+                            ads_loaded=true;
                             //adView.setAdUnitId(getString(R.string.java_main_ad));
                         }
 
@@ -366,6 +366,8 @@ public class java_main extends AppCompatActivity implements AdapterView.OnItemSe
                 // The previous Native Express ad loaded successfully, call this method again to
                 // load the next ad in the items list.
                 loadNativeExpressAd(index + ITEMS_PER_AD);
+
+
             }
 
             @Override

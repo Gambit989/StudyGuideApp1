@@ -373,6 +373,17 @@
                 android:value="com.example.evan.comp296.tutorials.assembly.MainActivity_pixel" />
         </activity>
 
+        <activity
+            android:name="com.example.evan.comp296.tutorials.assembly.Comp135_operating_systems"
+            android:label="Comp-135: Computer Architecture"
+            android:theme="@style/Theme.Design.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.tutorials.assembly.MainActivity_pixel" />
+        </activity>
+
+
+
 
         <activity
             android:name="com.example.evan.comp296.tutorials.c_plus.c_plus_plus_main"
@@ -383,6 +394,15 @@
                 android:value="com.example.evan.comp296.MainHomeScreen" />
         </activity>
 
+
+        <activity
+            android:name="com.example.evan.comp296.tutorials.c_plus.c_web"
+            android:label="SQL"
+            android:theme="@style/Theme.Design.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.tutorials.c_plus.c_plus_plus_main" />
+        </activity>
 
         <activity
             android:name="com.example.evan.comp296.tutorials.html_css.MainActivity_html"
@@ -532,10 +552,10 @@
 
         <activity
             android:name="com.example.evan.comp296.profile.Profile_edit"
-            android:label="@string/app_name2">
+            android:label="Edit Profile">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainHomeScreen" />
+                android:value="com.example.evan.comp296.profile.Profile_main" />
 
         </activity>
 

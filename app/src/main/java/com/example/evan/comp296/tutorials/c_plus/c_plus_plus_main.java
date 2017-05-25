@@ -28,7 +28,7 @@ public class c_plus_plus_main extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sql_main);
+        setContentView(R.layout.c_main);
 
 
 
@@ -39,7 +39,7 @@ public class c_plus_plus_main extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         viewPager = (ViewPager) findViewById(R.id.view_pager);
-        viewPager.setAdapter(new CustomFragmentPagerAdaptor(getSupportFragmentManager(), this));
+        viewPager.setAdapter(new CustomerFragmentPagerAdapter_C(getSupportFragmentManager(), this));
 
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);

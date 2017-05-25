@@ -1,8 +1,8 @@
 package com.example.evan.comp296.tutorials.html_css.fragment;
 
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,10 +12,9 @@ import android.view.ViewGroup;
 
 import com.example.evan.comp296.Data;
 import com.example.evan.comp296.Header_html;
-import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
-import com.example.evan.comp296.tutorials.html_css.TestRecyclerViewAdapter;
 import com.example.evan.comp296.R;
-
+import com.example.evan.comp296.tutorials.html_css.TestRecyclerViewAdapter;
+import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,9 +23,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by florentchampigny on 24/04/15.
+ * Created by Evan on 5/24/17.
  */
-public class RecyclerViewFragment extends Fragment {
+
+public class RecyclerViewFragment2 extends Fragment {
 
     private static final boolean GRID_LAYOUT = false;
     private static final int ITEM_COUNT = 10;
@@ -34,8 +34,8 @@ public class RecyclerViewFragment extends Fragment {
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
 
-    public static RecyclerViewFragment newInstance() {
-        return new RecyclerViewFragment();
+    public static RecyclerViewFragment2 newInstance() {
+        return new RecyclerViewFragment2();
     }
 
     @Override
@@ -50,12 +50,8 @@ public class RecyclerViewFragment extends Fragment {
 
         final List<Object> items = new ArrayList<>();
 
-            items.add(new Header_html(R.drawable.html5));
-            items.add(new Data("hello"));
-            items.add(new Data("hello"));
-            items.add(new Data("hello"));
-            items.add(new Data("hello"));
-            items.add(new Data("hello"));
+        items.add(new Header_html(R.drawable.css3_logo));
+        items.add(new Data("This section will be added next update!"));
 
 
 

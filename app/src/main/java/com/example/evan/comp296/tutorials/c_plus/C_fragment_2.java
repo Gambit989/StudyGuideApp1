@@ -74,46 +74,7 @@ public class C_fragment_2 extends Fragment {
         List<String> data = new ArrayList();
 
 
-        data.add("Introduction to MySQL");
-        data.add("What is MySQL?");
-        data.add("Installing the database");
-        data.add("Download sample database");
-        data.add("Load the sample database");
-        data.add("MySQL stored procedure");
-        data.add("MySQL Trigger");
-        data.add("Views");
-        data.add("Functions");
-        data.add("Administration");
-        data.add("MySQL JDBC tutorial");
-        data.add("PHP Statements");
-        data.add("Connection");
-        data.add("Create Database");
-        data.add("Drop Database");
-        data.add("Select Database");
-        data.add("Data Types");
-        data.add("Create Table");
-        data.add("Drop Table");
-        data.add("Insert Query");
-        data.add("Select Query");
-        data.add("Where Clause");
-        data.add("Update Query");
-        data.add("Delete Query");
-        data.add("Like Clause");
-        data.add("Sorting Results");
-        data.add("Using Join");
-        data.add("NULL Values");
-        data.add("Regexps");
-        data.add("Transactions");
-        data.add("Alter Command");
-        data.add("Indexes");
-        data.add("Temporary Tables");
-        data.add("Clone Tables");
-        data.add("Database Info");
-        data.add("Using Sequences");
-        data.add("Handing Duplicates");
-        data.add("SQL Injection");
-        data.add("Databse Export");
-        data.add("Database Import");
+        data.add("Will be added next update!");
 
 
         return data;

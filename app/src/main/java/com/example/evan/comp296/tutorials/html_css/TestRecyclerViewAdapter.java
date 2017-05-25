@@ -1,5 +1,7 @@
 package com.example.evan.comp296.tutorials.html_css;
 
+import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -26,8 +28,11 @@ public class TestRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
     static final int TYPE_HEADER = 0;
     static final int TYPE_CELL = 1;
 
-    public TestRecyclerViewAdapter(List<Object> contents) {
+    Context ctx;
+
+    public TestRecyclerViewAdapter(List<Object> contents, Context context) {
         this.contents = contents;
+        this.ctx=context;
     }
 
     @Override
@@ -70,10 +75,14 @@ public class TestRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
+        int color = R.color.amber_200;
+
         switch (getItemViewType(position)) {
             case TYPE_HEADER:
                 HeaderViewHolder headerItemHolder = (HeaderViewHolder) holder;
                 Header_html header_html = (Header_html) contents.get(position);
+
+                headerItemHolder.header.setBackgroundColor(ctx.getResources().getColor(R.color.amber_500));
                 headerItemHolder.header.setImageResource(header_html.getHeader());
                 break;
             case TYPE_CELL:
@@ -82,6 +91,7 @@ public class TestRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
                 Data menuItem = (Data) contents.get(position);
                 // Add the menu item details to the menu item view.
 
+                menuItemHolder.category.setBackgroundColor(ctx.getResources().getColor(R.color.blue_grey_400));
                 menuItemHolder.category.setText(menuItem.getJava());
                 break;
         }

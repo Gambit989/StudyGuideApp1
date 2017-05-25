@@ -414,6 +414,15 @@
         </activity>
 
         <activity
+            android:name="com.example.evan.comp296.tutorials.html_css.html_main_webview"
+            android:label="HTML"
+            android:theme="@style/Theme.Design.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.evan.comp296.tutorials.html_css.MainActivity_html" />
+        </activity>
+
+        <activity
             android:name="com.example.evan.comp296.tutorials.html_css.DrawerActivity"
             android:label="CSS"
             android:theme="@style/Theme.Design.NoActionBar">

@@ -1,8 +1,10 @@
 package com.example.evan.comp296.tutorials.html_css;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,7 @@ import com.example.evan.comp296.Data;
 import com.example.evan.comp296.Header_html;
 import com.example.evan.comp296.R;
 import com.example.evan.comp296.tutorials.java.Java_Recycler_Adapter;
+import com.example.evan.comp296.tutorials.java.comp228;
 
 import java.util.Collections;
 import java.util.List;
@@ -111,7 +114,6 @@ public class TestRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
 
             category = (TextView) v.findViewById(R.id.html_textview);
 
-
             category.setOnClickListener(this);
 
 
@@ -120,6 +122,20 @@ public class TestRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
 
         @Override
         public void onClick(View v) {
+
+            int i = v.getId();
+            if (i == R.id.java_topics_list) {
+
+                Intent intent = new Intent(v.getContext(), html_main_webview.class);
+
+                Bundle bundle = new Bundle();
+
+                bundle.putInt("page_num", getLayoutPosition());
+
+                intent.putExtras(bundle);
+
+                v.getContext().startActivity(intent);
+            }
 
         }
 

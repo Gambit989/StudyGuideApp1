@@ -86,7 +86,7 @@ public class Note_drv extends AppCompatActivity implements View.OnClickListener{
 
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase1 = FirebaseDatabase.getInstance().getReference().child("com.example.evan.comp296.Notes");
+        //mDatabase1 = FirebaseDatabase.getInstance().getReference().child("com.example.evan.comp296.Notes");
 
 
 
@@ -106,7 +106,7 @@ public class Note_drv extends AppCompatActivity implements View.OnClickListener{
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
 
-                    System.out.println("does the child exist? " + dataSnapshot.child(email1).exists());
+                    //System.out.println("does the child exist? " + dataSnapshot.child(email1).exists());
 
 
 
@@ -149,8 +149,8 @@ public class Note_drv extends AppCompatActivity implements View.OnClickListener{
 
                 db.add_row_notes(data);
 
-                mDatabase.child("com.example.evan.comp296.Notes").child(email1).child("note_title").setValue(note_title1);
-                mDatabase.child("com.example.evan.comp296.Notes").child(email1).child("note_text").setValue(note_text1);
+                //mDatabase.child("com.example.evan.comp296.Notes").child(email1).child("note_title").setValue(note_title1);
+                //mDatabase.child("com.example.evan.comp296.Notes").child(email1).child("note_text").setValue(note_text1);
 
 
                 Toast.makeText(Note_drv.this, "Note Created",

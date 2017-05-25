@@ -70,7 +70,7 @@ public class Contact_us extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://comp296-84489.firebaseapp.com/aboutus.html"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Gambit989"));
                 startActivity(browserIntent);
 
             }

@@ -51,11 +51,33 @@ public class RecyclerViewFragment extends Fragment {
         final List<Object> items = new ArrayList<>();
 
             items.add(new Header_html(R.drawable.html5));
-            items.add(new Data("hello"));
-            items.add(new Data("hello"));
-            items.add(new Data("hello"));
-            items.add(new Data("hello"));
-            items.add(new Data("hello"));
+            items.add(new Data("Introduction"));
+            items.add(new Data("Basic Tags"));
+            items.add(new Data("Elements"));
+            items.add(new Data("Attributes"));
+            items.add(new Data("Formatting"));
+            items.add(new Data("Phrase tags"));
+            items.add(new Data("Meta Tags"));
+            items.add(new Data("Comments"));
+            items.add(new Data("Images"));
+            items.add(new Data("Tables"));
+            items.add(new Data("Lists"));
+            items.add(new Data("Text Links"));
+            items.add(new Data("Image Links"));
+            items.add(new Data("Email Links"));
+            items.add(new Data("Frames"));
+            items.add(new Data("IFrames"));
+            items.add(new Data("Blocks"));
+            items.add(new Data("backgrounds"));
+            items.add(new Data("Fonts"));
+            items.add(new Data("Forms"));
+            items.add(new Data("Embed Multimedia"));
+            items.add(new Data("Marquees"));
+            items.add(new Data("Header"));
+            items.add(new Data("Style Sheet"));
+            items.add(new Data("Javascript"));
+            items.add(new Data("Layouts"));
+
 
 
 

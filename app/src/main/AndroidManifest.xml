@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.evan.comp296">
+    package="com.ecmediagroup.evan.studyguide">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -15,15 +15,18 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher_app"
+        android:icon="@mipmap/launcher_icon2"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".splash_screen"
+        <activity android:name="com.ecmediagroup.evan.studyguide.splash_screen"
             android:theme="@style/Theme.Design.NoActionBar">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -33,508 +36,509 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
-            android:icon="@mipmap/ic_launcher_app"
+            android:name="com.ecmediagroup.evan.studyguide.MainActivity"
+            android:icon="@mipmap/launcher_icon2"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
         </activity>
         <!-- A child of the main activity -->
         <activity
-            android:name=".Register"
-            android:icon="@mipmap/brookdale"
+            android:name="com.ecmediagroup.evan.studyguide.Register"
+            android:icon="@mipmap/launcher_icon2"
             android:label="@string/app_name"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName="com.ecmediagroup.evan.studyguide.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainActivity" />
+                android:value="com.ecmediagroup.evan.studyguide.MainActivity" />
         </activity>
 
         <!-- A child of the main activity -->
         <activity
-            android:name=".Firebase_New_User"
-            android:icon="@mipmap/brookdale"
+            android:name="com.ecmediagroup.evan.studyguide.Firebase_New_User"
+            android:icon="@mipmap/launcher_icon2"
             android:label="@string/app_name"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName="com.ecmediagroup.evan.studyguide.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainActivity" />
+                android:value="com.ecmediagroup.evan.studyguide.MainActivity" />
         </activity>
         <!-- A child of the main activity -->
         <activity
-            android:name=".Home"
-            android:icon="@mipmap/brookdale"
+            android:name="com.ecmediagroup.evan.studyguide.Home"
+            android:icon="@mipmap/launcher_icon2"
             android:label="@string/app_name" />
         <!-- A child of the main activity -->
         <activity
-            android:name=".display_info"
+            android:name="com.ecmediagroup.evan.studyguide.display_info"
             android:label="@string/app_name"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName="com.ecmediagroup.evan.studyguide.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainActivity" />
+                android:value="com.ecmediagroup.evan.studyguide.MainActivity" />
         </activity>
 
 
         <activity
-            android:name=".MainHomeScreen"
+            android:name="com.ecmediagroup.evan.studyguide.MainHomeScreen"
             android:label="Welcome"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:largeHeap="true">
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.evan.comp296.MainActivity" />
+            android:value="com.ecmediagroup.evan.studyguide.MainActivity" />
         </activity>
 
 
         <activity
-            android:name=".onehundred_level"
+            android:name="com.ecmediagroup.evan.studyguide.onehundred_level"
             android:label="@string/app_name"
-            android:parentActivityName=".MainHomeScreen">
+            android:parentActivityName="com.ecmediagroup.evan.studyguide.MainHomeScreen">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainActivity" />
+                android:value="com.ecmediagroup.evan.studyguide.MainActivity" />
         </activity>
 
 
         <activity
-            android:name=".comp166"
+            android:name="com.ecmediagroup.evan.studyguide.comp166"
             android:label="@string/app_name"
-            android:parentActivityName=".MainHomeScreen">
+            android:parentActivityName="com.ecmediagroup.evan.studyguide.MainHomeScreen">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainActivity" />
+                android:value="com.ecmediagroup.evan.studyguide.MainActivity" />
         </activity>
 
 
         <activity
-            android:name=".firebase.firebase_main"
+            android:name="com.ecmediagroup.evan.studyguide.firebase.firebase_main"
             android:label="@string/app1_name"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName="com.ecmediagroup.evan.studyguide.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainActivity" />
+                android:value="com.ecmediagroup.evan.studyguide.MainActivity" />
         </activity>
 
 
         <activity
-            android:name="com.example.evan.comp296.google.ChooserActivity"
+            android:name="com.ecmediagroup.evan.studyguide.google.ChooserActivity"
             android:label="@string/app_name2">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainActivity" />
+                android:value="com.ecmediagroup.evan.studyguide.MainActivity" />
 
         </activity>
 
 
         <activity
-            android:name="com.example.evan.comp296.google.SignInActivity"
+            android:name="com.ecmediagroup.evan.studyguide.google.SignInActivity"
             android:label="@string/name_sign_in_activity"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
         </activity>
         <activity
-            android:name="com.example.evan.comp296.google.SignInActivityWithDrive"
+            android:name="com.ecmediagroup.evan.studyguide.google.SignInActivityWithDrive"
             android:label="@string/name_sign_in_activity"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
         </activity>
         <activity
-            android:name="com.example.evan.comp296.google.IdTokenActivity"
+            android:name="com.ecmediagroup.evan.studyguide.google.IdTokenActivity"
             android:label="@string/name_id_token_activity"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.google.ServerAuthCodeActivity"
+            android:name="com.ecmediagroup.evan.studyguide.google.ServerAuthCodeActivity"
             android:label="@string/name_auth_code_activity"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.google.RestApiActivity"
+            android:name="com.ecmediagroup.evan.studyguide.google.RestApiActivity"
             android:label="@string/name_rest_activity"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.java.java_main"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.java.java_main"
             android:label="Java Courses"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainHomeScreen" />
+                android:value="com.ecmediagroup.evan.studyguide.MainHomeScreen" />
         </activity>
 
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.java.j0"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.java.j0"
             android:label="@string/app_name2"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+                android:value="com.ecmediagroup.evan.studyguide.tutorials.java.java_main" />
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.java.j1"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.java.j1"
             android:label="@string/app_name2"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+                android:value="com.ecmediagroup.evan.studyguide.tutorials.java.java_main" />
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.java.j2"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.java.j2"
             android:label="@string/app_name2"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+                android:value="com.ecmediagroup.evan.studyguide.tutorials.java.java_main" />
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.java.j3"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.java.j3"
             android:label="@string/app_name2"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+                android:value="com.ecmediagroup.evan.studyguide.tutorials.java.java_main" />
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.java.j4"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.java.j4"
             android:label="@string/app_name2"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+                android:value="com.ecmediagroup.evan.studyguide.tutorials.java.java_main" />
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.java.j5"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.java.j5"
             android:label="@string/app_name2"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+                android:value="com.ecmediagroup.evan.studyguide.tutorials.java.java_main" />
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.java.j6"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.java.j6"
             android:label="@string/app_name2"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+                android:value="com.ecmediagroup.evan.studyguide.tutorials.java.java_main" />
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.java.j7"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.java.j7"
             android:label="@string/app_name2"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+                android:value="com.ecmediagroup.evan.studyguide.tutorials.java.java_main" />
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.java.j8"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.java.j8"
             android:label="@string/app_name2"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+                android:value="com.ecmediagroup.evan.studyguide.tutorials.java.java_main" />
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.java.j9"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.java.j9"
             android:label="@string/app_name2"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+                android:value="com.ecmediagroup.evan.studyguide.tutorials.java.java_main" />
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.java.j10"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.java.j10"
             android:label="@string/app_name2"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+                android:value="com.ecmediagroup.evan.studyguide.tutorials.java.java_main" />
         </activity>
 
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.java.j11"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.java.j11"
             android:label="@string/app_name2"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+                android:value="com.ecmediagroup.evan.studyguide.tutorials.java.java_main" />
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.java.j12"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.java.j12"
             android:label="@string/app_name2"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+                android:value="com.ecmediagroup.evan.studyguide.tutorials.java.java_main" />
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.java.j13"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.java.j13"
             android:label="@string/app_name2"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+                android:value="com.ecmediagroup.evan.studyguide.tutorials.java.java_main" />
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.java.j14"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.java.j14"
             android:label="@string/app_name2"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+                android:value="com.ecmediagroup.evan.studyguide.tutorials.java.java_main" />
         </activity>
 
         <activity
-        android:name="com.example.evan.comp296.tutorials.java.j15"
+        android:name="com.ecmediagroup.evan.studyguide.tutorials.java.j15"
         android:label="@string/app_name2"
         android:theme="@style/ThemeOverlay.MyNoTitleActivity">
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.evan.comp296.tutorials.java.java_main" />
+            android:value="com.ecmediagroup.evan.studyguide.tutorials.java.java_main" />
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.java.comp228"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.java.comp228"
             android:label="@string/app_name2"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+                android:value="com.ecmediagroup.evan.studyguide.tutorials.java.java_main" />
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.java.comp271"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.java.comp271"
             android:label="@string/app_name2"
             android:theme="@style/ThemeOverlay.MyNoTitleActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.tutorials.java.java_main" />
+                android:value="com.ecmediagroup.evan.studyguide.tutorials.java.java_main" />
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.mysql.SQL_main"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.mysql.SQL_main"
             android:label="SQL"
             android:theme="@style/Theme.Design.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainHomeScreen" />
+                android:value="com.ecmediagroup.evan.studyguide.MainHomeScreen" />
         </activity>
 
         <activity
-        android:name="com.example.evan.comp296.tutorials.mysql.SQL_linked_to_web"
+        android:name="com.ecmediagroup.evan.studyguide.tutorials.mysql.SQL_linked_to_web"
         android:label="SQL"
         android:theme="@style/Theme.Design.NoActionBar">
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.evan.comp296.tutorials.mysql.SQL_main" />
+            android:value="com.ecmediagroup.evan.studyguide.tutorials.mysql.SQL_main" />
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.mysql.SQL_linked_to_web_2"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.mysql.SQL_linked_to_web_2"
             android:label="MySQL"
             android:theme="@style/Theme.Design.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.tutorials.mysql.SQL_main" />
+                android:value="com.ecmediagroup.evan.studyguide.tutorials.mysql.SQL_main" />
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.assembly.MainActivity_pixel"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.assembly.MainActivity_pixel"
             android:label="Comp-135"
             android:supportsRtl="true"
             android:theme="@style/AppThemePixel">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainHomeScreen" />
+                android:value="com.ecmediagroup.evan.studyguide.MainHomeScreen" />
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.assembly.Comp135"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.assembly.Comp135"
             android:label="Comp-135: Computer Architecture"
             android:theme="@style/Theme.Design.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.tutorials.assembly.MainActivity_pixel" />
+                android:value="com.ecmediagroup.evan.studyguide.tutorials.assembly.MainActivity_pixel" />
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.assembly.Comp135_operating_systems"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.assembly.Comp135_operating_systems"
             android:label="Comp-135: Computer Architecture"
             android:theme="@style/Theme.Design.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.tutorials.assembly.MainActivity_pixel" />
+                android:value="com.ecmediagroup.evan.studyguide.tutorials.assembly.MainActivity_pixel" />
         </activity>
 
 
 
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.c_plus.c_plus_plus_main"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.c_plus.c_plus_plus_main"
             android:label="SQL"
             android:theme="@style/Theme.Design.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainHomeScreen" />
+                android:value="com.ecmediagroup.evan.studyguide.MainHomeScreen" />
         </activity>
 
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.c_plus.c_web"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.c_plus.c_web"
             android:label="SQL"
             android:theme="@style/Theme.Design.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.tutorials.c_plus.c_plus_plus_main" />
+                android:value="com.ecmediagroup.evan.studyguide.tutorials.c_plus.c_plus_plus_main" />
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.html_css.MainActivity_html"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.html_css.MainActivity_html"
             android:label="HTML"
             android:theme="@style/Theme.Design.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainHomeScreen" />
+                android:value="com.ecmediagroup.evan.studyguide.MainHomeScreen" />
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.html_css.html_main_webview"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.html_css.html_main_webview"
             android:label="HTML"
             android:theme="@style/Theme.Design.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.tutorials.html_css.MainActivity_html" />
+                android:value="com.ecmediagroup.evan.studyguide.tutorials.html_css.MainActivity_html" />
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.tutorials.html_css.DrawerActivity"
+            android:name="com.ecmediagroup.evan.studyguide.tutorials.html_css.DrawerActivity"
             android:label="CSS"
             android:theme="@style/Theme.Design.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainHomeScreen" />
+                android:value="com.ecmediagroup.evan.studyguide.MainHomeScreen" />
         </activity>
 
 
 
         <activity
-            android:name="com.example.evan.comp296.Notes_main.Note_drv"
+            android:name="com.ecmediagroup.evan.studyguide.Notes_main.Note_drv"
             android:label="@string/app_name2">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainHomeScreen" />
+                android:value="com.ecmediagroup.evan.studyguide.MainHomeScreen" />
 
         </activity>
 
 
         <activity
-            android:name="com.example.evan.comp296.Notes_main.Note_Homepage"
+            android:name="com.ecmediagroup.evan.studyguide.Notes_main.Note_Homepage"
             android:label="Notes Homepage">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainHomeScreen" />
+                android:value="com.ecmediagroup.evan.studyguide.MainHomeScreen" />
 
         </activity>
 
 
 
         <activity
-        android:name="com.example.evan.comp296.Notes_main.Note_viewer"
+        android:name="com.ecmediagroup.evan.studyguide.Notes_main.Note_viewer"
         android:label="Note">
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.evan.comp296.Notes_main.Note_Homepage" />
+            android:value="com.ecmediagroup.evan.studyguide.Notes_main.Note_Homepage" />
 
     </activity>
 
         <activity
-            android:name="com.example.evan.comp296.Notes_main.Note_delete_view"
+            android:name="com.ecmediagroup.evan.studyguide.Notes_main.Note_delete_view"
             android:label="@string/app_name2">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.Notes_main.Note_Homepage" />
+                android:value="com.ecmediagroup.evan.studyguide.Notes_main.Note_Homepage" />
 
         </activity>
 
 
         <activity
-            android:name="com.example.evan.comp296.about_and_contact.about_us"
+            android:name="com.ecmediagroup.evan.studyguide.about_and_contact.about_us"
             android:label="About Us">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainHomeScreen" />
+                android:value="com.ecmediagroup.evan.studyguide.MainHomeScreen" />
 
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.about_and_contact.about_us_2"
+            android:name="com.ecmediagroup.evan.studyguide.about_and_contact.about_us_2"
             android:label="Our Story">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainHomeScreen" />
+                android:value="com.ecmediagroup.evan.studyguide.MainHomeScreen" />
 
         </activity>
 
         <activity
-        android:name="com.example.evan.comp296.about_and_contact.Contact_us"
+        android:name="com.ecmediagroup.evan.studyguide.about_and_contact.Contact_us"
         android:label="Contact">
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.example.evan.comp296.MainHomeScreen" />
+            android:value="com.ecmediagroup.evan.studyguide.MainHomeScreen" />
 
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.calendar_events.calendar_viewer"
+            android:name="com.ecmediagroup.evan.studyguide.calendar_events.calendar_viewer"
             android:label="Calendar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainHomeScreen" />
+                android:value="com.ecmediagroup.evan.studyguide.MainHomeScreen" />
 
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.calendar_events.calendar_main"
+            android:name="com.ecmediagroup.evan.studyguide.calendar_events.calendar_main"
             android:label="Calendar"
             android:theme="@style/calendar_theme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.calendar_events.calendar_viewer" />
+                android:value="com.ecmediagroup.evan.studyguide.calendar_events.calendar_viewer" />
 
         </activity>
 
 
         <activity
-            android:name="com.example.evan.comp296.calendar_events.event_delete_view"
+            android:name="com.ecmediagroup.evan.studyguide.calendar_events.event_delete_view"
             android:label="Calendar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.calendar_events.calendar_viewer" />
+                android:value="com.ecmediagroup.evan.studyguide.calendar_events.calendar_viewer" />
 
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.Settings_screen"
+            android:name="com.ecmediagroup.evan.studyguide.Settings_screen"
             android:label="Settings">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainHomeScreen" />
+                android:value="com.ecmediagroup.evan.studyguide.MainHomeScreen" />
 
         </activity>
 
@@ -542,82 +546,82 @@
 
 
         <activity
-            android:name="com.example.evan.comp296.profile.MainActivity_Profile"
+            android:name="com.ecmediagroup.evan.studyguide.profile.MainActivity_Profile"
             android:label="My Profile">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainHomeScreen" />
+                android:value="com.ecmediagroup.evan.studyguide.MainHomeScreen" />
 
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.profile.Profile_main"
+            android:name="com.ecmediagroup.evan.studyguide.profile.Profile_main"
             android:label="My Profile">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainHomeScreen" />
+                android:value="com.ecmediagroup.evan.studyguide.MainHomeScreen" />
 
         </activity>
 
         <activity
-            android:name="com.example.evan.comp296.profile.Profile_edit"
+            android:name="com.ecmediagroup.evan.studyguide.profile.Profile_edit"
             android:label="Edit Profile">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.profile.Profile_main" />
+                android:value="com.ecmediagroup.evan.studyguide.profile.Profile_main" />
 
         </activity>
 
 
 
         <activity
-            android:name="com.example.evan.comp296.messaging.ProfileActivity"
+            android:name="com.ecmediagroup.evan.studyguide.messaging.ProfileActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.example.evan.comp296.messaging.FeedsActivity"
+            android:name="com.ecmediagroup.evan.studyguide.messaging.FeedsActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="com.example.evan.comp296.messaging.db_tester"
+            android:name="com.ecmediagroup.evan.studyguide.messaging.db_tester"
             android:label="@string/title_activity_user_detail"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="com.example.evan.comp296.messaging.WelcomeActivity"
+            android:name="com.ecmediagroup.evan.studyguide.messaging.WelcomeActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar.Fullscreen">
         </activity>
         <activity
-            android:name="com.example.evan.comp296.messaging.CommentsActivity"
+            android:name="com.ecmediagroup.evan.studyguide.messaging.CommentsActivity"
             android:label="@string/title_activity_comments"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.example.evan.comp296.messaging.NewPostActivity"
+            android:name="com.ecmediagroup.evan.studyguide.messaging.NewPostActivity"
             android:label="@string/title_activity_new_post"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.example.evan.comp296.messaging.UserDetailActivity"
+            android:name="com.ecmediagroup.evan.studyguide.messaging.UserDetailActivity"
             android:label="@string/title_activity_user_detail"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".BaseActivity"></activity>
+        <activity android:name="com.ecmediagroup.evan.studyguide.BaseActivity"></activity>
 
 
 
 
 
         <activity
-            android:name="com.example.evan.comp296.invites.MainActivity_invites"
+            android:name="com.ecmediagroup.evan.studyguide.invites.MainActivity_invites"
             android:label="Invite">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainHomeScreen" />
+                android:value="com.ecmediagroup.evan.studyguide.MainHomeScreen" />
         </activity>
 
 
         <activity
-            android:name="com.example.evan.comp296.invites.DeepLinkActivity"
+            android:name="com.ecmediagroup.evan.studyguide.invites.DeepLinkActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
 
@@ -636,27 +640,27 @@
 
 
         <activity
-            android:name="com.example.evan.comp296.group_chat.MainActivity_for_chat"
+            android:name="com.ecmediagroup.evan.studyguide.group_chat.MainActivity_for_chat"
             android:label="Group Chat"
             android:theme="@android:style/Theme.Holo.Light">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.group_chat.LoginActivity_for_chat" />
+                android:value="com.ecmediagroup.evan.studyguide.group_chat.LoginActivity_for_chat" />
         </activity>
 
 
         <activity
-            android:name="com.example.evan.comp296.group_chat.LoginActivity_for_chat"
+            android:name="com.ecmediagroup.evan.studyguide.group_chat.LoginActivity_for_chat"
             android:label="@string/title_activity_login"
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.evan.comp296.MainHomeScreen" />
+                android:value="com.ecmediagroup.evan.studyguide.MainHomeScreen" />
         </activity>
 
         <receiver
-            android:name="com.example.evan.comp296.group_chat.gcm.GcmBroadcastReceiver"
+            android:name="com.ecmediagroup.evan.studyguide.group_chat.gcm.GcmBroadcastReceiver"
             android:exported="true"
             android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
@@ -667,7 +671,7 @@
 
 
         <service
-            android:name="com.example.evan.comp296.group_chat.gcm.GcmIntentService"
+            android:name="com.ecmediagroup.evan.studyguide.group_chat.gcm.GcmIntentService"
             android:exported="false" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
@@ -709,7 +713,7 @@
 
         <!-- [START firebase_service] -->
         <service
-            android:name=".firebase.MyFirebaseMessagingService">
+            android:name="com.ecmediagroup.evan.studyguide.firebase.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
@@ -717,13 +721,13 @@
         <!-- [END firebase_service] -->
         <!-- [START firebase_iid_service] -->
         <service
-            android:name=".firebase.MyFirebaseInstanceIDService">
+            android:name="com.ecmediagroup.evan.studyguide.firebase.MyFirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
             </intent-filter>
         </service>
         <!-- [END firebase_iid_service] -->
-        <service android:name=".firebase.MyJobService"
+        <service android:name="com.ecmediagroup.evan.studyguide.firebase.MyJobService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
@@ -732,20 +736,14 @@
 
 
         <service
-            android:name=".profile.MyDownloadService"
+            android:name="com.ecmediagroup.evan.studyguide.profile.MyDownloadService"
             android:exported="false"/>
 
         <service
-            android:name=".profile.MyUploadService"
+            android:name="com.ecmediagroup.evan.studyguide.profile.MyUploadService"
             android:exported="false" />
 
 
-
-    <application android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
 
 
     </application>

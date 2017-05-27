@@ -11,6 +11,12 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled = true
+
+        dexOptions {
+            javaMaxHeapSize "7g"
+
+        }
     }
     buildTypes {
         release {
@@ -18,6 +24,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
+    productFlavors {
+        demo {
+            applicationId "com.ecmediagroup.evan.studyguide"
+        }
+        full {
+            applicationId "com.ecmediagroup.evan.studyguide"
+        }
+    }
+
+
+
+
+
+
 
     packagingOptions {
 
@@ -65,6 +87,8 @@ dependencies {
 
 
     // Dependencies for Google Sign-in
+    //compile 'com.google.android.gms:play-services:10.2.1'
+
     compile 'com.google.android.gms:play-services-base:10.2.1'
     compile 'com.google.android.gms:play-services-auth:10.2.1'
 
@@ -83,7 +107,7 @@ dependencies {
     compile 'com.google.firebase:firebase-messaging:10.2.1'
     compile 'com.google.firebase:firebase-appindexing:10.2.1'
 
-    compile 'com.firebase:firebase-jobdispatcher:0.6.0'
+    //compile 'com.firebase:firebase-jobdispatcher:0.6.0'
 
     //new google
     compile 'com.google.android.gms:play-services-ads:10.2.1'
@@ -93,6 +117,7 @@ dependencies {
     compile 'com.google.firebase:firebase-config:10.2.1'
     compile 'com.google.android.gms:play-services-appinvite:10.2.1'
     compile "com.google.android.gms:play-services-gcm:10.2.1"
+
 
 
 
@@ -141,11 +166,18 @@ dependencies {
     compile'com.google.code.findbugs:jsr305:2.0.1'
     compile 'com.pubnub:pubnub-android:3.7.4'
 
+    compile 'com.android.support:multidex:1.0.1'
+
 
     testCompile 'junit:junit:4.12'
 
 
     compile project(path: ':library')
+
+
+    compile ("com.firebase:firebase-jobdispatcher-with-gcm-dep:0.6.0") {
+        exclude module: "play-services-gcm"
+    }
 
 
 }

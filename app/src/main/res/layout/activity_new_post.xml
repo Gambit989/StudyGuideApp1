@@ -19,7 +19,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.evan.comp296.messaging.NewPostActivity">
+    tools:context="com.ecmediagroup.evan.studyguide.messaging.NewPostActivity">
 
     <ImageView
         android:layout_width="match_parent"

@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:fillViewport="true"
     android:scrollbars="vertical"
-    tools:context="com.example.evan.comp296.profile.MainActivity_Profile">
+    tools:context="com.ecmediagroup.evan.studyguide.profile.MainActivity_Profile">
 
 
 

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:windowSoftInputMode="adjustPan"
-    tools:context="com.example.evan.comp296.group_chat.MainActivity_for_chat">
+    tools:context="com.ecmediagroup.evan.studyguide.group_chat.MainActivity_for_chat">
 
     <Button
         android:id="@+id/channel_bar"

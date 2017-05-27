@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Brookdale CS Study Guide</string>
 
+    <string name="app_name_5">Computer Science Study Guide</string>
+
     <!-- Strings related to login -->
     <string name="prompt_email">Brookdale Email</string>
     <string name="register_button">Click Here To Register</string>

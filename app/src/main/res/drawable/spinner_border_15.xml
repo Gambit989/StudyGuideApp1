@@ -10,7 +10,7 @@
                 android:width="2dp"
                 android:color="@android:color/darker_gray" />
             <corners android:radius="4dp" />
-            <solid android:color="@color/main_theme_light" />
+            <solid android:color="@color/blue_700" />
         </shape>
     </item>
 

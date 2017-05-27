@@ -7,7 +7,7 @@
     android:background="@color/blue_grey_700"
     android:orientation="vertical"
     android:weightSum="4"
-    tools:context="com.example.evan.comp296.google.SignInActivity">
+    tools:context="com.ecmediagroup.evan.studyguide.google.SignInActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -8,7 +8,7 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	app:layout_scrollFlags="scroll"
-	tools:context="com.example.evan.comp296.tutorials.assembly.MainActivity_pixel">
+	tools:context="com.ecmediagroup.evan.studyguide.tutorials.assembly.MainActivity_pixel">
 
 	<RelativeLayout
 		android:layout_width="match_parent"

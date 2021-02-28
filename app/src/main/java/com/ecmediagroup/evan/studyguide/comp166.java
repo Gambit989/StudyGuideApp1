@@ -1,9 +1,10 @@
 package com.ecmediagroup.evan.studyguide;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.text.method.ScrollingMovementMethod;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Created by Evan on 12/14/16.

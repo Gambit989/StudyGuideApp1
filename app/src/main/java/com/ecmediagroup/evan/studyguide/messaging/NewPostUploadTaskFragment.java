@@ -22,8 +22,8 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import android.util.Log;
 
 import com.ecmediagroup.evan.studyguide.R;
@@ -168,7 +168,7 @@ public class NewPostUploadTaskFragment extends Fragment {
             fullSizeRef.putBytes(bytes).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    final Uri fullSizeUrl = taskSnapshot.getDownloadUrl();
+                    final Uri fullSizeUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl().getResult();
 
                     ByteArrayOutputStream thumbnailStream = new ByteArrayOutputStream();
                     thumbnail.compress(Bitmap.CompressFormat.JPEG, 70, thumbnailStream);
@@ -179,7 +179,9 @@ public class NewPostUploadTaskFragment extends Fragment {
                             final DatabaseReference ref = FirebaseUtil.getBaseRef();
                             DatabaseReference postsRef = FirebaseUtil.getPostsRef();
                             final String newPostKey = postsRef.push().getKey();
-                            final Uri thumbnailUrl = taskSnapshot.getDownloadUrl();
+                            final Uri thumbnailUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl().getResult();
+
+
 
                             Author author = FirebaseUtil.getAuthor();
                             if (author == null) {

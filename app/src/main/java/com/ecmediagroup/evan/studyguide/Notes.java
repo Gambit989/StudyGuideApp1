@@ -1,8 +1,8 @@
 package com.ecmediagroup.evan.studyguide;
 
-import android.support.v7.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Created by Evan on 5/8/17.

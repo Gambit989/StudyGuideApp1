@@ -20,7 +20,7 @@ package com.ecmediagroup.evan.studyguide.messaging;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
+import androidx.fragment.app.DialogFragment;
 
 
 public class ProgressDialogFragment extends DialogFragment {

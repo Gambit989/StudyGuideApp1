@@ -4,9 +4,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.IBinder;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.annotation.NonNull;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.ecmediagroup.evan.studyguide.R;
@@ -16,6 +15,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
+import androidx.annotation.Nullable;
 
 /**
  * Service to handle uploading files to Firebase Storage.
@@ -97,7 +98,9 @@ public class MyUploadService extends MyBaseTaskService {
                         Log.d(TAG, "uploadFromUri:onSuccess");
 
                         // Get the public download URL
-                        @SuppressWarnings("VisibleForTests") Uri downloadUri = taskSnapshot.getMetadata().getDownloadUrl();
+                        //@SuppressWarnings("VisibleForTests") Uri downloadUri = taskSnapshot.getMetadata().getDownloadUrl();
+
+                        @SuppressWarnings("VisibleForTests") Uri downloadUri = taskSnapshot.getMetadata().getReference().getDownloadUrl().getResult();
 
                         // [START_EXCLUDE]
                         broadcastUploadFinished(downloadUri, fileUri);

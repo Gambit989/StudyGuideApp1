@@ -15,7 +15,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/launcher_icon2"
+        android:icon="@mipmap/ic_launcher5"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -25,6 +25,11 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+        
+            <!-- Sample Ad Manager app ID: ca-app-pub-3940256099942544~3347511713 -->
+            <meta-data
+                android:name="com.google.android.gms.ads.APPLICATION_ID"
+                android:value="ca-app-pub-2106373836011104~3967954116"/>
 
         <activity android:name="com.ecmediagroup.evan.studyguide.splash_screen"
             android:theme="@style/Theme.Design.NoActionBar">
@@ -37,7 +42,7 @@
 
         <activity
             android:name="com.ecmediagroup.evan.studyguide.MainActivity"
-            android:icon="@mipmap/launcher_icon2"
+            android:icon="@mipmap/ic_launcher5"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
@@ -45,7 +50,7 @@
         <!-- A child of the main activity -->
         <activity
             android:name="com.ecmediagroup.evan.studyguide.Register"
-            android:icon="@mipmap/launcher_icon2"
+            android:icon="@mipmap/ic_launcher5"
             android:label="@string/app_name"
             android:parentActivityName="com.ecmediagroup.evan.studyguide.MainActivity">
             <meta-data
@@ -56,7 +61,7 @@
         <!-- A child of the main activity -->
         <activity
             android:name="com.ecmediagroup.evan.studyguide.Firebase_New_User"
-            android:icon="@mipmap/launcher_icon2"
+            android:icon="@mipmap/ic_launcher5"
             android:label="@string/app_name"
             android:parentActivityName="com.ecmediagroup.evan.studyguide.MainActivity">
             <meta-data
@@ -66,7 +71,7 @@
         <!-- A child of the main activity -->
         <activity
             android:name="com.ecmediagroup.evan.studyguide.Home"
-            android:icon="@mipmap/launcher_icon2"
+            android:icon="@mipmap/ic_launcher5"
             android:label="@string/app_name" />
         <!-- A child of the main activity -->
         <activity

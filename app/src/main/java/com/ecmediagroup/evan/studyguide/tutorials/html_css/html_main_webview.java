@@ -2,9 +2,8 @@ package com.ecmediagroup.evan.studyguide.tutorials.html_css;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
@@ -12,6 +11,8 @@ import android.webkit.WebView;
 
 import com.ecmediagroup.evan.studyguide.Notes_main.Note_drv;
 import com.ecmediagroup.evan.studyguide.R;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Created by Evan on 5/22/17.

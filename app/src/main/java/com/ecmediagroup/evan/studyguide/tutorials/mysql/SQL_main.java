@@ -1,11 +1,11 @@
 package com.ecmediagroup.evan.studyguide.tutorials.mysql;
 
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.tabs.TabLayout;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.ecmediagroup.evan.studyguide.R;
 import com.google.android.gms.ads.NativeExpressAdView;
@@ -14,7 +14,7 @@ import com.google.android.gms.ads.NativeExpressAdView;
  * Created by Evan on 5/14/17.
  */
 
-public class SQL_main extends AppCompatActivity{
+public class SQL_main extends AppCompatActivity {
 
 
     Toolbar toolbar;

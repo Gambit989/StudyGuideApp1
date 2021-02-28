@@ -2,13 +2,14 @@ package com.ecmediagroup.evan.studyguide;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
 import android.widget.Button;
 import android.view.View.OnClickListener;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
 /**

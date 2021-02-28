@@ -18,20 +18,25 @@ package com.ecmediagroup.evan.studyguide.messaging;
 
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import android.widget.ImageView;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.ecmediagroup.evan.studyguide.R;
 
 public class GlideUtil {
     public static void loadImage(String url, ImageView imageView) {
         Context context = imageView.getContext();
         ColorDrawable cd = new ColorDrawable(ContextCompat.getColor(context, R.color.blue_grey_500));
+
+        RequestOptions cropOptions = new RequestOptions().centerCrop();
+
+        //Glide.with(context).load().
         Glide.with(context)
                 .load(url)
-                .placeholder(cd)
-                .crossFade()
-                .centerCrop()
+                //.placeholder(cd)
+                //.crossFade()
+                //.centerCrop()
                 .into(imageView);
     }
 
@@ -39,9 +44,9 @@ public class GlideUtil {
         Context context = imageView.getContext();
         Glide.with(context)
                 .load(url)
-                .placeholder(R.drawable.ic_person_outline_black_24dp)
-                .dontAnimate()
-                .fitCenter()
+                //.placeholder(R.drawable.ic_person_outline_black_24dp)
+                //.dontAnimate()
+                //.fitCenter()
                 .into(imageView);
     }
 }

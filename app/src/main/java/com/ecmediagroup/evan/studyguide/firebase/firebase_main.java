@@ -1,6 +1,5 @@
 package com.ecmediagroup.evan.studyguide.firebase;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +9,8 @@ import android.widget.Toast;
 import com.ecmediagroup.evan.studyguide.R;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Created by Evan on 4/27/17.

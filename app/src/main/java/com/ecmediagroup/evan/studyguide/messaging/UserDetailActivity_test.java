@@ -1,6 +1,6 @@
 package com.ecmediagroup.evan.studyguide.messaging;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Created by Evan on 5/14/17.

@@ -19,9 +19,8 @@ package com.ecmediagroup.evan.studyguide.profile;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.annotation.NonNull;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.ecmediagroup.evan.studyguide.R;
@@ -33,6 +32,8 @@ import com.google.firebase.storage.StreamDownloadTask;
 
 import java.io.IOException;
 import java.io.InputStream;
+
+import androidx.annotation.Nullable;
 
 /**
  * Service to handle downloading files from Firebase Storage.

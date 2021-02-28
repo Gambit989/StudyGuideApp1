@@ -21,14 +21,14 @@
     android:layout_height="match_parent"
     tools:context="com.google.firebase.samples.apps.friendlypix.CommentsFragment">
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:id="@+id/comment_list"
         android:divider="@android:color/transparent"
         android:dividerHeight="12sp">
-    </android.support.v7.widget.RecyclerView>
+    </androidx.recyclerview.widget.RecyclerView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"

@@ -1,6 +1,6 @@
 package com.ecmediagroup.evan.studyguide;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Created by Evan on 4/24/17.
@@ -8,7 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 
 
 import android.app.ProgressDialog;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.VisibleForTesting;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class BaseActivity extends AppCompatActivity {

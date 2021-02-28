@@ -1,11 +1,11 @@
 package com.ecmediagroup.evan.studyguide.facebook;
 
 //import android.app.Fragment;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
+import com.google.android.material.snackbar.Snackbar;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +26,8 @@ import com.facebook.login.widget.LoginButton;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import androidx.annotation.Nullable;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 

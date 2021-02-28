@@ -2,8 +2,9 @@ package com.ecmediagroup.evan.studyguide;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Created by Evan on 12/1/16.

@@ -1,17 +1,24 @@
 package com.ecmediagroup.evan.studyguide.group_chat.gcm;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.content.WakefulBroadcastReceiver;
 import android.util.Log;
+
+import static com.google.android.gms.stats.GCoreWakefulBroadcastReceiver.startWakefulService;
 
 
 /**
  * Created by GleasonK on 7/14/15.
  */
-public class GcmBroadcastReceiver extends WakefulBroadcastReceiver {
+public class GcmBroadcastReceiver extends BroadcastReceiver {
+    public static boolean completeWakefulIntent(Intent intent) {
+
+        return true;
+    }
+
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.d("GCM-receiver","GCM Message Received!");

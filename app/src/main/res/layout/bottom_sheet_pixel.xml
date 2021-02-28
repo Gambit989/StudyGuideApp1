@@ -10,7 +10,7 @@
 	android:background="#303030"
 	android:orientation="vertical"
 	android:paddingTop="8dp"
-	app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
+	app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
 	tools:ignore="rtlHardcoded">
 
 	<com.github.zagum.expandicon.ExpandIconView
@@ -57,11 +57,11 @@
 		android:orientation="vertical"
 		android:layout_marginTop="135dp">
 
-		<android.support.v7.widget.RecyclerView
+		<androidx.recyclerview.widget.RecyclerView
 			android:id="@+id/recycler_view_pixel_2"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content">
-		</android.support.v7.widget.RecyclerView>
+		</androidx.recyclerview.widget.RecyclerView>
 
 		<com.google.android.gms.ads.NativeExpressAdView
 			android:layout_width="match_parent"

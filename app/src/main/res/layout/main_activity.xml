@@ -42,7 +42,7 @@
             android:background="@mipmap/switzerland">
 
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_marginTop="@dimen/activity_horizontal_margin"
                 app:theme="@style/Base.Widget.AppCompat.ActionBar.Solid"
 
@@ -68,9 +68,9 @@
                     android:textColorHint="@color/colorWhite"
                     android:textColorLink="@color/colorAccent" />
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_marginBottom="@dimen/activity_horizontal_margin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -95,7 +95,7 @@
                     android:paddingTop="40px"
                     android:singleLine="true"/>
 
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:text="Welcome to the CS Study Guide"

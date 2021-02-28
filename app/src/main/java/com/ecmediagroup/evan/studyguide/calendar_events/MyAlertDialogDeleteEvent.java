@@ -3,7 +3,7 @@ package com.ecmediagroup.evan.studyguide.calendar_events;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 
 import com.ecmediagroup.evan.studyguide.R;
 

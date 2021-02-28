@@ -1,8 +1,7 @@
 package com.ecmediagroup.evan.studyguide;
 
-import android.support.v7.app.AppCompatActivity;
-
 import android.content.Context;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Created by Evan on 4/23/17.

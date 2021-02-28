@@ -1,15 +1,17 @@
 package com.ecmediagroup.evan.studyguide.Notes_main;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.widget.TextView;
 
 import com.ecmediagroup.evan.studyguide.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.NativeExpressAdView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Created by Evan on 5/12/17.

@@ -1,9 +1,7 @@
 package com.ecmediagroup.evan.studyguide;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 
@@ -13,11 +11,14 @@ import android.widget.Button;
 
 import android.view.View.OnClickListener;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 /**
  * Created by Evan on 10/23/16.
  */
 
-public class Register  extends AppCompatActivity  {
+public class Register  extends AppCompatActivity {
 
     EditText first_name, last_name, password, phone_num, email;
     String First_Name, Last_Name, Phone_Number, Password, Email;

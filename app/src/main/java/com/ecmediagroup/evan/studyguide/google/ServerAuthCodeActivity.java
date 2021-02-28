@@ -2,7 +2,6 @@ package com.ecmediagroup.evan.studyguide.google;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -19,6 +18,8 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.common.api.Status;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Demonstrates retrieving an offline access one-time code for the current Google user, which

@@ -4,12 +4,14 @@ import android.app.IntentService;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.support.v4.app.NotificationCompat;
+import androidx.core.app.NotificationCompat;
+//import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.ecmediagroup.evan.studyguide.R;
@@ -40,36 +42,37 @@ public class GcmIntentService  extends IntentService {
         GcmBroadcastReceiver.completeWakefulIntent(intent);
     }
 
-    private void sendNotification(Bundle extras) {
-        if (extras==null) return;
-        Log.d("GCM-notif",extras.toString());
-        String chatRoom = extras.getString(Constants.GCM_CHAT_ROOM);
-        String notifBigTex  = "Poke from " + extras.getString(Constants.GCM_POKE_FROM);
-        String notifContent = "In chat room " + chatRoom;
 
-        NotificationManager mNotificationManager = (NotificationManager)
-                this.getSystemService(Context.NOTIFICATION_SERVICE);
+        private void sendNotification(Bundle extras) {
+            if (extras == null) return;
+            Log.d("GCM-notif", extras.toString());
+            String chatRoom = extras.getString(Constants.GCM_CHAT_ROOM);
+            String notifBigTex = "Poke from " + extras.getString(Constants.GCM_POKE_FROM);
+            String notifContent = "In chat room " + chatRoom;
 
-        Intent intent = new Intent(this, MainActivity_for_chat.class);
-        intent.putExtra(Constants.CHAT_ROOM, chatRoom);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            NotificationManager mNotificationManager = (NotificationManager)
+                    this.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        Bitmap icon = BitmapFactory.decodeResource(this.getResources(),
-                R.drawable.ic_pn_chat);
+            Intent intent = new Intent(this, MainActivity_for_chat.class);
+            intent.putExtra(Constants.CHAT_ROOM, chatRoom);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(this)
-                        .setLargeIcon(icon)
-                        .setSmallIcon(android.R.drawable.star_on)
-                        .setContentTitle(notifBigTex)
-                        .setStyle(new NotificationCompat.BigTextStyle()
-                                .bigText(notifBigTex))
-                        .setContentText(notifContent)
-                        .setAutoCancel(true);
+            Bitmap icon = BitmapFactory.decodeResource(this.getResources(),
+                    R.drawable.ic_pn_chat);
 
-        mBuilder.setContentIntent(contentIntent);
-        Notification pnNotif = mBuilder.build();
-        mNotificationManager.notify(0, pnNotif);  // Set notification ID
-    }
+            NotificationCompat.Builder mBuilder =
+                    new NotificationCompat.Builder(this)
+                            .setLargeIcon(icon)
+                            .setSmallIcon(android.R.drawable.star_on)
+                            .setContentTitle(notifBigTex)
+                            .setStyle(new NotificationCompat.BigTextStyle()
+                                    .bigText(notifBigTex))
+                            .setContentText(notifContent)
+                            .setAutoCancel(true);
+
+            mBuilder.setContentIntent(contentIntent);
+            Notification pnNotif = mBuilder.build();
+            mNotificationManager.notify(0, pnNotif);  // Set notification ID
+        }
 }

@@ -3,7 +3,6 @@ package com.ecmediagroup.evan.studyguide.google;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.ecmediagroup.evan.studyguide.R;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Simple list-based Activity to redirect to one of the other Activities. The code here is

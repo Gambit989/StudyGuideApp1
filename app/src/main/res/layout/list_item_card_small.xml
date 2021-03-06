@@ -6,6 +6,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_view"
+        android:theme="@style/Theme.MaterialComponents.DayNight"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         app:cardCornerRadius="2dp"
